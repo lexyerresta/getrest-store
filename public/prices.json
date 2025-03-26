@@ -1,2431 +1,2426 @@
 [
   {
     "name": "Crownfall Store Coin",
-    "price": 999999,
-    "qty": 99
+    "price": 0
   },
   {
     "name": "Genuine Weather Snow",
-    "price": 100000,
-    "qty": 11
+    "price": 35000
   },
   {
     "name": "Genuine Weather Moonbeam",
-    "price": 100000,
-    "qty": 22
+    "price": 40000
   },
   {
     "name": "Taur Rider",
-    "price": 100000,
-    "qty": 0
+    "price": 85000
   },
   {
     "name": "Snailfire",
-    "price": 100000
+    "price": 450000
   },
   {
     "name": "Tyrant of the Veil",
-    "price": 100000,
-    "qty": 0
+    "price": 250000
   },
   {
     "name": "Tomo'kan Footsoldier",
-    "price": 100000
+    "price": 95000
   },
   {
     "name": "Ancestral Heritage",
-    "price": 100000
+    "price": 80000
   },
   {
     "name": "Spectral Shadow",
-    "price": 100000
+    "price": 90000
   },
   {
     "name": "Crescent Huntress",
-    "price": 100000
+    "price": 400000
   },
   {
     "name": "Triumph of the Imperatrix",
-    "price": 100000
+    "price": 250000
   },
   {
     "name": "Beast of Thunder",
-    "price": 100000
+    "price": 125000
   },
   {
     "name": "Brightfist",
-    "price": 100000
+    "price": 350000
   },
   {
     "name": "Dezun Viper",
-    "price": 100000
+    "price": 95000
   },
   {
     "name": "Primeval Abomination",
-    "price": 100000
+    "price": 150000
   },
   {
     "name": "Astral Herald",
-    "price": 100000
+    "price": 90000
   },
   {
     "name": "Darkwood Eulogy",
-    "price": 100000
+    "price": 95000
   },
   {
     "name": "Sea Spirit",
-    "price": 100000
+    "price": 300000
   },
   {
     "name": "Creeper's Cruel Painsaw",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Genuine Weather Aurora",
-    "price": 100000
+    "price": 20000
   },
   {
     "name": "Darkwater Dominion",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Feasts of Fear",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Bantam Blaze",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Claddish Voyager's Gloves",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Sword of the Admirable Admiral",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Genuine Weather Spring",
-    "price": 100000
+    "price": 25000
   },
   {
     "name": "Dreadhawk Armor",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Adornments of Blight Set",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Grudges of the Gallows Tree",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Sacred Chamber Guardian - Weapon",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Cowl of the First Ways",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Shoulder of the First Ways",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Arms of the First Ways",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Garb of the First Ways",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Clockwerk Watcher",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Grand Suppressor",
-    "price": 100000
+    "price": 130000
   },
   {
     "name": "Grand Voulge of the Dragon Guard",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Acrimonies of Obsession - Weapon",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Acrimonies of Obsession - Shoulder",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Acrimonies of Obsession - Legs",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Darkfeather Factioneer",
-    "price": 100000
+    "price": 450000
   },
   {
     "name": "Withering Pain",
-    "price": 100000
+    "price": 150000
   },
   {
     "name": "Acrimonies of Obsession - Head",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Darkbrew's Transgression",
-    "price": 100000
+    "price": 135000
   },
   {
     "name": "Brands of the Reaper",
-    "price": 100000
+    "price": 250000
   },
   {
     "name": "Bird of Prey",
-    "price": 100000
+    "price": 450000
   },
   {
     "name": "Cursed Cryptbreaker",
-    "price": 100000
+    "price": 180000
   },
   {
     "name": "Transcendent Path",
-    "price": 100000
+    "price": 250000
   },
   {
     "name": "Angel of Vex",
-    "price": 100000
+    "price": 650000
   },
   {
     "name": "Seadog's Stash",
-    "price": 100000
+    "price": 150000
   },
   {
     "name": "Sublime Equilibrium",
-    "price": 100000
+    "price": 600000
   },
   {
     "name": "War Rig Eradicators",
-    "price": 100000
+    "price": 170000
   },
   {
     "name": "The Wilding Tiger",
-    "price": 100000
+    "price": 180000
   },
   {
     "name": "Dawn of a Darkness Foretold",
-    "price": 100000
+    "price": 275000
   },
   {
     "name": "Feasts of Forever",
-    "price": 100000
+    "price": 275000
   },
   {
     "name": "Sacred Chamber Guardian",
-    "price": 100000
+    "price": 170000
   },
   {
     "name": "Freeboot Fortunes",
-    "price": 100000
+    "price": 105000
   },
   {
     "name": "Acrimonies of Obsession",
-    "price": 100000
+    "price": 260000
   },
   {
     "name": "Great Sage's Reckoning Emoticon",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Taunt: Goin' Bananas",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Great Sage's Reckoning Loading Screen",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Great Sage's Reckoning",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Downfall of the Howling Hearth - Loading Screen",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Downfall of the Howling Hearth - Head",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Downfall of the Howling Hearth - Weapon",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Downfall of the Howling Hearth - Shoulders",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Downfall of the Howling Hearth - Legs",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Dark Reef Escape Loading Screen",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Shark Fin Cape",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Bound Shark Flippers",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Overseer's Burden",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Master Artificer's Hammer",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Artificer's Chisel",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Fraidy Jack",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Vantage of the Breach Warden",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Birot's Crests of Dignity",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Shark Cowl",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Dreadknight Blade",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Claszian Apostasy Head",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Claszian Apostasy Weapon",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Claszian Apostasy Shoulder",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Claszian Apostasy Bracers",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Claszian Apostasy Belt",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Deathstitch Shaman",
-    "price": 100000
+    "price": 105000
   },
   {
     "name": "Snaggletooth Jerry",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Prison Shank",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Prison Buckler",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Inscribed Shattered Greatsword",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Mentor of the High Plains",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Prayer Beads of the Bladekeeper",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Prize of the Snowpack Savage",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Beard of the Snowpack Savage",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Belt of the Snowpack Savage",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Axe of the Snowpack Savage",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Armor of the Snowpack Savage",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Voidstorm Asylum Tormentor",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Voidstorm Asylum Helm",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Voidstorm Asylum Armor",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Voidstorm Asylum Bracers",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Master Chocobo",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Voidstorm Asylum Belt",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Gifts of the Shadowcat Set",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Ire of Molten Rebirth",
-    "price": 100000
+    "price": 150000
   },
   {
     "name": "Pitmouse Fraternity",
-    "price": 100000
+    "price": 280000
   },
   {
     "name": "Shimmer of the Anointed",
-    "price": 100000
+    "price": 95000
   },
   {
     "name": "Aspects of Summer",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Loading Screen of the Snowpack Savage",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Greevil Master Greevil Golem",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Greevil Master Off-Hand",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Greevil Master Weapon",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Greevil Master Shoulder",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Greevil Master Back",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Greevil Master Head",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Greevil Master Belt",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Blueheart Familiar",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Age of Attrition - Legs",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Age of Attrition - Arms",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Age of Attrition - Body",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Sacred Chamber Guardian - Shoulder",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Exile Unveiled",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Battle Pass 2022 Nemestice Versus Screen",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Heat of the Sixth Hell",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Faction of the Feather",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Draconic Divide",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Seclusions of the Void",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Age of Attrition - Head",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Sacred Chamber Guardian - Off-Hand Weapon",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Conduit of the Blueheart",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Fruits of Wane",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Battle Pass 2022 Diretide Versus Screen",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Sacred Chamber Guardian - Head",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "MMR Doubledown Token",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Falconer's Design Set",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Shackles of the Enduring Conscript",
-    "price": 100000
+    "price": 185000
   },
   {
     "name": "Third Awakening",
-    "price": 100000
+    "price": 600000
   },
   {
     "name": "Gauntlets of the Arsenal Magus",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Fires of the Volcanic Guard",
-    "price": 100000
+    "price": 185000
   },
   {
     "name": "Dark Behemoth",
-    "price": 100000
+    "price": 550000
   },
   {
     "name": "Blue Horizons",
-    "price": 100000
+    "price": 285000
   },
   {
     "name": "Whippersnapper",
-    "price": 100000
+    "price": 160000
   },
   {
     "name": "Wings of the Baleful Hollow",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Champion of the Fire Lotus",
-    "price": 100000
+    "price": 275000
   },
   {
     "name": "Dirge Amplifier",
-    "price": 100000
+    "price": 150000
   },
   {
     "name": "Plate of the Baleful Hollow",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Scarlet Subversion",
-    "price": 100000
+    "price": 275000
   },
   {
     "name": "Forgotten Station",
-    "price": 100000
+    "price": 285000
   },
   {
     "name": "Crimson Dawn",
-    "price": 100000
+    "price": 95000
   },
   {
     "name": "Shadowleaf Insurgent",
-    "price": 100000
+    "price": 290000
   },
   {
     "name": "Chines of the Inquisitor",
-    "price": 100000
+    "price": 370000
   },
   {
     "name": "Blades of the Baleful Hollow",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Starlorn Adjudicator",
-    "price": 100000
+    "price": 110000
   },
   {
     "name": "Trophies of the Hallowed Hunt",
-    "price": 100000
+    "price": 170000
   },
   {
     "name": "Hounds of Obsession",
-    "price": 100000
+    "price": 150000
   },
   {
     "name": "Horns of the Baleful Hollow",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Form of the Baleful Hollow",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Cursed Cryptbreaker - Weapon",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Mega-Kills: Gabe Newell",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Arms of the Sanguine Spectrum",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Blade of the Sanguine Spectrum",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Shoulder of the Sanguine Spectrum",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Off-Hand of the Sanguine Spectrum",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Back of the Sanguine Spectrum",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Head of the Sanguine Spectrum",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Crown of the Stonemarch Sovereign",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Cuirass of the Stonemarch Sovereign",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Pauldrons of the Stonemarch Sovereign",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Arms of the Stonemarch Sovereign",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Cape of the Stonemarch Sovereign",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Blade of the Stonemarch Sovereign",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Crown of Fate Meridian",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Mantle of Fate Meridian",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Arms of Fate Meridian",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Belt of Fate Meridian",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Cape of Fate Meridian",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Fate Meridian Loading Screen",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Helm of the Lifted Veil",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Blade of the Lifted Veil",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Belt of the Lifted Veil",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Cape of the Lifted Veil",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Belt of the Sanguine Spectrum",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "TI8 Invoker Prism Forge Spirit",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Armor of the Lifted Veil",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Greathelm of the Chiseled Guard",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Form of the Abyssal Kin",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Cursed Cryptbreaker - Shoulder",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Radiant Crystal Crown",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "The Rat King",
-    "price": 100000
+    "price": 95000
   },
   {
     "name": "Evolution of the Infinite Eidolon",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Pattern of the Silken Queen",
-    "price": 100000
+    "price": 80000
   },
   {
     "name": "Raiments of the Obsidian Forge",
-    "price": 100000
+    "price": 380000
   },
   {
     "name": "Dread Ascendance",
-    "price": 100000
+    "price": 700000
   },
   {
     "name": "Evolution of the Infinite Hood",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Loaded Prospects",
-    "price": 100000
+    "price": 140000
   },
   {
     "name": "Crown of the Abyssal Kin",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Evolution of the Infinite Armor",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Enduring Solitude",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Undying Love",
-    "price": 100000
+    "price": 170000
   },
   {
     "name": "Hell-Spar Anathema",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Crystal Colossus",
-    "price": 100000
+    "price": 350000
   },
   {
     "name": "Igneous Infernal",
-    "price": 100000
+    "price": 150000
   },
   {
     "name": "Warding Guise",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Blade of the Abyssal Kin",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Wings of the Abyssal Kin",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Fate Meridian",
-    "price": 100000
+    "price": 450000
   },
   {
     "name": "The International 2018 - Battle Level 1000",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Bleeding Edge",
-    "price": 100000
+    "price": 110000
   },
   {
     "name": "Cavernite Radiant Creeps",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Cavernite Dire Creeps",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Bootblack Brawler",
-    "price": 100000
+    "price": 95000
   },
   {
     "name": "Angler in the Abyss",
-    "price": 100000
+    "price": 120000
   },
   {
     "name": "Hare of the Cog",
-    "price": 100000
+    "price": 75000
   },
   {
     "name": "Conservator's Vanguard",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Frostiron Raider Helm",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Caprine Chimera",
-    "price": 100000
+    "price": 65000
   },
   {
     "name": "Seam Ripper Snuggle Time",
-    "price": 100000
+    "price": 90000
   },
   {
     "name": "Magus Mimicry",
-    "price": 100000
+    "price": 145000
   },
   {
     "name": "Conservator's Shoulderguard",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Cursed Cryptbreaker - Off-Hand Weapon",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Conservator's Headguard",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Needlepoint Necromancer",
-    "price": 100000
+    "price": 95000
   },
   {
     "name": "Golden Nirvana",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Deathwielder",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Visions of the Lifted Veil",
-    "price": 100000
+    "price": 500000
   },
   {
     "name": "Raptures of the Abyssal Kin",
-    "price": 100000
+    "price": 170000
   },
   {
     "name": "Forlorn Descent",
-    "price": 100000
+    "price": 195000
   },
   {
     "name": "Stonemarch Sovereign",
-    "price": 100000
+    "price": 450000
   },
   {
     "name": "Thundervolt",
-    "price": 100000
+    "price": 110000
   },
   {
     "name": "Molokau Stalker",
-    "price": 100000
+    "price": 80000
   },
   {
     "name": "Morbific Provision",
-    "price": 100000
+    "price": 130000
   },
   {
     "name": "Primer of the Sapper's Guile",
-    "price": 100000
+    "price": 125000
   },
   {
     "name": "Head of the Sea Djinn",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Grasp of the Riven Exile",
-    "price": 100000
+    "price": 95000
   },
   {
     "name": "Phantom Balladeer",
-    "price": 100000
+    "price": 75000
   },
   {
     "name": "The Murid Divine",
-    "price": 100000
+    "price": 170000
   },
   {
     "name": "Flame of the Penitent Scholar",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Pauldron of the Penitent Scholar",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Belt of the Penitent Scholar",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Arms of the Penitent Scholar",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Wings of the Penitent Scholar",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Crystals of the Violent Precipitate",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Bracers of the Violent Precipitate",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Helm of the Violent Precipitate",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Lantern of the Violent Precipitate",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Mantle of Desolate Conquest",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Banners of Desolate Conquest",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Lance of Desolate Conquest",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Bracers of Desolate Conquest",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Conservator's Blade",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Unchained Entropy",
-    "price": 100000
+    "price": 75000
   },
   {
     "name": "Helm of the Penitent Scholar",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "The Emerald Abyss",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Pads of the Crimson Cut-throat",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Stonemarch Sovereign Loading Screen",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Pillar of the Fractured Citadel",
-    "price": 100000
+    "price": 190000
   },
   {
     "name": "Canis Crystallum",
-    "price": 100000
+    "price": 130000
   },
   {
     "name": "Rose of Moira",
-    "price": 100000
+    "price": 95000
   },
   {
     "name": "Ancient Exile",
-    "price": 100000
+    "price": 450000
   },
   {
     "name": "Exquisite Agonies",
-    "price": 100000
+    "price": 95000
   },
   {
     "name": "Bloodmoon Stalker",
-    "price": 100000
+    "price": 150000
   },
   {
     "name": "Proselyte of the Sakura Clan",
-    "price": 100000
+    "price": 250000
   },
   {
     "name": "Lotus of the Mountain Bear Clan",
-    "price": 100000
+    "price": 95000
   },
   {
     "name": "Mecha Nyx",
-    "price": 100000
+    "price": 85000
   },
   {
     "name": "Martyrdom of the Brineborn",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Colossal Terrorpin",
-    "price": 100000
+    "price": 105000
   },
   {
     "name": "Dark Ranger's Headdress",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Elegy of the Reaper",
-    "price": 100000
+    "price": 95000
   },
   {
     "name": "Phantom's Facade",
-    "price": 100000
+    "price": 275000
   },
   {
     "name": "Blackwing Bandolera",
-    "price": 100000
+    "price": 90000
   },
   {
     "name": "Dread of Night",
-    "price": 100000
+    "price": 105000
   },
   {
     "name": "Flight of the Crimson Queen",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Helm of Desolate Conquest",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Conservator's Bracers",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Cursed Cryptbreaker - Head",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Flail of the Violent Precipitate",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Baleful Hollow Loading Screen",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Mantle of Mysteries",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Cursed Cryptbreaker - Belt",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Dota Plus Victory Shout",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Tormented Staff of Eminent Revival",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Fin King's Charm of Eminent Revival",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "The Lightning Orchid of Eminent Revival",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Leviathan Whale Blade of Eminent Revival",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Cauldron of Xahryx of Eminent Revival",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Sparrowhawk Hood",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Cursed Cryptbreaker - Arms",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Call of the Bladeform Legacy",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "The International 2018 Cursor Pack",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Bladeform Legacy",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Trailgazer",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Greevil Grief Roshan",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Genuine Glaring Greevils",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Eimer Hillburrow",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Silkwing Spotters",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Vile Vessel",
-    "price": 100000
+    "price": 190000
   },
   {
     "name": "Mega-Kills: Voice of The International",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Pouches",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Tribal Stone Vambrace",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Svarog the Infernal",
-    "price": 100000
+    "price": 115000
   },
   {
     "name": "Battle Pass 2022 Music Pack",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Tendrils of the Timeless",
-    "price": 100000
+    "price": 150000
   },
   {
     "name": "Snowdrop Hood",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Tectonic Implications Loading Screen",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "The Mage Slayer's Set",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Helm of Tectonic Implications",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Belt of Tectonic Implications",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Bracers of Tectonic Implications",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Totem of Tectonic Implications",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Wings of the Arch Temptress",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Armor of the Arch Temptress",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Horns of the Arch Temptress",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Purple Minnow Ward Upgrade",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Bloodstained Britches",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Genuine Greevilhorn",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Prize of the Saltworn Mariner",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Ardalan Arms Race",
-    "price": 100000
+    "price": 190000
   },
   {
     "name": "Dusklight Marauder",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Faithful Fortune",
-    "price": 100000
+    "price": 155000
   },
   {
     "name": "Evolution of the Infinite Bracers",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Armor of Distant Sands",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Darkblade Adept",
-    "price": 100000
+    "price": 170000
   },
   {
     "name": "Rhinoceros Order",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Benevolent Companion",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Fluttering Breeze",
-    "price": 100000
+    "price": 1950000
   },
   {
     "name": "Foreseen Horizons",
-    "price": 100000
+    "price": 95000
   },
   {
     "name": "Reef's Edge Loading Screen",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Reef's Edge",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Sacred Chamber Guardian - Arms",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Designs of the Dragon",
-    "price": 100000
+    "price": 150000
   },
   {
     "name": "Onikage Disciple",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Bloodzo the Bear",
-    "price": 100000
+    "price": 95000
   },
   {
     "name": "Heavenly Guardian Locks",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Starforge Reformer",
-    "price": 100000
+    "price": 95000
   },
   {
     "name": "Gilded Decay",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Little Red",
-    "price": 100000
+    "price": 95000
   },
   {
     "name": "International 2023 Team Loading Screen - Entity",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Bilge Rat Buccaneer",
-    "price": 100000
+    "price": 105000
   },
   {
     "name": "Traveling Tale-Teller's Set",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Songs of the Soulfinch",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Shellshock Saturnalia",
-    "price": 100000
+    "price": 135000
   },
   {
     "name": "Blaze of Oblivion",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Ardalan Arsonist",
-    "price": 100000
+    "price": 170000
   },
   {
     "name": "Oni Knight the Dark Conqueror Loading Screen",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Dagger of the Arch Temptress",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Nether Lord's Devourer",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Golden Minnow Ward Upgrade",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Autographed Diabolic Aspect",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Verminator",
-    "price": 100000
+    "price": 85000
   },
   {
     "name": "Deepweed Drowner Loading Screen",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Shackles of the Enduring Conscript Loading Screen",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Iceforged Hair",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Velveteen Vanquisher",
-    "price": 100000
+    "price": 135000
   },
   {
     "name": "Sunken Gaoler Set Style Unlock",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Beard of the Enduring Conscript",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Bracer of the Enduring Conscript",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Belt of the Enduring Conscript",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Armor of the Enduring Conscript",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Staff of the Crystalline Queen",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Fury of the Righteous Storm - Weapon",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Fury of the Righteous Storm - Arms",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Fury of the Righteous Storm - Back",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Wrecking Ball",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Fury of the Righteous Storm - Shoulder",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Fury of the Righteous Storm - Head",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Mechamancer",
-    "price": 100000
+    "price": 400000
   },
   {
     "name": "Alphid of Lecaciida",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Green Minnow Ward Upgrade",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Winterbringer Loading screen",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Axe of the Dark Conqueror",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Songs of Starfall Glen",
-    "price": 100000
+    "price": 170000
   },
   {
     "name": "Face of Delicacies of Butchery",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Voice of the Magus Cypher",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Sovereign of the Kray Legions Loading Screen",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Pincers of the Kray Legions",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Jaws of the Kray Legions",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Crawlers of the Kray Legions",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Chitin of the Kray Legions",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Rumrunner's Carronade Loading Screen",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Fiery keg of the Rumrunner's Carronade",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Bandana of the Rumrunner's Carronade",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Carriage of the Rumrunner's Carronade",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Culverin of the Rumrunner's Carronade",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "The Magus Cypher",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Armored Exoskeleton Back",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Ruby-ridged Recluse",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Armor of the Chitinous Stalker",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Pincers of the Chitinous Stalker",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Oculi of the Chitinous Stalker",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Bracers of the Rumrunner's Carronade",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Tail of the Kray Legions",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Qaldin Assassin's Dagger",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Cunning Corsair",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Sash of the Rumrunner's Carronade",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Riptide Raider",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Image of Seaborne Reprisal",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Legs of the Seaborne Reprisal",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Seaborne Reprisal Loading Screen",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Folds of Seaborne Reprisal",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Belt of Seaborne Reprisal",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Meranth Dragoon",
-    "price": 100000
+    "price": 670000
   },
   {
     "name": "Seaborne Reprisal",
-    "price": 100000
+    "price": 1200000
   },
   {
     "name": "Eternal Testament",
-    "price": 100000
+    "price": 270000
   },
   {
     "name": "Seablight Procession",
-    "price": 100000
+    "price": 350000
   },
   {
     "name": "Pressure Regulator",
-    "price": 100000
+    "price": 250000
   },
   {
     "name": "Secrets of the Katekhein",
-    "price": 100000
+    "price": 270000
   },
   {
     "name": "Armor of Renewed Faith Set",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Cicatrix Regalia",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Abyssal Vortex",
-    "price": 100000
+    "price": 330000
   },
   {
     "name": "Reefcutter",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Cryogenic Embrace Set",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Spoils of the Vodou Rover",
-    "price": 100000
+    "price": 425000
   },
   {
     "name": "Ward of the Eternal Alliance",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Rumrunner's Carronade",
-    "price": 100000
+    "price": 260000
   },
   {
     "name": "Eki Bukaw Bracers",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Claw of Seaborne Reprisal",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Coat of Seaborne Reprisal",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Abyssal Vortex Loading Screen",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Eidolons of Abyssal Vortex",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Armor of Abyssal Vortex",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Head Fins of the Deepweed Drowner",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Helm of Abyssal Vortex",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Ghost Blade of Seaborne Reprisal",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Bracer of Abyssal Vortex",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Helm of the Dark Conqueror",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Wicked Collar of the Corpse Maiden",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "The International 10 Music Pack",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Tail of the Chitinous Stalker",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Faithful Followers",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Brightskye",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Corruption of the Virulent Krait",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Omniscient's Maul",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Belt of the Deepweed Drowner",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Back Fins of the Deepweed Drowner",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Aghanim's Basher",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Arm Fins of the Deepweed Drowner",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Cursed Cryptbreaker - Back",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Covenant of the Depths",
-    "price": 100000
+    "price": 1500000
   },
   {
     "name": "Helm of Claszureme",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Shadowforce Gale",
-    "price": 100000
+    "price": 270000
   },
   {
     "name": "Steed of the Dark Conqueror",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Epaulets of Hell's Ambassador",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Second Disciple's Bastion",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Girth of the Swordmaster",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Flight of the Crescent Moon",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Legs of Desolate Conquest",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Bracer of the Tahlin Watch",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Eki Bukaw Wand - Off-Hand",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Zaru'Kina Protector's Cape",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Artificer's Hammer",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Abyssal Kin Legs",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Penumbral Warblade",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Helm of a Savage Age",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Heroic Effigy of The International 2016 II",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Armor of Grim Destiny",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Mirana of Nightsilver",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "10th Anniversary Mirana Persona Back",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Bracers of Grim Destiny",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "10th Anniversary Lucky Alpine Stalker's Hat",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "10th Anniversary Lucky Alpine Stalker's Arms",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "10th Anniversary Lucky Alpine Stalker's Belt",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "10th Anniversary Arms of Deep Magma",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Cape of Grim Destiny",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "10th Anniversary Totem of Deep Magma",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "10th Anniversary Horns of Deep Magma",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "10th Anniversary Belt of Deep Magma",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "10th Anniversary Hidden Vector - Belt",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "10th Anniversary Hidden Vector - Armor",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "10th Anniversary Hidden Vector - Blade",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "10th Anniversary Filmtail",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "10th Anniversary Dark Moon Armor",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "10th Anniversary Relic Sword",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Helm of Grim Destiny",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Blue Minnow Ward Upgrade",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "10-Year Anniversary Loading Screen of Deep Magma",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "10th Anniversary Lucky Alpine Stalker's Back",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Ancient Armor Arms",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "10th Anniversary Aghanim's Roshan",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "10th Anniversary Hidden Vector - Hat",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Shield of the Dark Conqueror",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Reprieve of the Clergy Ascetic - Off-Hand",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "10th Anniversary Heaven-Piercing Pauldrons",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Loading Screen of the Hunter's Glory",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Armor of the Hunter's Glory",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Scythe of the Hunter's Glory",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Buckler of the Hunter's Glory",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Blade of the Hunter's Glory",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Helm of the Hunter's Glory",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Grim Destiny Loading Screen",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Shoulder of Grim Destiny",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Cerebral Support",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Cape of the Hunter's Glory",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Tribal Pathways Necklace",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Crucible of Light's Vestiments",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Inscribed Crucible of Light's Robes",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "The Crucible of Light Staff",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Tendrillar",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Crucible of Light Loading Screen",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Regalia of the Wraith Lord Shoulder",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Regalia of the Wraith Lord Helmet",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Regalia of the Wraith Lord Gauntlet",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Regalia of the Wraith Lord Sword",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Regalia of the Wraith Lord Cape",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Ornaments of the Wyrmforge Shard",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Guards of the Wyrmforge Shard",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Helm of the Wyrmforge Shard",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Spaulders of the Wyrmforge Shard",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Mace of the Wyrmforge Shard",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Loading Screen of the Wyrmforge Shard",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Primeval Shoulder",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Primeval Prophet Loading Screen",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Inscribed Primeval Treant",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Primeval Staff",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Primeval Horns",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Primeval Cape",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Primeval Bracers",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Beaver Knight Loading Screen",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Beaver Knight",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Primeval Beard",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Coco the Courageous",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Tail Fins of the Slithereen Nobility",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Cap of the Smoldering Sage",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Off-Hand Sword of the Smoldering Sage",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Sword of the Smoldering Sage",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Mantle of the Smoldering Sage",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Armguards of the Smoldering Sage",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Belt of the Smoldering Sage",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Loading Screen of the Smoldering Sage",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Genuine Cotton Dandy",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Rhuis Tuning-Fork",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Helm of the Outcast",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Tribal Pathways Golem",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Deep Vault Guardian Spine",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "10th Anniversary Staff of Gun-Yu",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "10th Anniversary Dolfrat and Roshinante",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Vestigial Wings of the Ancient Sovereign",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Tribal Pathways Crown",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Frostiron Sorceress Cape",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Kinetic: Orb of Reminiscence",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Tribal Pathways Lantern",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Kinetic: Dreamcoil of Reminiscence",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Tribal Pathways Shoulder",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Shoreline Sapper Set Style Unlock",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Kinetic: Ambience of Reminiscence",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Kinetic: Rift of Reminiscence",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Tribal Pathways Staff",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "The Dread Prophet",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Reminiscence of Dreams Loading Screen",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Tail of Reminiscence",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Wings of Reminiscence",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Secrets of the Katekhein Loading Screen",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Horn of the Katekhein",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Orb of Reminiscence",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "DarkMago♥ Player Sticker - TI 2022",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "AMMAR_THE_F Player Sticker - TI 2022",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Glitter dyrachyo Player Sticker - TI 2022",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Greevil Master Arms",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "BOOM Player Sticker - TI 2022",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Thunder Awaken Team Sticker - TI 2022",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Team Aster Team Sticker - TI 2022",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Ghost Orb of the Planeswalker",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Evil Geniuses Team Sticker - TI 2022",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Tundra Esports Team Sticker - TI 2022",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Bracers of the Ebony Tower",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Reef Kyte Rider Style Unlock",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Grand Claive of the Unshamed",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Fury of the Righteous Storm - Kirin",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Lumberclaw Loading Screen",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Furyblade - Off-Hand",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Tribal Pathways Robe",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Armor of the Kha-Ren Faithful",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Sharpshooter's Bullet Bracers",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Tahlin Occult Dagger - Off-Hand",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Quiver of the Kha-Ren Faithful",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Arsenal of the Bladekeeper",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Bow of the Kha-Ren Faithful",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Legs of the Kha-Ren Faithful",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Style of the Kha-Ren Faithful",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Arms of the Kha-Ren Faithful",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Spaulders of the Dark Conqueror",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Genuine Taffied Transport",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Inscribed The Shaded Eulogy",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Arcane Drapings",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Cape of the Kha-Ren Faithful",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Wings of the Katekhein",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Assistant's Cutter",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Gaiters of the Shadowcat",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Cowl of the Malignant Corruption",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Tribal Pathways Bracer",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Weapon of Grim Destiny",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Sight of the Kha-Ren Faithful Loading Screen",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Spear of the Herald",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Reliquary of Rotting Doom",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Clergy Warhammer",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Bloodwood Arc",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Fireborn Odachi",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Hallowed Chest of the Diretide",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Helm of Retribution",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Cape of the Arsenal Magus",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Axe of the Enduring Conscript",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Deep Warden's Conch Pauldron",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Inscribed Blade of the Vindictive Protector",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Obsidian Blade Warhelm",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Commodore's Facings",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Genuine Weather Pestilence",
-    "price": 100000
+    "price": 25000
   },
   {
     "name": "Nightwatcher's Bracers",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Announcer: Voice of The International",
-    "price": 100000
+    "price": 0
   },
   {
     "name": "Infesting Incubator",
-    "price": 100000
+    "price": 0
   }
 ]
