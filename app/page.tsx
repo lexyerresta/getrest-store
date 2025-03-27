@@ -33,6 +33,10 @@ export default function HomePage() {
   const [visibleCount, setVisibleCount] = useState(10)
   const loadMoreRef = useRef<HTMLDivElement | null>(null)
 
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [searchQuery, setSearchQuery] = useState<string>("")
+  const [videoUrl, setVideoUrl] = useState<string>("")
+
   useEffect(() => {
     const fetchData = async () => {
       const [invRes, priceRes] = await Promise.all([
@@ -101,6 +105,22 @@ export default function HomePage() {
       minimumFractionDigits: 0,
     }).format(value)
 
+  // Handle Card Click
+  const handleCardClick = (item: Product) => {
+    const query = `${item.hero ? item.hero + " " : ""}${item.name} Dota 2`
+    setSearchQuery(query)
+    const youtubeSearchUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`
+    setVideoUrl(youtubeSearchUrl)
+    setIsModalOpen(true)
+  }
+
+  // Close Modal
+  const handleCloseModal = () => {
+    setIsModalOpen(false)
+    setSearchQuery("") // Clear query when closing modal
+    setVideoUrl("") // Clear video URL when closing modal
+  }
+
   return (
     <div className="min-h-screen bg-white text-black dark:bg-[#1b2a38] dark:text-white font-sans">
       {/* Hero Section */}
@@ -137,7 +157,9 @@ export default function HomePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.05 }}
           >
-            <Card className="bg-white text-black dark:bg-[#2a2a3c] dark:text-white border border-gray-200 dark:border-none hover:bg-gray-50 dark:hover:bg-[#333344] transition-all rounded-xl shadow-sm cursor-pointer">
+            <Card className="bg-white text-black dark:bg-[#2a2a3c] dark:text-white border border-gray-200 dark:border-none hover:bg-gray-50 dark:hover:bg-[#333344] transition-all rounded-xl shadow-sm cursor-pointer"
+              onClick={() => handleCardClick(item)}
+            >
               <div className="flex items-center justify-between gap-4 px-4 py-3">
                 <div className="flex items-center gap-4">
                   {item.icon ? (
@@ -172,6 +194,43 @@ export default function HomePage() {
         {/* Infinite scroll trigger */}
         <div ref={loadMoreRef} className="h-10" />
       </main>
+
+      {/* Modal for YouTube Video Search */}
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+          <div className="bg-white p-6 rounded-xl w-full max-w-3xl">
+            <h2 className="text-lg font-semibold mb-4">Preview Item</h2>
+            <div className="mb-4">
+              <p className="text-sm text-gray-700 dark:text-gray-300">
+                Searching for: <b>{searchQuery}</b>
+              </p>
+            </div>
+
+            {/* Fallback: Direct YouTube search results in iframe */}
+            <div>
+              <iframe
+                width="100%"
+                height="400px"
+                src={`https://www.youtube.com/embed?listType=search&list=${encodeURIComponent(searchQuery)}`}
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+
+            <Button
+              onClick={() => window.open(videoUrl, "_blank")} // If iframe doesn't load, open in a new tab
+              className="mt-4"
+            >
+              Search on YouTube
+            </Button>
+            <Button onClick={handleCloseModal} className="mt-4">
+              Close
+            </Button>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
