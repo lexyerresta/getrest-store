@@ -10,6 +10,7 @@ export async function GET() {
       name: item.name,
       price: item.price || 0,
       qty: item.qty ?? null,
+      hero: item.hero || "",
     }))
 
     const worksheet = XLSX.utils.json_to_sheet(data)

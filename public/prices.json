@@ -1,2426 +1,3632 @@
 [
   {
     "name": "Crownfall Store Coin",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Genuine Weather Snow",
-    "price": 35000
+    "price": 35000,
+    "qty": 17,
+    "hero": "Other"
   },
   {
     "name": "Genuine Weather Moonbeam",
-    "price": 40000
+    "price": 40000,
+    "qty": 7,
+    "hero": "Other"
   },
   {
     "name": "Taur Rider",
-    "price": 85000
+    "price": 85000,
+    "qty": 4,
+    "hero": "Alchemist"
   },
   {
     "name": "Snailfire",
-    "price": 450000
+    "price": 450000,
+    "qty": 4,
+    "hero": "Snapfire"
   },
   {
     "name": "Tyrant of the Veil",
-    "price": 250000
+    "price": 250000,
+    "qty": 3,
+    "hero": "Wraith King"
   },
   {
     "name": "Tomo'kan Footsoldier",
-    "price": 95000
+    "price": 95000,
+    "qty": 7,
+    "hero": "Hoodwink"
   },
   {
     "name": "Ancestral Heritage",
-    "price": 80000
+    "price": 80000,
+    "qty": 6,
+    "hero": "Jakiro"
   },
   {
     "name": "Spectral Shadow",
-    "price": 90000
+    "price": 90000,
+    "qty": 5,
+    "hero": "Abaddon"
   },
   {
     "name": "Crescent Huntress",
-    "price": 400000
+    "price": 400000,
+    "qty": 2,
+    "hero": "Spectre"
   },
   {
     "name": "Triumph of the Imperatrix",
-    "price": 250000
+    "price": 250000,
+    "qty": 2,
+    "hero": "Legion Commander"
   },
   {
     "name": "Beast of Thunder",
-    "price": 125000
+    "price": 125000,
+    "qty": 6,
+    "hero": "Storm Spirit"
   },
   {
     "name": "Brightfist",
-    "price": 350000
+    "price": 350000,
+    "qty": 3,
+    "hero": "Marci"
   },
   {
     "name": "Dezun Viper",
-    "price": 95000
+    "price": 95000,
+    "qty": 5,
+    "hero": "Dazzle"
   },
   {
     "name": "Primeval Abomination",
-    "price": 150000
+    "price": 150000,
+    "qty": 3,
+    "hero": "Primal Beast"
   },
   {
     "name": "Astral Herald",
-    "price": 90000
+    "price": 90000,
+    "qty": 6,
+    "hero": "Dawnbreaker"
   },
   {
     "name": "Darkwood Eulogy",
-    "price": 95000
+    "price": 95000,
+    "qty": 7,
+    "hero": "Death Prophet"
   },
   {
     "name": "Sea Spirit",
-    "price": 300000
+    "price": 300000,
+    "qty": 2,
+    "hero": "Kunkka"
   },
   {
     "name": "Creeper's Cruel Painsaw",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Bounty Hunter"
   },
   {
     "name": "Genuine Weather Aurora",
-    "price": 20000
+    "price": 20000,
+    "qty": 11,
+    "hero": "Other"
   },
   {
     "name": "Darkwater Dominion",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Phantom Lancer"
   },
   {
     "name": "Feasts of Fear",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Bane"
   },
   {
     "name": "Bantam Blaze",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Shadow Shaman"
   },
   {
     "name": "Claddish Voyager's Gloves",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Kunkka"
   },
   {
     "name": "Sword of the Admirable Admiral",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Kunkka"
   },
   {
     "name": "Genuine Weather Spring",
-    "price": 25000
+    "price": 25000,
+    "qty": 11,
+    "hero": "Other"
   },
   {
     "name": "Dreadhawk Armor",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Vengeful Spirit"
   },
   {
     "name": "Adornments of Blight Set",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Queen of Pain"
   },
   {
     "name": "Grudges of the Gallows Tree",
-    "price": 0
+    "price": 0,
+    "qty": 9,
+    "hero": "Treant Protector"
   },
   {
     "name": "Sacred Chamber Guardian - Weapon",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Huskar"
   },
   {
     "name": "Cowl of the First Ways",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Arc Warden"
   },
   {
     "name": "Shoulder of the First Ways",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Arc Warden"
   },
   {
     "name": "Arms of the First Ways",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Arc Warden"
   },
   {
     "name": "Garb of the First Ways",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Arc Warden"
   },
   {
     "name": "Clockwerk Watcher",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Grand Suppressor",
-    "price": 130000
+    "price": 130000,
+    "qty": 6,
+    "hero": "Silencer"
   },
   {
     "name": "Grand Voulge of the Dragon Guard",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Legion Commander"
   },
   {
     "name": "Acrimonies of Obsession - Weapon",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Vengeful Spirit"
   },
   {
     "name": "Acrimonies of Obsession - Shoulder",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Vengeful Spirit"
   },
   {
     "name": "Acrimonies of Obsession - Legs",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Vengeful Spirit"
   },
   {
     "name": "Darkfeather Factioneer",
-    "price": 450000
+    "price": 450000,
+    "qty": 2,
+    "hero": "Phantom Assassin"
   },
   {
     "name": "Withering Pain",
-    "price": 150000
+    "price": 150000,
+    "qty": 7,
+    "hero": "Clinkz"
   },
   {
     "name": "Acrimonies of Obsession - Head",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Vengeful Spirit"
   },
   {
     "name": "Darkbrew's Transgression",
-    "price": 135000
+    "price": 135000,
+    "qty": 8,
+    "hero": "Alchemist"
   },
   {
     "name": "Brands of the Reaper",
-    "price": 250000
+    "price": 250000,
+    "qty": 9,
+    "hero": "Anti-Mage"
   },
   {
     "name": "Bird of Prey",
-    "price": 450000
+    "price": 450000,
+    "qty": 4,
+    "hero": "Legion Commander"
   },
   {
     "name": "Cursed Cryptbreaker",
-    "price": 180000
+    "price": 180000,
+    "qty": 8,
+    "hero": "Pudge"
   },
   {
     "name": "Transcendent Path",
-    "price": 250000
+    "price": 250000,
+    "qty": 8,
+    "hero": "Oracle"
   },
   {
     "name": "Angel of Vex",
-    "price": 650000
+    "price": 650000,
+    "qty": 6,
+    "hero": "Invoker"
   },
   {
     "name": "Seadog's Stash",
-    "price": 150000
+    "price": 150000,
+    "qty": 7,
+    "hero": "Clockwerk"
   },
   {
     "name": "Sublime Equilibrium",
-    "price": 600000
+    "price": 600000,
+    "qty": 1,
+    "hero": "Void Spirit"
   },
   {
     "name": "War Rig Eradicators",
-    "price": 170000
+    "price": 170000,
+    "qty": 7,
+    "hero": "Techies"
   },
   {
     "name": "The Wilding Tiger",
-    "price": 180000
+    "price": 180000,
+    "qty": 4,
+    "hero": "Brewmaster"
   },
   {
     "name": "Dawn of a Darkness Foretold",
-    "price": 275000
+    "price": 275000,
+    "qty": 6,
+    "hero": "Doom"
   },
   {
     "name": "Feasts of Forever",
-    "price": 275000
+    "price": 275000,
+    "qty": 6,
+    "hero": "Night Stalker"
   },
   {
     "name": "Sacred Chamber Guardian",
-    "price": 170000
+    "price": 170000,
+    "qty": 6,
+    "hero": "Huskar"
   },
   {
     "name": "Freeboot Fortunes",
-    "price": 105000
+    "price": 105000,
+    "qty": 8,
+    "hero": "Ogre Magi"
   },
   {
     "name": "Acrimonies of Obsession",
-    "price": 260000
+    "price": 260000,
+    "qty": 5,
+    "hero": "Vengeful Spirit"
   },
   {
     "name": "Great Sage's Reckoning Emoticon",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Taunt: Goin' Bananas",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Monkey King"
   },
   {
     "name": "Great Sage's Reckoning Loading Screen",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Great Sage's Reckoning",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Monkey King"
   },
   {
     "name": "Downfall of the Howling Hearth - Loading Screen",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Downfall of the Howling Hearth - Head",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Vengeful Spirit"
   },
   {
     "name": "Downfall of the Howling Hearth - Weapon",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Vengeful Spirit"
   },
   {
     "name": "Downfall of the Howling Hearth - Shoulders",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Vengeful Spirit"
   },
   {
     "name": "Downfall of the Howling Hearth - Legs",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Vengeful Spirit"
   },
   {
     "name": "Dark Reef Escape Loading Screen",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Shark Fin Cape",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Slark"
   },
   {
     "name": "Bound Shark Flippers",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Slark"
   },
   {
     "name": "Overseer's Burden",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Master Artificer's Hammer",
-    "price": 0
+    "price": 0,
+    "qty": 2,
+    "hero": "Other"
   },
   {
     "name": "Artificer's Chisel",
-    "price": 0
+    "price": 0,
+    "qty": 2,
+    "hero": "Other"
   },
   {
     "name": "Fraidy Jack",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Vantage of the Breach Warden",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Slardar"
   },
   {
     "name": "Birot's Crests of Dignity",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Morphling"
   },
   {
     "name": "Shark Cowl",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Slark"
   },
   {
     "name": "Dreadknight Blade",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Wraith King"
   },
   {
     "name": "Claszian Apostasy Head",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Faceless Void"
   },
   {
     "name": "Claszian Apostasy Weapon",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Faceless Void"
   },
   {
     "name": "Claszian Apostasy Shoulder",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Faceless Void"
   },
   {
     "name": "Claszian Apostasy Bracers",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Faceless Void"
   },
   {
     "name": "Claszian Apostasy Belt",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Faceless Void"
   },
   {
     "name": "Deathstitch Shaman",
-    "price": 105000
+    "price": 105000,
+    "qty": 7,
+    "hero": "Witch Doctor"
   },
   {
     "name": "Snaggletooth Jerry",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Prison Shank",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Slark"
   },
   {
     "name": "Prison Buckler",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Slark"
   },
   {
     "name": "Inscribed Shattered Greatsword",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Sven"
   },
   {
     "name": "Mentor of the High Plains",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Ember Spirit"
   },
   {
     "name": "Prayer Beads of the Bladekeeper",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Juggernaut"
   },
   {
     "name": "Prize of the Snowpack Savage",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Axe"
   },
   {
     "name": "Beard of the Snowpack Savage",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Axe"
   },
   {
     "name": "Belt of the Snowpack Savage",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Axe"
   },
   {
     "name": "Axe of the Snowpack Savage",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Axe"
   },
   {
     "name": "Armor of the Snowpack Savage",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Axe"
   },
   {
     "name": "Voidstorm Asylum Tormentor",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Razor"
   },
   {
     "name": "Voidstorm Asylum Helm",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Razor"
   },
   {
     "name": "Voidstorm Asylum Armor",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Razor"
   },
   {
     "name": "Voidstorm Asylum Bracers",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Razor"
   },
   {
     "name": "Master Chocobo",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Voidstorm Asylum Belt",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Razor"
   },
   {
     "name": "Gifts of the Shadowcat Set",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Drow Ranger"
   },
   {
     "name": "Ire of Molten Rebirth",
-    "price": 150000
+    "price": 150000,
+    "qty": 8,
+    "hero": "Phoenix"
   },
   {
     "name": "Pitmouse Fraternity",
-    "price": 280000
+    "price": 280000,
+    "qty": 7,
+    "hero": "Meepo"
   },
   {
     "name": "Shimmer of the Anointed",
-    "price": 95000
+    "price": 95000,
+    "qty": 9,
+    "hero": "Nyx Assassin"
   },
   {
     "name": "Aspects of Summer",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Enchantress"
   },
   {
     "name": "Loading Screen of the Snowpack Savage",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Greevil Master Greevil Golem",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Warlock"
   },
   {
     "name": "Greevil Master Off-Hand",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Warlock"
   },
   {
     "name": "Greevil Master Weapon",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Warlock"
   },
   {
     "name": "Greevil Master Shoulder",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Warlock"
   },
   {
     "name": "Greevil Master Back",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Warlock"
   },
   {
     "name": "Greevil Master Head",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Warlock"
   },
   {
     "name": "Greevil Master Belt",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Warlock"
   },
   {
     "name": "Blueheart Familiar",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Crystal Maiden (Wolf)"
   },
   {
     "name": "Age of Attrition - Legs",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Primal Beast"
   },
   {
     "name": "Age of Attrition - Arms",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Primal Beast"
   },
   {
     "name": "Age of Attrition - Body",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Primal Beast"
   },
   {
     "name": "Sacred Chamber Guardian - Shoulder",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Huskar"
   },
   {
     "name": "Exile Unveiled",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Phantom Assassin (Asan)"
   },
   {
     "name": "Battle Pass 2022 Nemestice Versus Screen",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Heat of the Sixth Hell",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Doom"
   },
   {
     "name": "Faction of the Feather",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Templar Assassin"
   },
   {
     "name": "Draconic Divide",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Dragon Knight"
   },
   {
     "name": "Seclusions of the Void",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Templar Assassin"
   },
   {
     "name": "Age of Attrition - Head",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Primal Beast"
   },
   {
     "name": "Sacred Chamber Guardian - Off-Hand Weapon",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Huskar"
   },
   {
     "name": "Conduit of the Blueheart",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Crystal Maiden (Wolf)"
   },
   {
     "name": "Fruits of Wane",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Leshrac"
   },
   {
     "name": "Battle Pass 2022 Diretide Versus Screen",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Sacred Chamber Guardian - Head",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Huskar"
   },
   {
     "name": "MMR Doubledown Token",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Falconer's Design Set",
-    "price": 0
+    "price": 0,
+    "qty": 2,
+    "hero": "Windranger"
   },
   {
     "name": "Shackles of the Enduring Conscript",
-    "price": 185000
+    "price": 185000,
+    "qty": 4,
+    "hero": "Axe"
   },
   {
     "name": "Third Awakening",
-    "price": 600000
+    "price": 600000,
+    "qty": 4,
+    "hero": "Dragon Knight"
   },
   {
     "name": "Gauntlets of the Arsenal Magus",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Invoker"
   },
   {
     "name": "Fires of the Volcanic Guard",
-    "price": 185000
+    "price": 185000,
+    "qty": 6,
+    "hero": "Ember Spirit"
   },
   {
     "name": "Dark Behemoth",
-    "price": 550000
+    "price": 550000,
+    "qty": 3,
+    "hero": "Primal Beast"
   },
   {
     "name": "Blue Horizons",
-    "price": 285000
+    "price": 285000,
+    "qty": 9,
+    "hero": "Marci"
   },
   {
     "name": "Whippersnapper",
-    "price": 160000
+    "price": 160000,
+    "qty": 6,
+    "hero": "Snapfire"
   },
   {
     "name": "Wings of the Baleful Hollow",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Terrorblade"
   },
   {
     "name": "Champion of the Fire Lotus",
-    "price": 275000
+    "price": 275000,
+    "qty": 5,
+    "hero": "Monkey King"
   },
   {
     "name": "Dirge Amplifier",
-    "price": 150000
+    "price": 150000,
+    "qty": 7,
+    "hero": "Undying"
   },
   {
     "name": "Plate of the Baleful Hollow",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Terrorblade"
   },
   {
     "name": "Scarlet Subversion",
-    "price": 275000
+    "price": 275000,
+    "qty": 4,
+    "hero": "Riki"
   },
   {
     "name": "Forgotten Station",
-    "price": 285000
+    "price": 285000,
+    "qty": 6,
+    "hero": "Terrorblade"
   },
   {
     "name": "Crimson Dawn",
-    "price": 95000
+    "price": 95000,
+    "qty": 5,
+    "hero": "Phoenix"
   },
   {
     "name": "Shadowleaf Insurgent",
-    "price": 290000
+    "price": 290000,
+    "qty": 6,
+    "hero": "Hoodwink"
   },
   {
     "name": "Chines of the Inquisitor",
-    "price": 370000
+    "price": 370000,
+    "qty": 3,
+    "hero": "Faceless Void"
   },
   {
     "name": "Blades of the Baleful Hollow",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Terrorblade"
   },
   {
     "name": "Starlorn Adjudicator",
-    "price": 110000
+    "price": 110000,
+    "qty": 4,
+    "hero": "Dawnbreaker"
   },
   {
     "name": "Trophies of the Hallowed Hunt",
-    "price": 170000
+    "price": 170000,
+    "qty": 4,
+    "hero": "Ursa"
   },
   {
     "name": "Hounds of Obsession",
-    "price": 150000
+    "price": 150000,
+    "qty": 3,
+    "hero": "Chen"
   },
   {
     "name": "Horns of the Baleful Hollow",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Terrorblade"
   },
   {
     "name": "Form of the Baleful Hollow",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Terrorblade"
   },
   {
     "name": "Cursed Cryptbreaker - Weapon",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Pudge"
   },
   {
     "name": "Mega-Kills: Gabe Newell",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Arms of the Sanguine Spectrum",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Bloodseeker"
   },
   {
     "name": "Blade of the Sanguine Spectrum",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Bloodseeker"
   },
   {
     "name": "Shoulder of the Sanguine Spectrum",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Bloodseeker"
   },
   {
     "name": "Off-Hand of the Sanguine Spectrum",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Bloodseeker"
   },
   {
     "name": "Back of the Sanguine Spectrum",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Bloodseeker"
   },
   {
     "name": "Head of the Sanguine Spectrum",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Bloodseeker"
   },
   {
     "name": "Crown of the Stonemarch Sovereign",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Wraith King"
   },
   {
     "name": "Cuirass of the Stonemarch Sovereign",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Wraith King"
   },
   {
     "name": "Pauldrons of the Stonemarch Sovereign",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Wraith King"
   },
   {
     "name": "Arms of the Stonemarch Sovereign",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Wraith King"
   },
   {
     "name": "Cape of the Stonemarch Sovereign",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Wraith King"
   },
   {
     "name": "Blade of the Stonemarch Sovereign",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Wraith King"
   },
   {
     "name": "Crown of Fate Meridian",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Invoker"
   },
   {
     "name": "Mantle of Fate Meridian",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Invoker"
   },
   {
     "name": "Arms of Fate Meridian",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Invoker"
   },
   {
     "name": "Belt of Fate Meridian",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Invoker"
   },
   {
     "name": "Cape of Fate Meridian",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Invoker"
   },
   {
     "name": "Fate Meridian Loading Screen",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Helm of the Lifted Veil",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Phantom Assassin"
   },
   {
     "name": "Blade of the Lifted Veil",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Phantom Assassin"
   },
   {
     "name": "Belt of the Lifted Veil",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Phantom Assassin"
   },
   {
     "name": "Cape of the Lifted Veil",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Phantom Assassin"
   },
   {
     "name": "Belt of the Sanguine Spectrum",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Bloodseeker"
   },
   {
     "name": "TI8 Invoker Prism Forge Spirit",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Invoker"
   },
   {
     "name": "Armor of the Lifted Veil",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Phantom Assassin"
   },
   {
     "name": "Greathelm of the Chiseled Guard",
-    "price": 0
+    "price": 0,
+    "qty": 2,
+    "hero": "Sven"
   },
   {
     "name": "Form of the Abyssal Kin",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Queen of Pain"
   },
   {
     "name": "Cursed Cryptbreaker - Shoulder",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Pudge"
   },
   {
     "name": "Radiant Crystal Crown",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Morphling"
   },
   {
     "name": "The Rat King",
-    "price": 95000
+    "price": 95000,
+    "qty": 7,
+    "hero": "Chen"
   },
   {
     "name": "Evolution of the Infinite Eidolon",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Enigma"
   },
   {
     "name": "Pattern of the Silken Queen",
-    "price": 80000
+    "price": 80000,
+    "qty": 7,
+    "hero": "Broodmother"
   },
   {
     "name": "Raiments of the Obsidian Forge",
-    "price": 380000
+    "price": 380000,
+    "qty": 3,
+    "hero": "Underlord"
   },
   {
     "name": "Dread Ascendance",
-    "price": 700000
+    "price": 700000,
+    "qty": 6,
+    "hero": "Doom"
   },
   {
     "name": "Evolution of the Infinite Hood",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Enigma"
   },
   {
     "name": "Loaded Prospects",
-    "price": 140000
+    "price": 140000,
+    "qty": 9,
+    "hero": "Brewmaster"
   },
   {
     "name": "Crown of the Abyssal Kin",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Queen of Pain"
   },
   {
     "name": "Evolution of the Infinite Armor",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Enigma"
   },
   {
     "name": "Enduring Solitude",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Spectre"
   },
   {
     "name": "Undying Love",
-    "price": 170000
+    "price": 170000,
+    "qty": 5,
+    "hero": "Undying"
   },
   {
     "name": "Hell-Spar Anathema",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Lion"
   },
   {
     "name": "Crystal Colossus",
-    "price": 350000
+    "price": 350000,
+    "qty": 4,
+    "hero": "Spirit Breaker"
   },
   {
     "name": "Igneous Infernal",
-    "price": 150000
+    "price": 150000,
+    "qty": 5,
+    "hero": "Doom"
   },
   {
     "name": "Warding Guise",
-    "price": 0
+    "price": 0,
+    "qty": 2,
+    "hero": "Other"
   },
   {
     "name": "Blade of the Abyssal Kin",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Queen of Pain"
   },
   {
     "name": "Wings of the Abyssal Kin",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Queen of Pain"
   },
   {
     "name": "Fate Meridian",
-    "price": 450000
+    "price": 450000,
+    "qty": 2,
+    "hero": "Invoker"
   },
   {
     "name": "The International 2018 - Battle Level 1000",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Bleeding Edge",
-    "price": 110000
+    "price": 110000,
+    "qty": 5,
+    "hero": "Huskar"
   },
   {
     "name": "Cavernite Radiant Creeps",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Cavernite Dire Creeps",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Bootblack Brawler",
-    "price": 95000
+    "price": 95000,
+    "qty": 6,
+    "hero": "Axe"
   },
   {
     "name": "Angler in the Abyss",
-    "price": 120000
+    "price": 120000,
+    "qty": 5,
+    "hero": "Slark"
   },
   {
     "name": "Hare of the Cog",
-    "price": 75000
+    "price": 75000,
+    "qty": 6,
+    "hero": "Clockwerk"
   },
   {
     "name": "Conservator's Vanguard",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Spectre"
   },
   {
     "name": "Frostiron Raider Helm",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Tusk"
   },
   {
     "name": "Caprine Chimera",
-    "price": 65000
+    "price": 65000,
+    "qty": 6,
+    "hero": "Lion"
   },
   {
     "name": "Seam Ripper Snuggle Time",
-    "price": 90000
+    "price": 90000,
+    "qty": 6,
+    "hero": "Warlock"
   },
   {
     "name": "Magus Mimicry",
-    "price": 145000
+    "price": 145000,
+    "qty": 5,
+    "hero": "Invoker"
   },
   {
     "name": "Conservator's Shoulderguard",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Spectre"
   },
   {
     "name": "Cursed Cryptbreaker - Off-Hand Weapon",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Pudge"
   },
   {
     "name": "Conservator's Headguard",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Spectre"
   },
   {
     "name": "Needlepoint Necromancer",
-    "price": 95000
+    "price": 95000,
+    "qty": 5,
+    "hero": "Dazzle"
   },
   {
     "name": "Golden Nirvana",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Phoenix"
   },
   {
     "name": "Deathwielder",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Phantom Assassin"
   },
   {
     "name": "Visions of the Lifted Veil",
-    "price": 500000
+    "price": 500000,
+    "qty": 2,
+    "hero": "Phantom Assassin"
   },
   {
     "name": "Raptures of the Abyssal Kin",
-    "price": 170000
+    "price": 170000,
+    "qty": 2,
+    "hero": "Queen of Pain"
   },
   {
     "name": "Forlorn Descent",
-    "price": 195000
+    "price": 195000,
+    "qty": 1,
+    "hero": "Undying"
   },
   {
     "name": "Stonemarch Sovereign",
-    "price": 450000
+    "price": 450000,
+    "qty": 3,
+    "hero": "Wraith King"
   },
   {
     "name": "Thundervolt",
-    "price": 110000
+    "price": 110000,
+    "qty": 5,
+    "hero": "Zeus"
   },
   {
     "name": "Molokau Stalker",
-    "price": 80000
+    "price": 80000,
+    "qty": 2,
+    "hero": "Venomancer"
   },
   {
     "name": "Morbific Provision",
-    "price": 130000
+    "price": 130000,
+    "qty": 1,
+    "hero": "Witch Doctor"
   },
   {
     "name": "Primer of the Sapper's Guile",
-    "price": 125000
+    "price": 125000,
+    "qty": 2,
+    "hero": "Techies"
   },
   {
     "name": "Head of the Sea Djinn",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Slardar"
   },
   {
     "name": "Grasp of the Riven Exile",
-    "price": 95000
+    "price": 95000,
+    "qty": 1,
+    "hero": "Weaver"
   },
   {
     "name": "Phantom Balladeer",
-    "price": 75000
+    "price": 75000,
+    "qty": 5,
+    "hero": "Abaddon"
   },
   {
     "name": "The Murid Divine",
-    "price": 170000
+    "price": 170000,
+    "qty": 2,
+    "hero": "Necrophos"
   },
   {
     "name": "Flame of the Penitent Scholar",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Skywrath Mage"
   },
   {
     "name": "Pauldron of the Penitent Scholar",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Skywrath Mage"
   },
   {
     "name": "Belt of the Penitent Scholar",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Skywrath Mage"
   },
   {
     "name": "Arms of the Penitent Scholar",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Skywrath Mage"
   },
   {
     "name": "Wings of the Penitent Scholar",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Skywrath Mage"
   },
   {
     "name": "Crystals of the Violent Precipitate",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Bristleback"
   },
   {
     "name": "Bracers of the Violent Precipitate",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Bristleback"
   },
   {
     "name": "Helm of the Violent Precipitate",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Bristleback"
   },
   {
     "name": "Lantern of the Violent Precipitate",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Bristleback"
   },
   {
     "name": "Mantle of Desolate Conquest",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Legion Commander"
   },
   {
     "name": "Banners of Desolate Conquest",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Legion Commander"
   },
   {
     "name": "Lance of Desolate Conquest",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Legion Commander"
   },
   {
     "name": "Bracers of Desolate Conquest",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Legion Commander"
   },
   {
     "name": "Conservator's Blade",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Spectre"
   },
   {
     "name": "Unchained Entropy",
-    "price": 75000
+    "price": 75000,
+    "qty": 5,
+    "hero": "Ancient Apparition"
   },
   {
     "name": "Helm of the Penitent Scholar",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Skywrath Mage"
   },
   {
     "name": "The Emerald Abyss",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Pads of the Crimson Cut-throat",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Bounty Hunter"
   },
   {
     "name": "Stonemarch Sovereign Loading Screen",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Pillar of the Fractured Citadel",
-    "price": 190000
+    "price": 190000,
+    "qty": 1,
+    "hero": "Spirit Breaker"
   },
   {
     "name": "Canis Crystallum",
-    "price": 130000
+    "price": 130000,
+    "qty": 5,
+    "hero": "Crystal Maiden"
   },
   {
     "name": "Rose of Moira",
-    "price": 95000
+    "price": 95000,
+    "qty": 8,
+    "hero": "Muerta"
   },
   {
     "name": "Ancient Exile",
-    "price": 450000
+    "price": 450000,
+    "qty": 1,
+    "hero": "Juggernaut"
   },
   {
     "name": "Exquisite Agonies",
-    "price": 95000
+    "price": 95000,
+    "qty": 5,
+    "hero": "Queen of Pain"
   },
   {
     "name": "Bloodmoon Stalker",
-    "price": 150000
+    "price": 150000,
+    "qty": 4,
+    "hero": "Luna"
   },
   {
     "name": "Proselyte of the Sakura Clan",
-    "price": 250000
+    "price": 250000,
+    "qty": 2,
+    "hero": "Anti-Mage"
   },
   {
     "name": "Lotus of the Mountain Bear Clan",
-    "price": 95000
+    "price": 95000,
+    "qty": 4,
+    "hero": "Meepo"
   },
   {
     "name": "Mecha Nyx",
-    "price": 85000
+    "price": 85000,
+    "qty": 4,
+    "hero": "Nyx Assassin"
   },
   {
     "name": "Martyrdom of the Brineborn",
-    "price": 0
+    "price": 0,
+    "qty": 4,
+    "hero": "Naga Siren"
   },
   {
     "name": "Colossal Terrorpin",
-    "price": 105000
+    "price": 105000,
+    "qty": 4,
+    "hero": "Tiny"
   },
   {
     "name": "Dark Ranger's Headdress",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Drow Ranger"
   },
   {
     "name": "Elegy of the Reaper",
-    "price": 95000
+    "price": 95000,
+    "qty": 1,
+    "hero": "Grimstroke"
   },
   {
     "name": "Phantom's Facade",
-    "price": 275000
+    "price": 275000,
+    "qty": 2,
+    "hero": "Phantom Assassin"
   },
   {
     "name": "Blackwing Bandolera",
-    "price": 90000
+    "price": 90000,
+    "qty": 3,
+    "hero": "Muerta"
   },
   {
     "name": "Dread of Night",
-    "price": 105000
+    "price": 105000,
+    "qty": 3,
+    "hero": "Night Stalker"
   },
   {
     "name": "Flight of the Crimson Queen",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Death Prophet"
   },
   {
     "name": "Helm of Desolate Conquest",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Legion Commander"
   },
   {
     "name": "Conservator's Bracers",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Spectre"
   },
   {
     "name": "Cursed Cryptbreaker - Head",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Pudge"
   },
   {
     "name": "Flail of the Violent Precipitate",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Bristleback"
   },
   {
     "name": "Baleful Hollow Loading Screen",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Mantle of Mysteries",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Witch Doctor"
   },
   {
     "name": "Cursed Cryptbreaker - Belt",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Pudge"
   },
   {
     "name": "Dota Plus Victory Shout",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Tormented Staff of Eminent Revival",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Leshrac"
   },
   {
     "name": "Fin King's Charm of Eminent Revival",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Lion"
   },
   {
     "name": "The Lightning Orchid of Eminent Revival",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Storm Spirit"
   },
   {
     "name": "Leviathan Whale Blade of Eminent Revival",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Kunkka"
   },
   {
     "name": "Cauldron of Xahryx of Eminent Revival",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Lone Druid"
   },
   {
     "name": "Sparrowhawk Hood",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Windranger"
   },
   {
     "name": "Cursed Cryptbreaker - Arms",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Pudge"
   },
   {
     "name": "Call of the Bladeform Legacy",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Juggernaut"
   },
   {
     "name": "The International 2018 Cursor Pack",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Bladeform Legacy",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Juggernaut"
   },
   {
     "name": "Trailgazer",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Greevil Grief Roshan",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Genuine Glaring Greevils",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Eimer Hillburrow",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Silkwing Spotters",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Vile Vessel",
-    "price": 190000
+    "price": 190000,
+    "qty": 8,
+    "hero": "Shadow Demon"
   },
   {
     "name": "Mega-Kills: Voice of The International",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Pouches",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Tribal Stone Vambrace",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Beastmaster"
   },
   {
     "name": "Svarog the Infernal",
-    "price": 115000
+    "price": 115000,
+    "qty": 8,
+    "hero": "Primal Beast"
   },
   {
     "name": "Battle Pass 2022 Music Pack",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Tendrils of the Timeless",
-    "price": 150000
+    "price": 150000,
+    "qty": 8,
+    "hero": "Faceless Void"
   },
   {
     "name": "Snowdrop Hood",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Crystal Maiden"
   },
   {
     "name": "Tectonic Implications Loading Screen",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "The Mage Slayer's Set",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Anti-Mage"
   },
   {
     "name": "Helm of Tectonic Implications",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Earthshaker"
   },
   {
     "name": "Belt of Tectonic Implications",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Earthshaker"
   },
   {
     "name": "Bracers of Tectonic Implications",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Earthshaker"
   },
   {
     "name": "Totem of Tectonic Implications",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Earthshaker"
   },
   {
     "name": "Wings of the Arch Temptress",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Queen of Pain"
   },
   {
     "name": "Armor of the Arch Temptress",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Queen of Pain"
   },
   {
     "name": "Horns of the Arch Temptress",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Queen of Pain"
   },
   {
     "name": "Purple Minnow Ward Upgrade",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Bloodstained Britches",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Pudge"
   },
   {
     "name": "Genuine Greevilhorn",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Prize of the Saltworn Mariner",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Kunkka"
   },
   {
     "name": "Ardalan Arms Race",
-    "price": 190000
+    "price": 190000,
+    "qty": 2,
+    "hero": "Snapfire"
   },
   {
     "name": "Dusklight Marauder",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Luna"
   },
   {
     "name": "Faithful Fortune",
-    "price": 155000
+    "price": 155000,
+    "qty": 3,
+    "hero": "Marci"
   },
   {
     "name": "Evolution of the Infinite Bracers",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Enigma"
   },
   {
     "name": "Armor of Distant Sands",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Bounty Hunter"
   },
   {
     "name": "Darkblade Adept",
-    "price": 170000
+    "price": 170000,
+    "qty": 4,
+    "hero": "Templar Assassin"
   },
   {
     "name": "Rhinoceros Order",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Sven"
   },
   {
     "name": "Benevolent Companion",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Io"
   },
   {
     "name": "Fluttering Breeze",
-    "price": 1950000
+    "price": 1950000,
+    "qty": 2,
+    "hero": "Windranger"
   },
   {
     "name": "Foreseen Horizons",
-    "price": 95000
+    "price": 95000,
+    "qty": 8,
+    "hero": "Oracle"
   },
   {
     "name": "Reef's Edge Loading Screen",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Reef's Edge",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Sacred Chamber Guardian - Arms",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Huskar"
   },
   {
     "name": "Designs of the Dragon",
-    "price": 150000
+    "price": 150000,
+    "qty": 7,
+    "hero": "Anti-Mage"
   },
   {
     "name": "Onikage Disciple",
-    "price": 0
+    "price": 0,
+    "qty": 7,
+    "hero": "Phantom Assassin"
   },
   {
     "name": "Bloodzo the Bear",
-    "price": 95000
+    "price": 95000,
+    "qty": 7,
+    "hero": "Ursa"
   },
   {
     "name": "Heavenly Guardian Locks",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Mirana"
   },
   {
     "name": "Starforge Reformer",
-    "price": 95000
+    "price": 95000,
+    "qty": 7,
+    "hero": "Dawnbreaker"
   },
   {
     "name": "Gilded Decay",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Ancient Apparition"
   },
   {
     "name": "Little Red",
-    "price": 95000
+    "price": 95000,
+    "qty": 7,
+    "hero": "Marci"
   },
   {
     "name": "International 2023 Team Loading Screen - Entity",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Bilge Rat Buccaneer",
-    "price": 105000
+    "price": 105000,
+    "qty": 7,
+    "hero": "Hoodwink"
   },
   {
     "name": "Traveling Tale-Teller's Set",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Witch Doctor"
   },
   {
     "name": "Songs of the Soulfinch",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Windranger"
   },
   {
     "name": "Shellshock Saturnalia",
-    "price": 135000
-  },
-  {
-    "name": "Blaze of Oblivion",
-    "price": 0
+    "price": 135000,
+    "qty": 8,
+    "hero": "Snapfire"
   },
   {
     "name": "Ardalan Arsonist",
-    "price": 170000
+    "price": 170000,
+    "qty": 8,
+    "hero": "Dark Willow"
   },
   {
     "name": "Oni Knight the Dark Conqueror Loading Screen",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Dagger of the Arch Temptress",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Queen of Pain"
   },
   {
     "name": "Nether Lord's Devourer",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Pugna"
   },
   {
     "name": "Golden Minnow Ward Upgrade",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Autographed Diabolic Aspect",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Chaos Knight"
   },
   {
     "name": "Verminator",
-    "price": 85000
+    "price": 85000,
+    "qty": 7,
+    "hero": "Bounty Hunter"
   },
   {
     "name": "Deepweed Drowner Loading Screen",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Shackles of the Enduring Conscript Loading Screen",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Iceforged Hair",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Invoker"
   },
   {
     "name": "Velveteen Vanquisher",
-    "price": 135000
+    "price": 135000,
+    "qty": 7,
+    "hero": "Pudge"
   },
   {
     "name": "Sunken Gaoler Set Style Unlock",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Beard of the Enduring Conscript",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Axe"
   },
   {
     "name": "Bracer of the Enduring Conscript",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Axe"
   },
   {
     "name": "Belt of the Enduring Conscript",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Axe"
   },
   {
     "name": "Armor of the Enduring Conscript",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Axe"
   },
   {
     "name": "Staff of the Crystalline Queen",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Crystal Maiden"
   },
   {
     "name": "Fury of the Righteous Storm - Weapon",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Disruptor"
   },
   {
     "name": "Fury of the Righteous Storm - Arms",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Disruptor"
   },
   {
     "name": "Fury of the Righteous Storm - Back",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Disruptor"
   },
   {
     "name": "Wrecking Ball",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Tidehunter"
   },
   {
     "name": "Fury of the Righteous Storm - Shoulder",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Disruptor"
   },
   {
     "name": "Fury of the Righteous Storm - Head",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Disruptor"
   },
   {
     "name": "Mechamancer",
-    "price": 400000
+    "price": 400000,
+    "qty": 3,
+    "hero": "Venomancer"
   },
   {
     "name": "Alphid of Lecaciida",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Green Minnow Ward Upgrade",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Winterbringer Loading screen",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Axe of the Dark Conqueror",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Chaos Knight"
   },
   {
     "name": "Songs of Starfall Glen",
-    "price": 170000
+    "price": 170000,
+    "qty": 0,
+    "hero": "Enchantress"
   },
   {
     "name": "Face of Delicacies of Butchery",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Pudge"
   },
   {
     "name": "Voice of the Magus Cypher",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Rubick"
   },
   {
     "name": "Sovereign of the Kray Legions Loading Screen",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Pincers of the Kray Legions",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Sand King"
   },
   {
     "name": "Jaws of the Kray Legions",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Sand King"
   },
   {
     "name": "Crawlers of the Kray Legions",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Sand King"
   },
   {
     "name": "Chitin of the Kray Legions",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Sand King"
   },
   {
     "name": "Rumrunner's Carronade Loading Screen",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Fiery keg of the Rumrunner's Carronade",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Brewmaster"
   },
   {
     "name": "Bandana of the Rumrunner's Carronade",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Brewmaster"
   },
   {
     "name": "Carriage of the Rumrunner's Carronade",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Brewmaster"
   },
   {
     "name": "Culverin of the Rumrunner's Carronade",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Brewmaster"
   },
   {
     "name": "The Magus Cypher",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Rubick"
   },
   {
     "name": "Armored Exoskeleton Back",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Weaver"
   },
   {
     "name": "Ruby-ridged Recluse",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Broodmother"
   },
   {
     "name": "Armor of the Chitinous Stalker",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Nyx Assassin"
   },
   {
     "name": "Pincers of the Chitinous Stalker",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Nyx Assassin"
   },
   {
     "name": "Oculi of the Chitinous Stalker",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Nyx Assassin"
   },
   {
     "name": "Bracers of the Rumrunner's Carronade",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Brewmaster"
   },
   {
     "name": "Tail of the Kray Legions",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Sand King"
   },
   {
     "name": "Qaldin Assassin's Dagger",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Bounty Hunter"
   },
   {
     "name": "Cunning Corsair",
-    "price": 375000
+    "price": 375000,
+    "qty": 1,
+    "hero": "Riki"
   },
   {
     "name": "Sash of the Rumrunner's Carronade",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Brewmaster"
   },
   {
     "name": "Riptide Raider",
-    "price": 450000
+    "price": 450000,
+    "qty": 1,
+    "hero": "Monkey King"
   },
   {
     "name": "Image of Seaborne Reprisal",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Kunkka"
   },
   {
     "name": "Legs of the Seaborne Reprisal",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Kunkka"
   },
   {
     "name": "Seaborne Reprisal Loading Screen",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Folds of Seaborne Reprisal",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Kunkka"
   },
   {
     "name": "Belt of Seaborne Reprisal",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Kunkka"
   },
   {
     "name": "Meranth Dragoon",
-    "price": 670000
+    "price": 670000,
+    "qty": 2,
+    "hero": "Sven"
   },
   {
     "name": "Seaborne Reprisal",
-    "price": 1200000
+    "price": 1200000,
+    "qty": 2,
+    "hero": "Kunkka"
   },
   {
     "name": "Eternal Testament",
-    "price": 270000
+    "price": 270000,
+    "qty": 1,
+    "hero": "Death Prophet"
   },
   {
     "name": "Seablight Procession",
-    "price": 350000
+    "price": 350000,
+    "qty": 2,
+    "hero": "Undying"
   },
   {
     "name": "Pressure Regulator",
-    "price": 250000
+    "price": 250000,
+    "qty": 1,
+    "hero": "Clockwerk"
   },
   {
     "name": "Secrets of the Katekhein",
-    "price": 270000
+    "price": 270000,
+    "qty": 2,
+    "hero": "Winter Wyvern"
   },
   {
     "name": "Armor of Renewed Faith Set",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Omniknight"
   },
   {
     "name": "Cicatrix Regalia",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Nyx Assassin"
   },
   {
     "name": "Abyssal Vortex",
-    "price": 330000
+    "price": 330000,
+    "qty": 3,
+    "hero": "Enigma"
   },
   {
     "name": "Reefcutter",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Tidehunter"
   },
   {
     "name": "Cryogenic Embrace Set",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Ursa"
   },
   {
     "name": "Spoils of the Vodou Rover",
-    "price": 425000
+    "price": 425000,
+    "qty": 3,
+    "hero": "Witch Doctor"
   },
   {
     "name": "Ward of the Eternal Alliance",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Rumrunner's Carronade",
-    "price": 260000
+    "price": 260000,
+    "qty": 2,
+    "hero": "Brewmaster"
   },
   {
     "name": "Eki Bukaw Bracers",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Shadow Shaman"
   },
   {
     "name": "Claw of Seaborne Reprisal",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Kunkka"
   },
   {
     "name": "Coat of Seaborne Reprisal",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Kunkka"
   },
   {
     "name": "Abyssal Vortex Loading Screen",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Eidolons of Abyssal Vortex",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Enigma"
   },
   {
     "name": "Armor of Abyssal Vortex",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Enigma"
   },
   {
     "name": "Head Fins of the Deepweed Drowner",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Tidehunter"
   },
   {
     "name": "Helm of Abyssal Vortex",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Enigma"
   },
   {
     "name": "Ghost Blade of Seaborne Reprisal",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Kunkka"
   },
   {
     "name": "Bracer of Abyssal Vortex",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Enigma"
   },
   {
     "name": "Helm of the Dark Conqueror",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Chaos Knight"
   },
   {
     "name": "Wicked Collar of the Corpse Maiden",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Death Prophet"
   },
   {
     "name": "The International 10 Music Pack",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Tail of the Chitinous Stalker",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Nyx Assassin"
   },
   {
     "name": "Faithful Followers",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Brightskye",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Corruption of the Virulent Krait",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Venomancer"
   },
   {
     "name": "Omniscient's Maul",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Omniknight"
   },
   {
     "name": "Belt of the Deepweed Drowner",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Tidehunter"
   },
   {
     "name": "Back Fins of the Deepweed Drowner",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Tidehunter"
   },
   {
     "name": "Aghanim's Basher",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Brewmaster"
   },
   {
     "name": "Arm Fins of the Deepweed Drowner",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Tidehunter"
   },
   {
     "name": "Cursed Cryptbreaker - Back",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Pudge"
   },
   {
     "name": "Covenant of the Depths",
-    "price": 1500000
+    "price": 1500000,
+    "qty": 1,
+    "hero": "Invoker"
   },
   {
     "name": "Helm of Claszureme",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Faceless Void"
   },
   {
     "name": "Shadowforce Gale",
-    "price": 270000
+    "price": 270000,
+    "qty": 1,
+    "hero": "Luna"
   },
   {
     "name": "Steed of the Dark Conqueror",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Chaos Knight"
   },
   {
     "name": "Epaulets of Hell's Ambassador",
-    "price": 0
+    "price": 0,
+    "qty": 2,
+    "hero": "Lion"
   },
   {
     "name": "Second Disciple's Bastion",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Bounty Hunter"
   },
   {
     "name": "Girth of the Swordmaster",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Sven"
   },
   {
     "name": "Flight of the Crescent Moon",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Luna"
   },
   {
     "name": "Legs of Desolate Conquest",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Legion Commander"
   },
   {
     "name": "Bracer of the Tahlin Watch",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Riki"
   },
   {
     "name": "Eki Bukaw Wand - Off-Hand",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Shadow Shaman"
   },
   {
     "name": "Zaru'Kina Protector's Cape",
-    "price": 0
+    "price": 0,
+    "qty": 2,
+    "hero": "Windranger"
   },
   {
     "name": "Artificer's Hammer",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Abyssal Kin Legs",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Queen of Pain"
   },
   {
     "name": "Penumbral Warblade",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Phantom Assassin"
   },
   {
     "name": "Helm of a Savage Age",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Ursa"
   },
   {
     "name": "Heroic Effigy of The International 2016 II",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Armor of Grim Destiny",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Wraith King"
   },
   {
     "name": "Mirana of Nightsilver",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Mirana (Dragon's Blood)"
   },
   {
     "name": "10th Anniversary Mirana Persona Back",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Mirana (Dragon's Blood)"
   },
   {
     "name": "Bracers of Grim Destiny",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Wraith King"
   },
   {
     "name": "10th Anniversary Lucky Alpine Stalker's Hat",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Ursa"
   },
   {
     "name": "10th Anniversary Lucky Alpine Stalker's Arms",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Ursa"
   },
   {
     "name": "10th Anniversary Lucky Alpine Stalker's Belt",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Ursa"
   },
   {
     "name": "10th Anniversary Arms of Deep Magma",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Earthshaker"
   },
   {
     "name": "Cape of Grim Destiny",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Wraith King"
   },
   {
     "name": "10th Anniversary Totem of Deep Magma",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Earthshaker"
   },
   {
     "name": "10th Anniversary Horns of Deep Magma",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Earthshaker"
   },
   {
     "name": "10th Anniversary Belt of Deep Magma",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Earthshaker"
   },
   {
     "name": "10th Anniversary Hidden Vector - Belt",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Void Spirit"
   },
   {
     "name": "10th Anniversary Hidden Vector - Armor",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Void Spirit"
   },
   {
     "name": "10th Anniversary Hidden Vector - Blade",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Void Spirit"
   },
   {
     "name": "10th Anniversary Filmtail",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "10th Anniversary Dark Moon Armor",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Mirana (Dragon's Blood)"
   },
   {
     "name": "10th Anniversary Relic Sword",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Wraith King"
   },
   {
     "name": "Helm of Grim Destiny",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Wraith King"
   },
   {
     "name": "Blue Minnow Ward Upgrade",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "10-Year Anniversary Loading Screen of Deep Magma",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "10th Anniversary Lucky Alpine Stalker's Back",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Ursa"
   },
   {
     "name": "Ancient Armor Arms",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Morphling"
   },
   {
     "name": "10th Anniversary Aghanim's Roshan",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "10th Anniversary Hidden Vector - Hat",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Void Spirit"
   },
   {
     "name": "Shield of the Dark Conqueror",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Chaos Knight"
   },
   {
     "name": "Reprieve of the Clergy Ascetic - Off-Hand",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Anti-Mage"
   },
   {
     "name": "10th Anniversary Heaven-Piercing Pauldrons",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Invoker"
   },
   {
     "name": "Loading Screen of the Hunter's Glory",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Armor of the Hunter's Glory",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Bounty Hunter"
   },
   {
     "name": "Scythe of the Hunter's Glory",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Bounty Hunter"
   },
   {
     "name": "Buckler of the Hunter's Glory",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Bounty Hunter"
   },
   {
     "name": "Blade of the Hunter's Glory",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Bounty Hunter"
   },
   {
     "name": "Helm of the Hunter's Glory",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Bounty Hunter"
   },
   {
     "name": "Grim Destiny Loading Screen",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Shoulder of Grim Destiny",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Wraith King"
   },
   {
     "name": "Cerebral Support",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Tidehunter"
   },
   {
     "name": "Cape of the Hunter's Glory",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Bounty Hunter"
   },
   {
     "name": "Tribal Pathways Necklace",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Warlock"
   },
   {
     "name": "Crucible of Light's Vestiments",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Keeper of the Light"
   },
   {
     "name": "Inscribed Crucible of Light's Robes",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Keeper of the Light"
   },
   {
     "name": "The Crucible of Light Staff",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Keeper of the Light"
   },
   {
     "name": "Tendrillar",
-    "price": 0
+    "price": 0,
+    "qty": 2,
+    "hero": "Keeper of the Light"
   },
   {
     "name": "Crucible of Light Loading Screen",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Regalia of the Wraith Lord Shoulder",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Wraith King"
   },
   {
     "name": "Regalia of the Wraith Lord Helmet",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Wraith King"
   },
   {
     "name": "Regalia of the Wraith Lord Gauntlet",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Wraith King"
   },
   {
     "name": "Regalia of the Wraith Lord Sword",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Wraith King"
   },
   {
     "name": "Regalia of the Wraith Lord Cape",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Wraith King"
   },
   {
     "name": "Ornaments of the Wyrmforge Shard",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Elder Titan"
   },
   {
     "name": "Guards of the Wyrmforge Shard",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Elder Titan"
   },
   {
     "name": "Helm of the Wyrmforge Shard",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Elder Titan"
   },
   {
     "name": "Spaulders of the Wyrmforge Shard",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Elder Titan"
   },
   {
     "name": "Mace of the Wyrmforge Shard",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Elder Titan"
   },
   {
     "name": "Loading Screen of the Wyrmforge Shard",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Primeval Shoulder",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Nature's Prophet"
   },
   {
     "name": "Primeval Prophet Loading Screen",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Inscribed Primeval Treant",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Nature's Prophet"
   },
   {
     "name": "Primeval Staff",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Nature's Prophet"
   },
   {
     "name": "Primeval Horns",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Nature's Prophet"
   },
   {
     "name": "Primeval Cape",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Nature's Prophet"
   },
   {
     "name": "Primeval Bracers",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Nature's Prophet"
   },
   {
     "name": "Beaver Knight Loading Screen",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Beaver Knight",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Primeval Beard",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Nature's Prophet"
   },
   {
     "name": "Coco the Courageous",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Tail Fins of the Slithereen Nobility",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Naga Siren"
   },
   {
     "name": "Cap of the Smoldering Sage",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Ember Spirit"
   },
   {
     "name": "Off-Hand Sword of the Smoldering Sage",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Ember Spirit"
   },
   {
     "name": "Sword of the Smoldering Sage",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Ember Spirit"
   },
   {
     "name": "Mantle of the Smoldering Sage",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Ember Spirit"
   },
   {
     "name": "Armguards of the Smoldering Sage",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Ember Spirit"
   },
   {
     "name": "Belt of the Smoldering Sage",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Ember Spirit"
   },
   {
     "name": "Loading Screen of the Smoldering Sage",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Genuine Cotton Dandy",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Rhuis Tuning-Fork",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Sven"
   },
   {
     "name": "Helm of the Outcast",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Naga Siren"
   },
   {
     "name": "Tribal Pathways Golem",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Warlock"
   },
   {
     "name": "Deep Vault Guardian Spine",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Slardar"
   },
   {
     "name": "10th Anniversary Staff of Gun-Yu",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Monkey King"
   },
   {
     "name": "10th Anniversary Dolfrat and Roshinante",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Vestigial Wings of the Ancient Sovereign",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Sand King"
   },
   {
     "name": "Tribal Pathways Crown",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Warlock"
   },
   {
     "name": "Frostiron Sorceress Cape",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Crystal Maiden"
   },
   {
     "name": "Kinetic: Orb of Reminiscence",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Tribal Pathways Lantern",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Warlock"
   },
   {
     "name": "Kinetic: Dreamcoil of Reminiscence",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Tribal Pathways Shoulder",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Warlock"
   },
   {
     "name": "Shoreline Sapper Set Style Unlock",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Kinetic: Ambience of Reminiscence",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Kinetic: Rift of Reminiscence",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Tribal Pathways Staff",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Warlock"
   },
   {
     "name": "The Dread Prophet",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Nature's Prophet"
   },
   {
     "name": "Reminiscence of Dreams Loading Screen",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Tail of Reminiscence",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Puck"
   },
   {
     "name": "Wings of Reminiscence",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Puck"
   },
   {
     "name": "Secrets of the Katekhein Loading Screen",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Horn of the Katekhein",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Winter Wyvern"
   },
   {
     "name": "Orb of Reminiscence",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Puck"
   },
   {
     "name": "DarkMago♥ Player Sticker - TI 2022",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "AMMAR_THE_F Player Sticker - TI 2022",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Glitter dyrachyo Player Sticker - TI 2022",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Greevil Master Arms",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Warlock"
   },
   {
     "name": "BOOM Player Sticker - TI 2022",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Thunder Awaken Team Sticker - TI 2022",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Team Aster Team Sticker - TI 2022",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Ghost Orb of the Planeswalker",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Spirit Breaker"
   },
   {
     "name": "Evil Geniuses Team Sticker - TI 2022",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Tundra Esports Team Sticker - TI 2022",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Bracers of the Ebony Tower",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Juggernaut"
   },
   {
     "name": "Reef Kyte Rider Style Unlock",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Grand Claive of the Unshamed",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Juggernaut"
   },
   {
     "name": "Fury of the Righteous Storm - Kirin",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Disruptor"
   },
   {
     "name": "Lumberclaw Loading Screen",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Furyblade - Off-Hand",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Bloodseeker"
   },
   {
     "name": "Tribal Pathways Robe",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Warlock"
   },
   {
     "name": "Armor of the Kha-Ren Faithful",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Drow Ranger"
   },
   {
     "name": "Sharpshooter's Bullet Bracers",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Sniper"
   },
   {
     "name": "Tahlin Occult Dagger - Off-Hand",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Riki"
   },
   {
     "name": "Quiver of the Kha-Ren Faithful",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Drow Ranger"
   },
   {
     "name": "Arsenal of the Bladekeeper",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Juggernaut"
   },
   {
     "name": "Bow of the Kha-Ren Faithful",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Drow Ranger"
   },
   {
     "name": "Legs of the Kha-Ren Faithful",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Drow Ranger"
   },
   {
     "name": "Style of the Kha-Ren Faithful",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Drow Ranger"
   },
   {
     "name": "Arms of the Kha-Ren Faithful",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Drow Ranger"
   },
   {
     "name": "Spaulders of the Dark Conqueror",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Chaos Knight"
   },
   {
     "name": "Genuine Taffied Transport",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Inscribed The Shaded Eulogy",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Death Prophet"
   },
   {
     "name": "Arcane Drapings",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Invoker"
   },
   {
     "name": "Cape of the Kha-Ren Faithful",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Drow Ranger"
   },
   {
     "name": "Wings of the Katekhein",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Winter Wyvern"
   },
   {
     "name": "Assistant's Cutter",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Alchemist"
   },
   {
     "name": "Gaiters of the Shadowcat",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Drow Ranger"
   },
   {
     "name": "Cowl of the Malignant Corruption",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Lion"
   },
   {
     "name": "Tribal Pathways Bracer",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Warlock"
   },
   {
     "name": "Weapon of Grim Destiny",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Wraith King"
   },
   {
     "name": "Sight of the Kha-Ren Faithful Loading Screen",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Spear of the Herald",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Phantom Lancer"
   },
   {
     "name": "Reliquary of Rotting Doom",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Necrophos"
   },
   {
     "name": "Clergy Warhammer",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Omniknight"
   },
   {
     "name": "Bloodwood Arc",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Windranger"
   },
   {
     "name": "Fireborn Odachi",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Juggernaut"
   },
   {
     "name": "Hallowed Chest of the Diretide",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Helm of Retribution",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Skywrath Mage"
   },
   {
     "name": "Cape of the Arsenal Magus",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Invoker"
   },
   {
     "name": "Axe of the Enduring Conscript",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Axe"
   },
   {
     "name": "Deep Warden's Conch Pauldron",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Slark"
   },
   {
     "name": "Inscribed Blade of the Vindictive Protector",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Magnus"
   },
   {
     "name": "Obsidian Blade Warhelm",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Huskar"
   },
   {
     "name": "Commodore's Facings",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Kunkka"
   },
   {
     "name": "Genuine Weather Pestilence",
-    "price": 25000
+    "price": 25000,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Nightwatcher's Bracers",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Skywrath Mage"
   },
   {
     "name": "Announcer: Voice of The International",
-    "price": 0
+    "price": 0,
+    "qty": 1,
+    "hero": "Other"
   },
   {
     "name": "Infesting Incubator",
-    "price": 0
+    "price": 0,
+    "qty": 2,
+    "hero": "Weaver"
   }
 ]

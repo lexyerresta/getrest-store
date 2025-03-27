@@ -26,7 +26,7 @@ export async function getInventory() {
     return {
       id: asset.assetid,
       name: match?.market_hash_name || "Unknown Item",
-      hero: match?.type || null,
+      hero: match?.tags?.find((tag: any) => tag.category === 'Hero')?.localized_tag_name   || null,
       icon: match?.icon_url
         ? `https://steamcommunity-a.akamaihd.net/economy/image/${match.icon_url}`
         : null,
