@@ -83,7 +83,8 @@ export default function HomePage() {
   }, [])
 
   const searched = products.filter((p) =>
-    p.name.toLowerCase().includes(debouncedQuery.toLowerCase())
+    p.name.toLowerCase().includes(debouncedQuery.toLowerCase()) ||
+    p.hero?.toLowerCase().includes(debouncedQuery.toLowerCase())
   )
 
   const [mounted, setMounted] = useState(false)
@@ -107,7 +108,7 @@ export default function HomePage() {
 
   // Handle Card Click
   const handleCardClick = (item: Product) => {
-    const query = `${item.hero ? item.hero + " " : ""}${item.name} Dota 2`
+    const query = `${item.name} Dota 2 Cache`
     setSearchQuery(query)
     const youtubeSearchUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`
     setVideoUrl(youtubeSearchUrl)
@@ -201,7 +202,7 @@ export default function HomePage() {
           <div className="bg-white p-6 rounded-xl w-full max-w-3xl">
             <h2 className="text-lg font-semibold mb-4">Preview Item</h2>
             <div className="mb-4">
-              <p className="text-sm text-gray-700 dark:text-gray-300">
+              <p className="text-sm text-gray-600 dark:text-gray-600">
                 Searching for: <b>{searchQuery}</b>
               </p>
             </div>
@@ -221,7 +222,7 @@ export default function HomePage() {
 
             <Button
               onClick={() => window.open(videoUrl, "_blank")} // If iframe doesn't load, open in a new tab
-              className="mt-4"
+              className="mt-4 me-2"
             >
               Search on YouTube
             </Button>
