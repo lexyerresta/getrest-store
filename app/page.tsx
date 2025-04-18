@@ -37,6 +37,12 @@ export default function HomePage() {
   const [searchQuery, setSearchQuery] = useState<string>("")
   const [videoUrl, setVideoUrl] = useState<string>("")
 
+  const STEAM_ID = "76561198329596689"
+  const API_URL = `/api/steam-profile?steamId=${STEAM_ID}`;
+
+  const [steamName, setSteamName] = useState("");
+  const [steamAvatar, setSteamAvatar] = useState("");
+
   useEffect(() => {
     const fetchData = async () => {
       const [invRes, priceRes] = await Promise.all([
@@ -82,6 +88,27 @@ export default function HomePage() {
     }
   }, [])
 
+  // Fetch Steam Name and Avatar
+  useEffect(() => {
+    const fetchSteamProfile = async () => {
+      try {
+        const res = await fetch(API_URL);
+        const data = await res.json();
+
+        if (data.personaname && data.avatarmedium) {
+          setSteamName(data.personaname);
+          setSteamAvatar(data.avatarmedium);
+        } else {
+          console.log("Profile data not found");
+        }
+      } catch (error) {
+        console.error("Error fetching Steam profile:", error);
+      }
+    };
+
+    fetchSteamProfile();
+}, []);
+
   const searched = products.filter((p) =>
     p.name.toLowerCase().includes(debouncedQuery.toLowerCase()) ||
     p.hero?.toLowerCase().includes(debouncedQuery.toLowerCase())
@@ -108,7 +135,7 @@ export default function HomePage() {
 
   // Handle Card Click
   const handleCardClick = (item: Product) => {
-    const query = `${item.name} Dota 2 Cache`
+    const query = `${item.name}`
     setSearchQuery(query)
     const youtubeSearchUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`
     setVideoUrl(youtubeSearchUrl)
@@ -196,42 +223,46 @@ export default function HomePage() {
         <div ref={loadMoreRef} className="h-10" />
       </main>
 
-      {/* Modal for YouTube Video Search */}
+      {/* Modal for Rules and Profile */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-          <div className="bg-white p-6 rounded-xl w-full max-w-3xl">
-            <h2 className="text-lg font-semibold mb-4">Preview Item</h2>
-            <div className="mb-4">
-              <p className="text-sm text-gray-600 dark:text-gray-600">
-                Searching for: <b>{searchQuery}</b>
-              </p>
+          <div className="bg-white dark:bg-[#2a2a3c] p-6 rounded-xl w-full max-w-3xl text-black dark:text-white">
+            <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+              <b onClick={() => window.open(videoUrl, "_blank")} className="cursor-pointer">{searchQuery}</b>
+            </p>
+            <div className="flex items-center gap-4 mb-4">
+              <a href={`https://steamcommunity.com/profiles/${STEAM_ID}`} target="_blank" rel="noopener noreferrer">
+                <img src={steamAvatar} alt="Steam Avatar" className="w-14 h-14 rounded-full border cursor-pointer" />
+              </a>
+              <div className="flex flex-col">
+                <span className="font-bold">{}</span>
+                <a href={`https://steamcommunity.com/profiles/${STEAM_ID}`} target="_blank" rel="noopener noreferrer" className="font-bold text-sm cursor-pointer">
+                  <span className="text-m text-gray-500 dark:text-gray-400">{steamName}</span>
+                </a>
+                <span className="text-xs text-gray-500 dark:text-gray-400">1161 Items • 111 Reserved • 691 Delivered</span>
+              </div>
+              <div className="ml-auto px-3 py-1 text-xs bg-yellow-300 text-yellow-900 font-bold rounded-full">OWNER</div>
             </div>
 
-            {/* Fallback: Direct YouTube search results in iframe */}
-            <div>
-              <iframe
-                width="100%"
-                height="400px"
-                src={`https://www.youtube.com/embed?listType=search&list=${encodeURIComponent(searchQuery)}`}
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
+            <div className="space-y-2 text-sm">
+              <Button
+                onClick={() => window.open(videoUrl, "_blank")}
+                className="mt-2 me-2 cursor-pointer">
+                Item Preview
+              </Button>
+
+              <p>✅ Wajib berteman 30 hari di steam.</p>
+              <p>✅ Selalu periksa ketersediaan item di <a href={`https://steamcommunity.com/profiles/${STEAM_ID}/inventory`} target="_blank" className="text-blue-500 underline">inventory Steam</a>.</p>
+              <p>✅ Lakukan pembayaran DP 50%/Full Payment untuk melakukan booking Item.</p>
             </div>
 
-            <Button
-              onClick={() => window.open(videoUrl, "_blank")} // If iframe doesn't load, open in a new tab
-              className="mt-4 me-2"
-            >
-              Search on YouTube
-            </Button>
-            <Button onClick={handleCloseModal} className="mt-4">
-              Close
-            </Button>
+            <div className="text-right mt-6">
+              <Button onClick={handleCloseModal}>Tutup</Button>
+            </div>
           </div>
         </div>
       )}
+
     </div>
   )
 }
