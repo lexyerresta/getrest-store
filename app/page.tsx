@@ -5,10 +5,11 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { motion } from "framer-motion"
-import { ImageIcon, Search } from "lucide-react"
+import { CheckCircle, Facebook, ImageIcon, MessageCircle, Search, TvMinimalPlay, X } from "lucide-react"
 import Navbar from "@/components/ui/Navbar"
 import { useDebounce } from "@/lib/useDebounce"
 import { useTheme } from "next-themes"
+
 
 type Product = {
   id: string
@@ -42,6 +43,10 @@ export default function HomePage() {
 
   const [steamName, setSteamName] = useState("");
   const [steamAvatar, setSteamAvatar] = useState("");
+
+  const whatsappMessage = `Halo kak, saya berminat untuk item "${searchQuery}", apakah masih tersedia?`;
+  const whatsappURL = `https://wa.me/6281388883983?text=${encodeURIComponent(whatsappMessage)}`;
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -226,13 +231,20 @@ export default function HomePage() {
       {/* Modal for Rules and Profile */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-          <div className="bg-white dark:bg-[#2a2a3c] p-6 rounded-xl w-full max-w-3xl text-black dark:text-white">
+          <div className="relative bg-white dark:bg-[#2a2a3c] p-6 rounded-xl w-full max-w-3xl text-black dark:text-white">
+            <button
+              onClick={handleCloseModal}
+              className="absolute top-4 right-4 text-gray-400 hover:text-red-500"
+              aria-label="Close"
+            >
+              <X className="w-5 h-5" />
+            </button>
             <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
               <b onClick={() => window.open(videoUrl, "_blank")} className="cursor-pointer">{searchQuery}</b>
             </p>
-            <div className="flex items-center gap-4 mb-4">
+            <div className="flex flex-col md:flex-row items-start md:items-center gap-4 mb-4">
               <a href={`https://steamcommunity.com/profiles/${STEAM_ID}`} target="_blank" rel="noopener noreferrer">
-                <img src={steamAvatar} alt="Steam Avatar" className="w-14 h-14 rounded-full border cursor-pointer" />
+                <img src={steamAvatar} alt="Steam Avatar" className="w-11 h-11 rounded-full border cursor-pointer" />
               </a>
               <div className="flex flex-col">
                 <span className="font-bold">{}</span>
@@ -241,23 +253,60 @@ export default function HomePage() {
                 </a>
                 <span className="text-xs text-gray-500 dark:text-gray-400">1161 Items • 111 Reserved • 691 Delivered</span>
               </div>
-              <div className="ml-auto px-3 py-1 text-xs bg-yellow-300 text-yellow-900 font-bold rounded-full">OWNER</div>
+              <div className="ml-auto px-3 py-1 text-xs bg-yellow-300 text-yellow-900 font-bold rounded-full">
+                <a href={`https://steamcommunity.com/profiles/${STEAM_ID}`} target="_blank" rel="noopener noreferrer">
+                  OWNER
+                </a>
+              </div>
             </div>
 
             <div className="space-y-2 text-sm">
-              <Button
-                onClick={() => window.open(videoUrl, "_blank")}
-                className="mt-2 me-2 cursor-pointer">
-                Item Preview
-              </Button>
-
-              <p>✅ Wajib berteman 30 hari di steam.</p>
-              <p>✅ Selalu periksa ketersediaan item di <a href={`https://steamcommunity.com/profiles/${STEAM_ID}/inventory`} target="_blank" className="text-blue-500 underline">inventory Steam</a>.</p>
-              <p>✅ Lakukan pembayaran DP 50%/Full Payment untuk melakukan booking Item.</p>
+              <p className="flex items-start gap-1">
+                <CheckCircle className="w-4 h-4 text-green-500 mt-0.5" />
+                Wajib berteman 30 hari di 
+                <a href={`https://steamcommunity.com/profiles/${STEAM_ID}`} target="_blank" className="text-blue-500 underline">
+                  Steam.
+                </a>
+              </p>
+              <p className="flex items-start gap-1">
+                <CheckCircle className="w-4 h-4 text-green-500 mt-0.5" />
+                Selalu periksa ketersediaan item di <a href={`https://steamcommunity.com/profiles/${STEAM_ID}/inventory`} target="_blank" className="text-blue-500 underline">Inventory Steam.</a>
+              </p>
+              <p className="flex items-start gap-1">
+                <CheckCircle className="w-4 h-4 text-green-500 mt-0.5" />
+                Lakukan pembayaran DP 50%/Full Payment untuk booking 
+                <a href={`https://wa.me/6281388883983?text=${encodeURIComponent(`Halo kak, saya mau beli item "${searchQuery}", apakah itemnya masih ada? Transfernya kemana ya kak?`)}`} target="_blank" className="text-blue-500 underline">Booking Item.</a>
+              </p>
             </div>
 
             <div className="text-right mt-6">
-              <Button onClick={handleCloseModal}>Tutup</Button>
+              <Button
+                onClick={() => window.open(videoUrl, "_blank")}
+                className="mt-2 me-1 cursor-pointer"
+              >
+                <TvMinimalPlay className="w-4 h-4" />
+                Item Preview
+              </Button>
+
+              <a
+                href="https://www.facebook.com/LexyAlexaRekber/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold rounded-md me-1"
+              >
+                <Facebook className="w-4 h-4" />
+                WhatsApp
+              </a>
+
+              <a
+                href={`https://wa.me/6281388883983?text=${encodeURIComponent(`Halo kak, saya mau beli item "${searchQuery}", apakah itemnya masih ada? Transfernya kemana ya kak?`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-700 text-white text-sm font-semibold rounded-md"
+              >
+                <MessageCircle className="w-4 h-4" />
+                WhatsApp
+              </a>
             </div>
           </div>
         </div>
