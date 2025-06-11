@@ -24,6 +24,7 @@ type PriceOverride = {
   name: string
   price: number
   qty?: number
+  hero?: string
 }[]
 
 export default function HomePage() {
@@ -45,39 +46,62 @@ export default function HomePage() {
   const [steamAvatar, setSteamAvatar] = useState("");
 
   const whatsappMessage = `Halo kak, saya berminat untuk item "${searchQuery}", apakah masih tersedia?`;
-  const whatsappURL = `https://wa.me/6281388883983?text=${encodeURIComponent(whatsappMessage)}`;
 
+  // steam api direct
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const [invRes, priceRes] = await Promise.all([
+  //       fetch("/api/inventory"),
+  //       fetch("/prices.json"),
+  //     ])
 
+  //     const invData = await invRes.json()
+  //     const priceData: PriceOverride = await priceRes.json()
+
+  //     if (!invData.success) return
+
+  //     const merged: Product[] = invData.items.map((item: Product) => {
+  //       const override = priceData.find((p) => p.name === item.name)
+  //       return {
+  //         ...item,
+  //         price: override?.price ?? 0,
+  //         qty:
+  //           override?.qty !== undefined && override?.qty !== null
+  //             ? override.qty
+  //             : item.qty,
+  //       }
+  //     })
+
+  //     const filtered = merged.filter((item) => item.price > 0 && item.qty > 0)
+  //     setProducts(filtered)
+  //   }
+
+  //   fetchData()
+  // }, [])
+
+  // using latest json
   useEffect(() => {
     const fetchData = async () => {
-      const [invRes, priceRes] = await Promise.all([
-        fetch("/api/inventory"),
-        fetch("/prices.json"),
-      ])
+      const priceRes = await fetch("/prices.json");
+      const priceData: PriceOverride = await priceRes.json();
 
-      const invData = await invRes.json()
-      const priceData: PriceOverride = await priceRes.json()
+      const merged: Product[] = priceData.map((item) => ({
+        id: item.name,
+        name: item.name,
+        hero: item.hero ?? null,
+        icon: null,
+        qty: item.qty ?? 0,
+        price: item.price,
+      }));
 
-      if (!invData.success) return
+      const sorted = merged.sort((a, b) => b.price - a.price);
 
-      const merged: Product[] = invData.items.map((item: Product) => {
-        const override = priceData.find((p) => p.name === item.name)
-        return {
-          ...item,
-          price: override?.price ?? 0,
-          qty:
-            override?.qty !== undefined && override?.qty !== null
-              ? override.qty
-              : item.qty,
-        }
-      })
+      const filtered = sorted.filter((item) => item.price > 0 && item.qty > 0);
+      setProducts(filtered);
+    };
 
-      const filtered = merged.filter((item) => item.price > 0 && item.qty > 0)
-      setProducts(filtered)
-    }
-
-    fetchData()
-  }, [])
+    fetchData();
+  }, []);
 
   // Infinite Scroll Effect
   useEffect(() => {
@@ -202,7 +226,13 @@ export default function HomePage() {
                       className="w-12 h-12 object-cover rounded border border-white/10"
                     />
                   ) : (
-                    <ImageIcon className="w-12 h-12 p-2 bg-black/30 rounded flex items-center justify-center text-white/40" />
+                    <img
+                      src="/icon.png"
+                      alt={item.name}
+                      className="w-12 h-12 object-cover rounded border border-white/10"
+                    />
+                    // skeleton
+                    // <ImageIcon className="w-12 h-12 p-2 bg-black/30 rounded flex items-center justify-center text-white/40" />
                   )}
                   <div>
                     <div className="font-semibold text-sm">{item.name}</div>
@@ -295,7 +325,7 @@ export default function HomePage() {
                 className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold rounded-md me-1"
               >
                 <Facebook className="w-4 h-4" />
-                WhatsApp
+                Facebook
               </a>
 
               <a
