@@ -1,19 +1,16 @@
 import { NextResponse } from "next/server"
 import * as XLSX from "xlsx"
-import path from "path"
-import fs from "fs/promises"
+import { getInventory } from "@/lib/getInventory"
 
 export async function GET() {
   try {
-    const filePath = path.join(process.cwd(), "public", "prices.json")
-    const fileContent = await fs.readFile(filePath, "utf-8")
-    const items = JSON.parse(fileContent) 
+    const items = await getInventory()
 
     const data = items.map((item: any) => ({
       name: item.name,
-      hero: item.hero || "",
+      price: item.price || 0,
       qty: item.qty ?? null,
-      price: item.price ?? 0,
+      hero: item.hero || "",
     }))
 
     const worksheet = XLSX.utils.json_to_sheet(data)
