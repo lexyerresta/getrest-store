@@ -639,7 +639,7 @@
     "name": "Fluttering Breeze",
     "hero": "Windranger",
     "qty": 2,
-    "price": 2100000
+    "price": 1250000
   },
   {
     "name": "Foreseen Horizons",
@@ -729,7 +729,7 @@
     "name": "Seaborne Reprisal",
     "hero": "Kunkka",
     "qty": 2,
-    "price": 650000
+    "price": 675000
   },
   {
     "name": "Eternal Testament",
@@ -801,7 +801,7 @@
     "name": "Fortified Fabricator",
     "hero": "Tinker",
     "qty": 1,
-    "price": 735000
+    "price": 550000
   },
   {
     "name": "Dirgeful Overlord",

@@ -47,38 +47,6 @@ export default function HomePage() {
 
   const whatsappMessage = `Halo kak, saya berminat untuk item "${searchQuery}", apakah masih tersedia?`;
 
-  // steam api direct
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const [invRes, priceRes] = await Promise.all([
-  //       fetch("/api/inventory"),
-  //       fetch("/prices.json"),
-  //     ])
-
-  //     const invData = await invRes.json()
-  //     const priceData: PriceOverride = await priceRes.json()
-
-  //     if (!invData.success) return
-
-  //     const merged: Product[] = invData.items.map((item: Product) => {
-  //       const override = priceData.find((p) => p.name === item.name)
-  //       return {
-  //         ...item,
-  //         price: override?.price ?? 0,
-  //         qty:
-  //           override?.qty !== undefined && override?.qty !== null
-  //             ? override.qty
-  //             : item.qty,
-  //       }
-  //     })
-
-  //     const filtered = merged.filter((item) => item.price > 0 && item.qty > 0)
-  //     setProducts(filtered)
-  //   }
-
-  //   fetchData()
-  // }, [])
-
   // using latest json
   useEffect(() => {
     const fetchData = async () => {
@@ -94,7 +62,7 @@ export default function HomePage() {
         price: item.price,
       }));
 
-      const sorted = merged.sort((a, b) => b.price - a.price);
+      const sorted = merged.sort((a, b) => a.price - b.price);
 
       const filtered = sorted.filter((item) => item.price > 0 && item.qty > 0);
       setProducts(filtered);
