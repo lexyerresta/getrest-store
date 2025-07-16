@@ -808,5 +808,11 @@
     "hero": "Undying",
     "qty": 1,
     "price": 175000
+  },
+  {
+    "name": "Onikage Disciple",
+    "hero": "Phantom Assassin",
+    "qty": 7,
+    "price": 110000
   }
 ]
