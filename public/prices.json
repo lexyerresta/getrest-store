@@ -50,7 +50,7 @@
   {
     "name": "Crescent Huntress",
     "hero": "Spectre",
-    "qty": 2,
+    "qty": 1,
     "price": 175000
   },
   {
@@ -134,7 +134,7 @@
   {
     "name": "Darkbrew's Transgression",
     "hero": "Alchemist",
-    "qty": 8,
+    "qty": 7,
     "price": 40000
   },
   {
@@ -380,7 +380,7 @@
   {
     "name": "Undying Love",
     "hero": "Undying",
-    "qty": 7,
+    "qty": 6,
     "price": 75000
   },
   {
@@ -542,7 +542,7 @@
   {
     "name": "Exquisite Agonies",
     "hero": "Queen of Pain",
-    "qty": 5,
+    "qty": 4,
     "price": 55000
   },
   {
@@ -638,7 +638,7 @@
   {
     "name": "Fluttering Breeze",
     "hero": "Windranger",
-    "qty": 2,
+    "qty": 0,
     "price": 1250000
   },
   {
@@ -650,7 +650,7 @@
   {
     "name": "Designs of the Dragon",
     "hero": "Anti-Mage",
-    "qty": 7,
+    "qty": 6,
     "price": 145000
   },
   {
@@ -692,7 +692,7 @@
   {
     "name": "Verminator",
     "hero": "Bounty Hunter",
-    "qty": 7,
+    "qty": 6,
     "price": 45000
   },
   {
@@ -722,7 +722,7 @@
   {
     "name": "Meranth Dragoon",
     "hero": "Sven",
-    "qty": 2,
+    "qty": 1,
     "price": 210000
   },
   {
