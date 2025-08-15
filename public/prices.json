@@ -32,7 +32,7 @@
   {
     "name": "Tomo'kan Footsoldier",
     "hero": "Hoodwink",
-    "qty": 7,
+    "qty": 6,
     "price": 35000
   },
   {
@@ -80,7 +80,7 @@
   {
     "name": "Primeval Abomination",
     "hero": "Primal Beast",
-    "qty": 3,
+    "qty": 2,
     "price": 95000
   },
   {
@@ -290,7 +290,7 @@
   {
     "name": "Dirge Amplifier",
     "hero": "Undying",
-    "qty": 7,
+    "qty": 6,
     "price": 45000
   },
   {
