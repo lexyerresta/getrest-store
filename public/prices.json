@@ -38,13 +38,13 @@
   {
     "name": "Ancestral Heritage",
     "hero": "Jakiro",
-    "qty": 6,
+    "qty": 5,
     "price": 35000
   },
   {
     "name": "Spectral Shadow",
     "hero": "Abaddon",
-    "qty": 5,
+    "qty": 3,
     "price": 40000
   },
   {
@@ -224,7 +224,7 @@
   {
     "name": "Deathstitch Shaman",
     "hero": "Witch Doctor",
-    "qty": 7,
+    "qty": 6,
     "price": 40000
   },
   {
@@ -326,7 +326,7 @@
   {
     "name": "Starlorn Adjudicator",
     "hero": "Dawnbreaker",
-    "qty": 4,
+    "qty": 3,
     "price": 70000
   },
   {
@@ -374,7 +374,7 @@
   {
     "name": "Unchained Entropy",
     "hero": "Ancient Apparition",
-    "qty": 8,
+    "qty": 7,
     "price": 35000
   },
   {
