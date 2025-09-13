@@ -326,7 +326,7 @@
   {
     "name": "Starlorn Adjudicator",
     "hero": "Dawnbreaker",
-    "qty": 3,
+    "qty": 2,
     "price": 70000
   },
   {
@@ -344,7 +344,7 @@
   {
     "name": "Seam Ripper Snuggle Time",
     "hero": "Warlock",
-    "qty": 8,
+    "qty": 7,
     "price": 55000
   },
   {
@@ -536,7 +536,7 @@
   {
     "name": "Ancient Exile",
     "hero": "Juggernaut",
-    "qty": 1,
+    "qty": 0,
     "price": 510000
   },
   {
@@ -698,7 +698,7 @@
   {
     "name": "Velveteen Vanquisher",
     "hero": "Pudge",
-    "qty": 7,
+    "qty": 6,
     "price": 120000
   },
   {
@@ -806,7 +806,7 @@
   {
     "name": "Dirgeful Overlord",
     "hero": "Undying",
-    "qty": 1,
+    "qty": 0,
     "price": 175000
   },
   {
