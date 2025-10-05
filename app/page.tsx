@@ -62,7 +62,7 @@ export default function HomePage() {
         price: item.price,
       }));
 
-      const sorted = merged.sort((a, b) => a.price - b.price);
+      const sorted = merged.sort((a, b) => b.price - a.price);
 
       const filtered = sorted.filter((item) => item.price > 0 && item.qty > 0);
       setProducts(filtered);
