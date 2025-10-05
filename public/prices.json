@@ -2,13 +2,13 @@
   {
     "name": "Genuine Weather Snow",
     "hero": "Other",
-    "qty": 16,
+    "qty": 0,
     "price": 30000
   },
   {
     "name": "Genuine Weather Moonbeam",
     "hero": "Other",
-    "qty": 6,
+    "qty": 0,
     "price": 25000
   },
   {
@@ -32,7 +32,7 @@
   {
     "name": "Tomo'kan Footsoldier",
     "hero": "Hoodwink",
-    "qty": 6,
+    "qty": 5,
     "price": 35000
   },
   {
@@ -44,7 +44,7 @@
   {
     "name": "Spectral Shadow",
     "hero": "Abaddon",
-    "qty": 3,
+    "qty": 2,
     "price": 40000
   },
   {
@@ -104,13 +104,13 @@
   {
     "name": "Genuine Weather Aurora",
     "hero": "Other",
-    "qty": 10,
+    "qty": 0,
     "price": 18000
   },
   {
     "name": "Genuine Weather Spring",
     "hero": "Other",
-    "qty": 10,
+    "qty": 0,
     "price": 18000
   },
   {
@@ -392,7 +392,7 @@
   {
     "name": "Caprine Chimera",
     "hero": "Lion",
-    "qty": 7,
+    "qty": 6,
     "price": 55000
   },
   {
@@ -458,7 +458,7 @@
   {
     "name": "Loaded Prospects",
     "hero": "Brewmaster",
-    "qty": 9,
+    "qty": 8,
     "price": 55000
   },
   {
