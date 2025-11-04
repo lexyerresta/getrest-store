@@ -338,7 +338,7 @@
   {
     "name": "Hounds of Obsession",
     "hero": "Chen",
-    "qty": 3,
+    "qty": 2,
     "price": 55000
   },
   {
@@ -453,7 +453,7 @@
     "name": "Dread Ascendance",
     "hero": "Doom",
     "qty": 6,
-    "price": 500000
+    "price": 777000
   },
   {
     "name": "Loaded Prospects",
@@ -729,7 +729,7 @@
     "name": "Seaborne Reprisal",
     "hero": "Kunkka",
     "qty": 2,
-    "price": 675000
+    "price": 875000
   },
   {
     "name": "Eternal Testament",
