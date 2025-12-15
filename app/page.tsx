@@ -9,6 +9,7 @@ import Navbar from "@/components/ui/Navbar"
 import { useDebounce } from "@/lib/useDebounce"
 import { useTheme } from "next-themes"
 import { LiquipediaImage } from "@/components/LiquipediaImage"
+import { SteamComments } from "@/components/SteamComments"
 import Image from "next/image"
 
 type Product = {
@@ -431,12 +432,14 @@ export default function HomePage() {
               </div>
 
               <div className="flex items-center gap-3 mb-6 p-4 bg-orange-50 dark:bg-[#612E37]/30 rounded-xl border border-orange-200 dark:border-[#612E37]">
-                <a href={`https://steamcommunity.com/profiles/${STEAM_ID}`} target="_blank" rel="noopener noreferrer">
-                  <img src={steamAvatar} alt="Seller" className="w-16 h-16 rounded-full border-2 border-[#F3742B] dark:border-[#FED172]" />
-                </a>
+                {steamAvatar && (
+                  <a href={STEAM_PROFILE_URL} target="_blank" rel="noopener noreferrer">
+                    <img src={steamAvatar} alt="Seller" className="w-16 h-16 rounded-full border-2 border-[#F3742B] dark:border-[#FED172]" />
+                  </a>
+                )}
                 <div className="flex-1">
-                  <a href={`https://steamcommunity.com/profiles/${STEAM_ID}`} target="_blank" rel="noopener noreferrer" className="font-bold text-lg text-gray-900 dark:text-white hover:text-[#F3742B] dark:hover:text-[#FED172] transition-colors">
-                    {steamName}
+                  <a href={STEAM_PROFILE_URL} target="_blank" rel="noopener noreferrer" className="font-bold text-lg text-gray-900 dark:text-white hover:text-[#F3742B] dark:hover:text-[#FED172] transition-colors">
+                    {steamName || "GETREST.ID | 0813 8888 3983 (WA)"}
                   </a>
                   <p className="text-sm text-gray-600 dark:text-gray-400">1161 Items • 691 Delivered</p>
                 </div>
@@ -460,7 +463,7 @@ export default function HomePage() {
                 </p>
               </div>
 
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-3 gap-3 mb-6">
                 <Button
                   onClick={() => window.open(videoUrl, "_blank")}
                   className="h-12 bg-purple-600 hover:bg-purple-700 text-white font-semibold"
@@ -489,6 +492,9 @@ export default function HomePage() {
                   WhatsApp
                 </a>
               </div>
+
+              {/* Steam Comments Section */}
+              <SteamComments />
             </motion.div>
           </motion.div>
         )}
