@@ -11,14 +11,8 @@ const nextConfig = {
     },
     // Enable static optimization
     reactStrictMode: true,
-    // Optimize production builds
-    swcMinify: true,
     // Compress responses
     compress: true,
-    // Optimize CSS
-    experimental: {
-        optimizeCss: true,
-    },
 }
 
 module.exports = nextConfig
