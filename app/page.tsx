@@ -249,11 +249,11 @@ export default function HomePage() {
             <div className="flex items-center justify-between flex-wrap gap-2 md:gap-3">
               <div className="flex items-center gap-2 md:gap-3 flex-wrap">
                 <div className="flex items-center gap-1.5 md:gap-2 px-2 md:px-3 py-1 md:py-1.5 bg-orange-50 dark:bg-[#612E37]/30 rounded-full border border-orange-200 dark:border-[#612E37]">
-                  <ShoppingBag size={12} md:size={14} className="text-[#F3742B] dark:text-[#FED172]" />
+                  <ShoppingBag className="w-3 h-3 md:w-3.5 md:h-3.5 text-[#F3742B] dark:text-[#FED172]" />
                   <span className="text-xs md:text-sm font-semibold text-gray-700 dark:text-gray-300">{filteredAndSorted.length} Variants</span>
                 </div>
                 <div className="flex items-center gap-1.5 md:gap-2 px-2 md:px-3 py-1 md:py-1.5 bg-yellow-50 dark:bg-[#612E37]/30 rounded-full border border-yellow-200 dark:border-[#612E37]">
-                  <Package size={12} md:size={14} className="text-[#F3742B] dark:text-[#FED172]" />
+                  <Package className="w-3 h-3 md:w-3.5 md:h-3.5 text-[#F3742B] dark:text-[#FED172]" />
                   <span className="text-xs md:text-sm font-semibold text-gray-700 dark:text-gray-300">{filteredAndSorted.reduce((sum, p) => sum + p.qty, 0)} In Stock</span>
                 </div>
               </div>
@@ -444,7 +444,7 @@ export default function HomePage() {
                         {item.name}
                       </h3>
                       <p className="text-xs md:text-sm text-gray-500 dark:text-gray-400 truncate flex items-center gap-1">
-                        <Star size={10} md:size={12} className="text-yellow-500" fill="currentColor" />
+                        <Star className="w-2.5 h-2.5 md:w-3 md:h-3 text-yellow-500" fill="currentColor" />
                         {item.hero || "Dota 2"}
                       </p>
                     </div>
@@ -480,7 +480,7 @@ export default function HomePage() {
 
         {filteredAndSorted.length === 0 && !isLoading && (
           <div className="text-center py-16 md:py-20">
-            <ShoppingBag className="mx-auto mb-4 text-gray-300 dark:text-gray-600" size={48} md:size={64} />
+            <ShoppingBag className="w-12 h-12 md:w-16 md:h-16 mx-auto mb-4 text-gray-300 dark:text-gray-600" />
             <h3 className="text-xl md:text-2xl font-bold mb-2 text-gray-900 dark:text-white">No Items Found</h3>
             <p className="text-sm md:text-base text-gray-500 dark:text-gray-400">Try adjusting your search or filters</p>
           </div>
@@ -519,7 +519,7 @@ export default function HomePage() {
                   {selectedItem.name}
                 </h2>
                 <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 flex items-center gap-2">
-                  <Star size={12} md:size={14} className="text-yellow-500" fill="currentColor" />
+                  <Star className="w-3 h-3 md:w-3.5 md:h-3.5 text-yellow-500" fill="currentColor" />
                   {selectedItem.hero}
                 </p>
               </div>
