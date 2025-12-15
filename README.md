@@ -1,47 +1,229 @@
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-# getrest-store
-Catalogue for Getrest Store
-=======
->>>>>>> Stashed changes
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛍️ GetRest Store - Premium Dota 2 Marketplace
 
-## Getting Started
+> Modern, responsive e-commerce platform for trading Dota 2 items with real-time Steam integration.
 
-First, run the development server:
+![Next.js](https://img.shields.io/badge/Next.js-15.2-black)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)
+![TailwindCSS](https://img.shields.io/badge/Tailwind-4.0-06B6D4)
+![License](https://img.shields.io/badge/license-MIT-green)
+
+## ✨ Features
+
+### 🎨 Modern UI/UX
+- **Trully Color Palette** - Professional orange (#F3742B) and yellow (#FED172) theme
+- **Dark/Light Mode** - Seamless theme switching with persistent preferences
+- **Responsive Design** - Optimized for mobile, tablet, and desktop
+- **Smooth Animations** - Framer Motion for buttery transitions
+- **Clean E-commerce Layout** - Product cards with large images and clear CTAs
+
+### 🎮 Dota 2 Integration
+- **132 Item Images** - Locally cached Liquipedia cosmetic icons
+- **Hero Filtering** - Filter items by Dota 2 heroes
+- **Price Sorting** - Multiple sort options (high to low, A-Z, etc)
+- **Real-time Stock** - Dynamic inventory tracking
+
+### 💬 Steam Comments
+- **Live Testimonials** - Scrapes real comments from Steam profile
+- **Floating Panel** - Slide-in comments viewer with infinite scroll
+- **Daily Updates** - Automated scraping via scheduled task
+- **50+ Reviews** - Genuine customer feedback displayed
+
+### 🔍 Advanced Filtering
+- **Search** - Debounced search by item name or hero
+- **Hero Filter** - Dropdown with all Dota 2 heroes
+- **Price Ranges** - Quick filters (< 50K, 50K-200K, etc)
+- **Sort Options** - Price and alphabetical sorting
+
+### ⚡ Performance
+- **Image Caching** - All images stored locally (no CORS issues)
+- **Optimized API** - Reads from cached JSON (no scraping per request)
+- **Infinite Scroll** - Lazy loading for better performance
+- **Fast Navigation** - Next.js App Router with Turbopack
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Node.js 20.11.0 or higher
+- npm 10.2.4 or higher
+
+### Installation
 
 ```bash
+# Clone the repository
+git clone https://github.com/yourusername/getrest-store.git
+cd getrest-store
+
+# Install dependencies
+npm install
+
+# Run Steam comments scraper (first time)
+npm run scrape-comments
+
+# Start development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the store.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📁 Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+getrest-store/
+├── app/
+│   ├── api/
+│   │   ├── steam-comments/     # Steam comments API
+│   │   ├── steam-profile/      # Steam profile data
+│   │   ├── inventory/          # Inventory management
+│   │   ├── download-template/  # Template downloads
+│   │   └── update-prices/      # Price updates
+│   ├── globals.css             # Global styles
+│   ├── layout.tsx              # Root layout
+│   └── page.tsx                # Main store page
+├── components/
+│   ├── ui/                     # Radix UI components
+│   ├── LiquipediaImage.tsx     # Image loader component
+│   └── SteamComments.tsx       # Comments panel component
+├── scripts/
+│   ├── scrape-steam-comments.js  # Steam scraper
+│   ├── download-images.js        # Image downloader
+│   └── scrape-from-wiki.js       # Wiki scraper
+├── public/
+│   ├── items/                  # 132 cached item images
+│   ├── steam-comments.json     # Cached comments
+│   ├── item-images.json        # Image mappings
+│   └── prices.json             # Product data
+└── README.md
+```
 
-## Learn More
+## 🛠️ Scripts
 
-To learn more about Next.js, take a look at the following resources:
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server with Turbopack |
+| `npm run build` | Build for production |
+| `npm run start` | Start production server |
+| `npm run lint` | Run ESLint |
+| `npm run scrape-comments` | Scrape Steam comments (run daily) |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📊 Data Management
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Product Data (`public/prices.json`)
+```json
+[
+  {
+    "name": "Item Name",
+    "hero": "Hero Name",
+    "qty": 5,
+    "price": 250000
+  }
+]
+```
 
-## Deploy on Vercel
+### Steam Comments
+Comments are scraped from Steam profile and cached in `public/steam-comments.json`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**Automated Scraping:**
+Set up a daily cron job (6 AM recommended):
+```bash
+# Windows Task Scheduler
+# Or Linux crontab:
+0 6 * * * cd /path/to/getrest-store && npm run scrape-comments
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-<<<<<<< Updated upstream
-=======
->>>>>>> 6ae5081 (Initial commit)
->>>>>>> Stashed changes
+### Item Images
+- **Stored in:** `public/items/`
+- **Mapping:** `public/item-images.json`
+- **Total:** 132 images (96% coverage)
+- **Fallback:** `/icon.png` for missing images
+
+## 🎨 Customization
+
+### Theme Colors
+Edit `app/globals.css` to change color scheme:
+```css
+:root {
+  --orange: #F3742B;    /* Primary CTA */
+  --yellow: #FED172;    /* Accents */
+  --navy: #231650;      /* Dark mode bg */
+}
+```
+
+### Steam Profile
+Update Steam ID in `app/page.tsx`:
+```typescript
+const STEAM_ID = "76561198329596689"
+const STEAM_PROFILE_URL = `https://steamcommunity.com/profiles/${STEAM_ID}`
+```
+
+## 🔧 Tech Stack
+
+- **Framework:** Next.js 15.2 (App Router)
+- **Language:** TypeScript 5.0
+- **Styling:** TailwindCSS 4.0
+- **UI Components:** Radix UI
+- **Animations:** Framer Motion
+- **Icons:** Lucide React
+- **Scraping:** Puppeteer + Cheerio
+- **Image Processing:** Next/Image
+
+## 📱 Features Breakdown
+
+### 1. Product Catalog
+- Grid layout (1/2/3 columns responsive)
+- Large product images with hover zoom
+- Price display in IDR format
+- Stock indicators
+- "Buy Now" CTAs
+
+### 2. Filtering System
+- Hero dropdown (alphabetically sorted)
+- Price range quick filters
+- Search with debounce (300ms)
+- Sort options (price, name)
+
+### 3. Steam Integration
+- Profile link in header
+- Comments floating button
+- Real testimonials from Steam
+- Avatar and username display
+
+### 4. Modal System
+- Product details
+- Seller verification
+- Contact buttons (Preview, Facebook, WhatsApp)
+- Steam inventory link
+
+## 🐛 Known Issues
+
+- Steam comments scraper currently gets 50 comments (Steam pagination limitation)
+- Some items may have fallback icons if not found on Liquipedia
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👤 Author
+
+**GetRest Store**
+- Steam: [GetRestSTORE](https://steamcommunity.com/id/GetRestSTORE/)
+- WhatsApp: +62 813-8888-3983
+- Facebook: [LexyAlexaRekber](https://www.facebook.com/LexyAlexaRekber/)
+
+## 🙏 Acknowledgments
+
+- [Liquipedia](https://liquipedia.net/dota2/) for item images
+- [Dota 2 Wiki](https://dota2.fandom.com/) for additional assets
+- [Trully](https://trully.ai/) for color palette inspiration
+- Steam Community for testimonials
+
+---
+
+⭐ **Star this repo if you found it helpful!**
