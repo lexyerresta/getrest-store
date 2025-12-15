@@ -1,8 +1,12 @@
 import { NextResponse } from 'next/server'
 import * as cheerio from 'cheerio'
 
-export async function GET() {
+export async function GET(request: Request) {
     try {
+        const { searchParams } = new URL(request.url)
+        const page = parseInt(searchParams.get('page') || '1')
+        const limit = parseInt(searchParams.get('limit') || '20')
+
         const steamProfileUrl = 'https://steamcommunity.com/id/GetRestSTORE/allcomments'
 
         const response = await fetch(steamProfileUrl, {
@@ -18,12 +22,10 @@ export async function GET() {
         const html = await response.text()
         const $ = cheerio.load(html)
 
-        const comments: any[] = []
+        const allComments: any[] = []
 
-        // Parse Steam comments
+        // Parse all Steam comments
         $('.commentthread_comment').each((index, element) => {
-            if (index >= 10) return false // Limit to 10 comments
-
             const $comment = $(element)
 
             const author = $comment.find('.commentthread_author_link').text().trim()
@@ -58,7 +60,7 @@ export async function GET() {
             }
 
             if (author && commentText) {
-                comments.push({
+                allComments.push({
                     author,
                     avatar,
                     comment: commentText,
@@ -67,10 +69,21 @@ export async function GET() {
             }
         })
 
+        // Pagination
+        const startIndex = (page - 1) * limit
+        const endIndex = startIndex + limit
+        const paginatedComments = allComments.slice(startIndex, endIndex)
+        const hasMore = endIndex < allComments.length
+
         return NextResponse.json({
             success: true,
-            comments,
-            total: comments.length
+            comments: paginatedComments,
+            pagination: {
+                page,
+                limit,
+                total: allComments.length,
+                hasMore
+            }
         })
 
     } catch (error) {
