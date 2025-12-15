@@ -337,7 +337,8 @@ export default function HomePage() {
                   <div className="relative h-48 bg-gradient-to-br from-orange-50 to-yellow-50 dark:from-[#231650] dark:to-[#612E37] overflow-hidden">
                     <LiquipediaImage
                       itemName={item.name}
-                      className="w-full h-full object-contain p-4 group-hover:scale-110 transition-transform duration-300"
+                      className="p-4 group-hover:scale-110 transition-transform duration-300"
+                      priority={index < 6}
                     />
                     <div className="absolute top-3 right-3 px-2 py-1 bg-white/90 dark:bg-[#231650]/90 backdrop-blur rounded-full border border-orange-200 dark:border-[#612E37]">
                       <span className="text-xs font-bold text-[#F3742B] dark:text-[#FED172]">{item.qty} left</span>
