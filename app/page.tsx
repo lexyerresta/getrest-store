@@ -230,7 +230,7 @@ export default function HomePage() {
                 </div>
                 <div className="flex items-center gap-2 px-3 py-1.5 bg-yellow-50 dark:bg-[#612E37]/30 rounded-full border border-yellow-200 dark:border-[#612E37]">
                   <Package size={14} className="text-[#F3742B] dark:text-[#FED172]" />
-                  <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">{products.reduce((sum, p) => sum + p.qty, 0)} In Stock</span>
+                  <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">{filteredAndSorted.reduce((sum, p) => sum + p.qty, 0)} In Stock</span>
                 </div>
               </div>
 
