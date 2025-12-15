@@ -463,7 +463,7 @@ export default function HomePage() {
                 </p>
               </div>
 
-              <div className="grid grid-cols-3 gap-3 mb-6">
+              <div className="grid grid-cols-3 gap-3">
                 <Button
                   onClick={() => window.open(videoUrl, "_blank")}
                   className="h-12 bg-purple-600 hover:bg-purple-700 text-white font-semibold"
@@ -492,13 +492,13 @@ export default function HomePage() {
                   WhatsApp
                 </a>
               </div>
-
-              {/* Steam Comments Section */}
-              <SteamComments />
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Steam Comments Floating Button */}
+      <SteamComments />
     </div>
   )
 }
