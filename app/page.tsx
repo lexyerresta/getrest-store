@@ -44,8 +44,10 @@ export default function HomePage() {
 
   const [sortBy, setSortBy] = useState<SortOption>("price-high")
   const [priceRange, setPriceRange] = useState<[number, number]>([0, Infinity])
+  const [selectedHero, setSelectedHero] = useState<string>("all")
 
   const STEAM_ID = "76561198329596689"
+  const STEAM_PROFILE_URL = `https://steamcommunity.com/profiles/${STEAM_ID}`
   const API_URL = `/api/steam-profile?steamId=${STEAM_ID}`
 
   const [steamName, setSteamName] = useState("")
@@ -108,12 +110,16 @@ export default function HomePage() {
     fetchSteamProfile()
   }, [])
 
+  // Get unique heroes
+  const uniqueHeroes = Array.from(new Set(products.map(p => p.hero).filter(Boolean))).sort()
+
   // Filter & Sort
   const filteredAndSorted = products
     .filter((p) =>
       (p.name.toLowerCase().includes(debouncedQuery.toLowerCase()) ||
         p.hero?.toLowerCase().includes(debouncedQuery.toLowerCase())) &&
-      p.price >= priceRange[0] && p.price <= priceRange[1]
+      p.price >= priceRange[0] && p.price <= priceRange[1] &&
+      (selectedHero === "all" || p.hero === selectedHero)
     )
     .sort((a, b) => {
       switch (sortBy) {
@@ -183,7 +189,16 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2 md:gap-3">
+                <a
+                  href={STEAM_PROFILE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hidden sm:flex items-center gap-2 px-3 py-2 bg-gradient-to-r from-[#F3742B] to-[#B83A14] hover:from-[#B83A14] hover:to-[#F3742B] text-white rounded-lg text-sm font-semibold transition-all shadow-lg shadow-orange-500/30"
+                >
+                  <Package size={16} />
+                  <span>My Steam</span>
+                </a>
                 <button
                   onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                   className="p-2 rounded-lg bg-orange-100 dark:bg-[#612E37] hover:bg-orange-200 dark:hover:bg-[#612E37]/80 transition-colors"
@@ -207,19 +222,46 @@ export default function HomePage() {
             </div>
 
             {/* Stats & Filters */}
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-4">
+            <div className="flex items-center justify-between flex-wrap gap-3">
+              <div className="flex items-center gap-2 md:gap-4">
                 <div className="flex items-center gap-2 px-3 py-1.5 bg-orange-50 dark:bg-[#612E37]/30 rounded-full border border-orange-200 dark:border-[#612E37]">
                   <ShoppingBag size={14} className="text-[#F3742B] dark:text-[#FED172]" />
-                  <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">{filteredAndSorted.length} Items</span>
+                  <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">{filteredAndSorted.length} Variants</span>
                 </div>
-                <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 bg-yellow-50 dark:bg-[#612E37]/30 rounded-full border border-yellow-200 dark:border-[#612E37]">
+                <div className="flex items-center gap-2 px-3 py-1.5 bg-yellow-50 dark:bg-[#612E37]/30 rounded-full border border-yellow-200 dark:border-[#612E37]">
                   <Package size={14} className="text-[#F3742B] dark:text-[#FED172]" />
                   <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">{products.reduce((sum, p) => sum + p.qty, 0)} In Stock</span>
                 </div>
               </div>
 
               <div className="flex items-center gap-2">
+                {/* Hero Filter */}
+                <div className="relative group">
+                  <button className="flex items-center gap-2 px-3 py-2 bg-white dark:bg-[#612E37] hover:bg-orange-50 dark:hover:bg-[#612E37]/80 border border-orange-200 dark:border-[#612E37] rounded-lg text-sm font-medium text-gray-700 dark:text-gray-200 transition-colors">
+                    <Star size={14} />
+                    <span className="hidden sm:inline">Hero</span>
+                  </button>
+                  <div className="absolute top-full mt-2 right-0 w-52 max-h-96 overflow-y-auto bg-white dark:bg-[#2a1f5e] rounded-lg shadow-xl border border-orange-200 dark:border-[#612E37] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-10">
+                    <button
+                      onClick={() => setSelectedHero("all")}
+                      className={`w-full text-left px-4 py-2.5 text-sm hover:bg-orange-50 dark:hover:bg-[#612E37]/50 transition-colors first:rounded-t-lg ${selectedHero === "all" ? "bg-orange-100 dark:bg-[#612E37] text-[#F3742B] dark:text-[#FED172] font-semibold" : "text-gray-700 dark:text-gray-300"
+                        }`}
+                    >
+                      All Heroes
+                    </button>
+                    {uniqueHeroes.map((hero) => (
+                      <button
+                        key={hero}
+                        onClick={() => setSelectedHero(hero as string)}
+                        className={`w-full text-left px-4 py-2.5 text-sm hover:bg-orange-50 dark:hover:bg-[#612E37]/50 transition-colors last:rounded-b-lg ${selectedHero === hero ? "bg-orange-100 dark:bg-[#612E37] text-[#F3742B] dark:text-[#FED172] font-semibold" : "text-gray-700 dark:text-gray-300"
+                          }`}
+                      >
+                        {hero}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
                 {/* Sort */}
                 <div className="relative group">
                   <button className="flex items-center gap-2 px-3 py-2 bg-white dark:bg-[#612E37] hover:bg-orange-50 dark:hover:bg-[#612E37]/80 border border-orange-200 dark:border-[#612E37] rounded-lg text-sm font-medium text-gray-700 dark:text-gray-200 transition-colors">
@@ -249,7 +291,7 @@ export default function HomePage() {
                 <div className="relative group">
                   <button className="flex items-center gap-2 px-3 py-2 bg-white dark:bg-[#612E37] hover:bg-orange-50 dark:hover:bg-[#612E37]/80 border border-orange-200 dark:border-[#612E37] rounded-lg text-sm font-medium text-gray-700 dark:text-gray-200 transition-colors">
                     <Filter size={14} />
-                    <span className="hidden sm:inline">Filter</span>
+                    <span className="hidden sm:inline">Price</span>
                   </button>
                   <div className="absolute top-full mt-2 right-0 w-44 bg-white dark:bg-[#2a1f5e] rounded-lg shadow-xl border border-orange-200 dark:border-[#612E37] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-10">
                     {priceRanges.map((range) => (
