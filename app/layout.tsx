@@ -14,8 +14,13 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "GetRest Store",
-  description: "Dota 2 Inventory Viewer & Gifting Store",
+  title: "GetRest Store - Premium Dota 2 Marketplace",
+  description: "Premium Dota 2 items marketplace. 132+ rare cosmetics, verified seller, 30-day trading.",
+  icons: {
+    icon: "/logo-getrest.jpg",
+    shortcut: "/logo-getrest.jpg",
+    apple: "/logo-getrest.jpg",
+  },
 }
 
 export default function RootLayout({

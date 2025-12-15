@@ -10,6 +10,8 @@ import { useDebounce } from "@/lib/useDebounce"
 import { useTheme } from "next-themes"
 import { LiquipediaImage } from "@/components/LiquipediaImage"
 import { SteamComments } from "@/components/SteamComments"
+import { TestMyLuck } from "@/components/TestMyLuck"
+import { WelcomePopup } from "@/components/WelcomePopup"
 import Image from "next/image"
 
 type Product = {
@@ -246,19 +248,21 @@ export default function HomePage() {
             </div>
 
             {/* Stats & Filters */}
-            <div className="flex items-center justify-between flex-wrap gap-2 md:gap-3">
-              <div className="flex items-center gap-2 md:gap-3 flex-wrap">
-                <div className="flex items-center gap-1.5 md:gap-2 px-2 md:px-3 py-1 md:py-1.5 bg-orange-50 dark:bg-[#612E37]/30 rounded-full border border-orange-200 dark:border-[#612E37]">
-                  <ShoppingBag className="w-3 h-3 md:w-3.5 md:h-3.5 text-[#F3742B] dark:text-[#FED172]" />
-                  <span className="text-xs md:text-sm font-semibold text-gray-700 dark:text-gray-300">{filteredAndSorted.length} Variants</span>
+            <div className="flex items-center justify-between flex-wrap gap-3">
+              {/* Stats Badges */}
+              <div className="flex items-center gap-2.5 flex-wrap">
+                <div className="flex items-center gap-2 px-3 py-2 bg-gradient-to-r from-orange-50 to-orange-100 dark:from-[#612E37]/30 dark:to-[#612E37]/20 rounded-full border border-orange-300 dark:border-[#612E37] shadow-sm">
+                  <ShoppingBag className="w-4 h-4 text-[#F3742B] dark:text-[#FED172] flex-shrink-0" />
+                  <span className="text-sm font-bold text-gray-800 dark:text-gray-200">{filteredAndSorted.length} Variants</span>
                 </div>
-                <div className="flex items-center gap-1.5 md:gap-2 px-2 md:px-3 py-1 md:py-1.5 bg-yellow-50 dark:bg-[#612E37]/30 rounded-full border border-yellow-200 dark:border-[#612E37]">
-                  <Package className="w-3 h-3 md:w-3.5 md:h-3.5 text-[#F3742B] dark:text-[#FED172]" />
-                  <span className="text-xs md:text-sm font-semibold text-gray-700 dark:text-gray-300">{filteredAndSorted.reduce((sum, p) => sum + p.qty, 0)} In Stock</span>
+                <div className="flex items-center gap-2 px-3 py-2 bg-gradient-to-r from-yellow-50 to-amber-100 dark:from-[#612E37]/30 dark:to-[#612E37]/20 rounded-full border border-yellow-300 dark:border-[#612E37] shadow-sm">
+                  <Package className="w-4 h-4 text-[#F3742B] dark:text-[#FED172] flex-shrink-0" />
+                  <span className="text-sm font-bold text-gray-800 dark:text-gray-200">{filteredAndSorted.reduce((sum, p) => sum + p.qty, 0)} In Stock</span>
                 </div>
               </div>
 
-              <div className="flex items-center gap-2">
+              {/* Filter Buttons - Right side */}
+              <div className="flex items-center gap-2 flex-wrap">
                 {/* Hero Filter */}
                 <div className="relative">
                   <button
@@ -268,44 +272,55 @@ export default function HomePage() {
                       setIsSortDropdownOpen(false)
                       setIsPriceDropdownOpen(false)
                     }}
-                    className="flex items-center gap-1.5 md:gap-2 px-2.5 md:px-3 py-1.5 md:py-2 bg-white dark:bg-[#612E37] hover:bg-orange-50 dark:hover:bg-[#612E37]/80 active:scale-95 border border-orange-200 dark:border-[#612E37] rounded-lg text-xs md:text-sm font-medium text-gray-700 dark:text-gray-200 transition-all touch-manipulation"
+                    className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold shadow-md transition-all touch-manipulation ${selectedHero !== "all" || isHeroDropdownOpen
+                      ? 'bg-gradient-to-r from-orange-500 to-amber-500 text-white scale-105 shadow-lg'
+                      : 'bg-white dark:bg-[#2a1f5e] text-gray-800 dark:text-gray-200 hover:shadow-lg active:scale-95 border-2 border-orange-200 dark:border-[#612E37]'
+                      }`}
                   >
-                    <Star size={14} />
-                    <span className="hidden sm:inline">Hero</span>
-                    <ChevronDown size={14} className={`transition-transform ${isHeroDropdownOpen ? 'rotate-180' : ''}`} />
+                    <Star className="w-4 h-4" fill={selectedHero !== "all" || isHeroDropdownOpen ? "currentColor" : "none"} />
+                    <span>{selectedHero === "all" ? "Hero" : selectedHero}</span>
+                    <ChevronDown className={`w-4 h-4 transition-transform flex-shrink-0 ${isHeroDropdownOpen ? 'rotate-180' : ''}`} />
                   </button>
                   <AnimatePresence>
                     {isHeroDropdownOpen && (
                       <motion.div
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10 }}
+                        initial={{ opacity: 0, scale: 0.95, y: -10 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        exit={{ opacity: 0, scale: 0.95, y: -10 }}
                         onClick={(e) => e.stopPropagation()}
-                        className="absolute top-full mt-2 right-0 w-52 max-h-80 md:max-h-96 overflow-y-auto bg-white dark:bg-[#2a1f5e] rounded-lg shadow-2xl border-2 border-orange-200 dark:border-[#612E37] z-20"
+                        className="absolute top-full mt-2 right-0 w-64 max-h-96 overflow-y-auto bg-white dark:bg-[#231650] rounded-2xl shadow-2xl border-2 border-orange-300 dark:border-[#612E37] z-20"
                       >
-                        <button
-                          onClick={() => {
-                            setSelectedHero("all")
-                            setIsHeroDropdownOpen(false)
-                          }}
-                          className={`w-full text-left px-4 py-3 text-sm hover:bg-orange-50 dar k:hover:bg-[#612E37]/50 transition-colors first:rounded-t-lg touch-manipulation ${selectedHero === "all" ? "bg-orange-100 dark:bg-[#612E37] text-[#F3742B] dark:text-[#FED172] font-semibold" : "text-gray-700 dark:text-gray-300"
-                            }`}
-                        >
-                          All Heroes
-                        </button>
-                        {uniqueHeroes.map((hero) => (
+                        <div className="p-2">
                           <button
-                            key={hero}
                             onClick={() => {
-                              setSelectedHero(hero as string)
+                              setSelectedHero("all")
                               setIsHeroDropdownOpen(false)
                             }}
-                            className={`w-full text-left px-4 py-3 text-sm hover:bg-orange-50 dark:hover:bg-[#612E37]/50 transition-colors last:rounded-b-lg touch-manipulation ${selectedHero === hero ? "bg-orange-100 dark:bg-[#612E37] text-[#F3742B] dark:text-[#FED172] font-semibold" : "text-gray-700 dark:text-gray-300"
+                            className={`w-full text-left px-4 py-3 rounded-xl text-sm font-semibold transition-all touch-manipulation flex items-center gap-2 ${selectedHero === "all"
+                              ? "bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-md"
+                              : "text-gray-700 dark:text-gray-300 hover:bg-orange-50 dark:hover:bg-[#612E37]/50"
                               }`}
                           >
-                            {hero}
+                            <Star className="w-4 h-4" fill={selectedHero === "all" ? "currentColor" : "none"} />
+                            All Heroes
                           </button>
-                        ))}
+                          {uniqueHeroes.map((hero) => (
+                            <button
+                              key={hero}
+                              onClick={() => {
+                                setSelectedHero(hero as string)
+                                setIsHeroDropdownOpen(false)
+                              }}
+                              className={`w-full text-left px-4 py-3 rounded-xl text-sm font-semibold transition-all touch-manipulation mt-1 flex items-center gap-2 ${selectedHero === hero
+                                ? "bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-md"
+                                : "text-gray-700 dark:text-gray-300 hover:bg-orange-50 dark:hover:bg-[#612E37]/50"
+                                }`}
+                            >
+                              <Star className="w-4 h-4" fill={selectedHero === hero ? "currentColor" : "none"} />
+                              {hero}
+                            </button>
+                          ))}
+                        </div>
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -320,39 +335,50 @@ export default function HomePage() {
                       setIsHeroDropdownOpen(false)
                       setIsPriceDropdownOpen(false)
                     }}
-                    className="flex items-center gap-1.5 md:gap-2 px-2.5 md:px-3 py-1.5 md:py-2 bg-white dark:bg-[#612E37] hover:bg-orange-50 dark:hover:bg-[#612E37]/80 active:scale-95 border border-orange-200 dark:border-[#612E37] rounded-lg text-xs md:text-sm font-medium text-gray-700 dark:text-gray-200 transition-all touch-manipulation"
+                    className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold shadow-md transition-all touch-manipulation ${isSortDropdownOpen
+                      ? 'bg-gradient-to-r from-orange-500 to-amber-500 text-white scale-105 shadow-lg'
+                      : 'bg-white dark:bg-[#2a1f5e] text-gray-800 dark:text-gray-200 hover:shadow-lg active:scale-95 border-2 border-orange-200 dark:border-[#612E37]'
+                      }`}
                   >
-                    <SortAsc size={14} />
-                    <span className="hidden sm:inline">Sort</span>
-                    <ChevronDown size={14} className={`transition-transform ${isSortDropdownOpen ? 'rotate-180' : ''}`} />
+                    <SortAsc className="w-4 h-4" />
+                    <span className="hidden sm:inline">
+                      {sortBy === "price-high" ? "↓ High" : sortBy === "price-low" ? "↑ Low" : sortBy === "name-asc" ? "A→Z" : "Z→A"}
+                    </span>
+                    <span className="sm:hidden">Sort</span>
+                    <ChevronDown className={`w-4 h-4 transition-transform flex-shrink-0 ${isSortDropdownOpen ? 'rotate-180' : ''}`} />
                   </button>
                   <AnimatePresence>
                     {isSortDropdownOpen && (
                       <motion.div
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10 }}
+                        initial={{ opacity: 0, scale: 0.95, y: -10 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        exit={{ opacity: 0, scale: 0.95, y: -10 }}
                         onClick={(e) => e.stopPropagation()}
-                        className="absolute top-full mt-2 right-0 w-48 bg-white dark:bg-[#2a1f5e] rounded-lg shadow-2xl border-2 border-orange-200 dark:border-[#612E37] z-20"
+                        className="absolute top-full mt-2 right-0 w-56 bg-white dark:bg-[#231650] rounded-2xl shadow-2xl border-2 border-orange-300 dark:border-[#612E37] z-20"
                       >
-                        {[
-                          { value: "price-high", label: "Price: High to Low" },
-                          { value: "price-low", label: "Price: Low to High" },
-                          { value: "name-asc", label: "Name: A to Z" },
-                          { value: "name-desc", label: "Name: Z to A" },
-                        ].map((option) => (
-                          <button
-                            key={option.value}
-                            onClick={() => {
-                              setSortBy(option.value as SortOption)
-                              setIsSortDropdownOpen(false)
-                            }}
-                            className={`w-full text-left px-4 py-3 text-sm hover:bg-orange-50 dark:hover:bg-[#612E37]/50 transition-colors first:rounded-t-lg last:rounded-b-lg touch-manipulation ${sortBy === option.value ? "bg-orange-100 dark:bg-[#612E37] text-[#F3742B] dark:text-[#FED172] font-semibold" : "text-gray-700 dark:text-gray-300"
-                              }`}
-                          >
-                            {option.label}
-                          </button>
-                        ))}
+                        <div className="p-2">
+                          {[
+                            { value: "price-high", label: "Price: High to Low", icon: "↓" },
+                            { value: "price-low", label: "Price: Low to High", icon: "↑" },
+                            { value: "name-asc", label: "Name: A to Z", icon: "A→Z" },
+                            { value: "name-desc", label: "Name: Z to A", icon: "Z→A" },
+                          ].map((option) => (
+                            <button
+                              key={option.value}
+                              onClick={() => {
+                                setSortBy(option.value as SortOption)
+                                setIsSortDropdownOpen(false)
+                              }}
+                              className={`w-full text-left px-4 py-3 rounded-xl text-sm font-semibold transition-all touch-manipulation mt-1 first:mt-0 flex items-center gap-3 ${sortBy === option.value
+                                ? "bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-md"
+                                : "text-gray-700 dark:text-gray-300 hover:bg-orange-50 dark:hover:bg-[#612E37]/50"
+                                }`}
+                            >
+                              <span className="text-base">{option.icon}</span>
+                              {option.label}
+                            </button>
+                          ))}
+                        </div>
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -367,34 +393,41 @@ export default function HomePage() {
                       setIsHeroDropdownOpen(false)
                       setIsSortDropdownOpen(false)
                     }}
-                    className="flex items-center gap-1.5 md:gap-2 px-2.5 md:px-3 py-1.5 md:py-2 bg-white dark:bg-[#612E37] hover:bg-orange-50 dark:hover:bg-[#612E37]/80 active:scale-95 border border-orange-200 dark:border-[#612E37] rounded-lg text-xs md:text-sm font-medium text-gray-700 dark:text-gray-200 transition-all touch-manipulation"
+                    className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold shadow-md transition-all touch-manipulation ${isPriceDropdownOpen
+                      ? 'bg-gradient-to-r from-orange-500 to-amber-500 text-white scale-105 shadow-lg'
+                      : 'bg-white dark:bg-[#2a1f5e] text-gray-800 dark:text-gray-200 hover:shadow-lg active:scale-95 border-2 border-orange-200 dark:border-[#612E37]'
+                      }`}
                   >
-                    <Filter size={14} />
-                    <span className="hidden sm:inline">Price</span>
-                    <ChevronDown size={14} className={`transition-transform ${isPriceDropdownOpen ? 'rotate-180' : ''}`} />
+                    <Filter className="w-4 h-4" />
+                    <span>Price</span>
+                    <ChevronDown className={`w-4 h-4 transition-transform ${isPriceDropdownOpen ? 'rotate-180' : ''}`} />
                   </button>
                   <AnimatePresence>
                     {isPriceDropdownOpen && (
                       <motion.div
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10 }}
+                        initial={{ opacity: 0, scale: 0.95, y: -10 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        exit={{ opacity: 0, scale: 0.95, y: -10 }}
                         onClick={(e) => e.stopPropagation()}
-                        className="absolute top-full mt-2 right-0 w-44 bg-white dark:bg-[#2a1f5e] rounded-lg shadow-2xl border-2 border-orange-200 dark:border-[#612E37] z-20"
+                        className="absolute top-full mt-2 right-0 w-52 bg-white dark:bg-[#231650] rounded-2xl shadow-2xl border-2 border-orange-300 dark:border-[#612E37] z-20"
                       >
-                        {priceRanges.map((range) => (
-                          <button
-                            key={range.label}
-                            onClick={() => {
-                              setPriceRange([range.min, range.max])
-                              setIsPriceDropdownOpen(false)
-                            }}
-                            className={`w-full text-left px-4 py-3 text-sm hover:bg-orange-50 dark:hover:bg-[#612E37]/50 transition-colors first:rounded-t-lg last:rounded-b-lg touch-manipulation ${priceRange[0] === range.min && priceRange[1] === range.max ? "bg-orange-100 dark:bg-[#612E37] text-[#F3742B] dark:text-[#FED172] font-semibold" : "text-gray-700 dark:text-gray-300"
-                              }`}
-                          >
-                            {range.label}
-                          </button>
-                        ))}
+                        <div className="p-2">
+                          {priceRanges.map((range) => (
+                            <button
+                              key={range.label}
+                              onClick={() => {
+                                setPriceRange([range.min, range.max])
+                                setIsPriceDropdownOpen(false)
+                              }}
+                              className={`w-full text-left px-4 py-3 rounded-xl text-sm font-semibold transition-all touch-manipulation mt-1 first:mt-0 ${priceRange[0] === range.min && priceRange[1] === range.max
+                                ? "bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-md"
+                                : "text-gray-700 dark:text-gray-300 hover:bg-orange-50 dark:hover:bg-[#612E37]/50"
+                                }`}
+                            >
+                              {range.label}
+                            </button>
+                          ))}
+                        </div>
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -578,7 +611,7 @@ export default function HomePage() {
                 </a>
 
                 <a
-                  href={`https://wa.me/6281388883983?text=${encodeURIComponent(`Hi! I want to buy "${selectedItem.name}"`)}`}
+                  href={`https://wa.me/6281388883983?text=${encodeURIComponent(`Halo! Saya mau beli "${selectedItem.name}" dari GetRest Store. Apakah masih tersedia?`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="h-10 md:h-12 inline-flex items-center justify-center gap-1 md:gap-2 px-2 md:px-4 py-2 bg-green-600 hover:bg-green-700 active:scale-95 text-white font-semibold rounded-lg transition-all text-xs md:text-sm touch-manipulation"
@@ -592,6 +625,12 @@ export default function HomePage() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Welcome Special Deal Popup */}
+      <WelcomePopup products={products} onSelectProduct={handleCardClick} />
+
+      {/* Test My Luck Gacha */}
+      <TestMyLuck products={products} onItemSelected={handleCardClick} />
 
       {/* Steam Comments Floating Button */}
       <SteamComments />
