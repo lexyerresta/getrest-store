@@ -4,7 +4,7 @@ import { useEffect, useState, useRef } from "react"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { motion, AnimatePresence } from "framer-motion"
-import { CheckCircle, Facebook, MessageCircle, Search, TvMinimalPlay, X, Filter, SortAsc, Zap, Package, TrendingUp, Star } from "lucide-react"
+import { CheckCircle, Facebook, MessageCircle, Search, TvMinimalPlay, X, Filter, SortAsc, ShoppingBag, Package, Sun, Moon, Star, ExternalLink } from "lucide-react"
 import Navbar from "@/components/ui/Navbar"
 import { useDebounce } from "@/lib/useDebounce"
 import { useTheme } from "next-themes"
@@ -33,7 +33,7 @@ export default function HomePage() {
   const [products, setProducts] = useState<Product[]>([])
   const [query, setQuery] = useState("")
   const debouncedQuery = useDebounce(query, 300)
-  const { theme } = useTheme()
+  const { theme, setTheme } = useTheme()
   const [visibleCount, setVisibleCount] = useState(50)
   const loadMoreRef = useRef<HTMLDivElement | null>(null)
   const [isLoading, setIsLoading] = useState(true)
@@ -151,11 +151,11 @@ export default function HomePage() {
   }
 
   const priceRanges = [
-    { label: "All Items", min: 0, max: Infinity },
-    { label: "< 50K", min: 0, max: 50000 },
+    { label: "All Prices", min: 0, max: Infinity },
+    { label: "Under 50K", min: 0, max: 50000 },
     { label: "50K - 200K", min: 50000, max: 200000 },
     { label: "200K - 500K", min: 200000, max: 500000 },
-    { label: "> 500K", min: 500000, max: Infinity },
+    { label: "Above 500K", min: 500000, max: Infinity },
   ]
 
   const getLiquipediaUrl = (itemName: string) => {
@@ -164,99 +164,79 @@ export default function HomePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0a0e27] via-[#1a1f3a] to-[#0a0e27] text-white font-sans relative overflow-x-hidden">
-      {/* Animated Background */}
-      <div className="fixed inset-0 opacity-20 pointer-events-none">
-        <div className="absolute top-0 -left-4 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
-        <div className="absolute top-0 -right-4 w-72 h-72 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
-        <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
-      </div>
-
+    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-yellow-50 dark:from-[#231650] dark:via-[#2a1f5e] dark:to-[#231650] transition-colors duration-300">
       {/* Header */}
       {mounted && (
-        <header className="relative z-40 border-b border-cyan-500/20 backdrop-blur-xl bg-[#0a0e27]/80">
+        <header className="sticky top-0 z-40 bg-white/80 dark:bg-[#231650]/80 backdrop-blur-xl border-b border-orange-200 dark:border-[#612E37]">
           <div className="max-w-7xl mx-auto px-4 py-4">
             {/* Top Bar */}
             <div className="flex items-center justify-between mb-4">
-              <div className="flex items-center gap-4">
-                <div className="relative group">
-                  <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
-                  <div className="relative w-12 h-12 md:w-14 md:h-14 rounded-lg overflow-hidden bg-black">
-                    <Image src="/logo-getrest.jpg" alt="GetRest" fill className="object-cover" />
-                  </div>
+              <div className="flex items-center gap-3">
+                <div className="relative w-12 h-12 md:w-14 md:h-14 rounded-xl overflow-hidden shadow-lg ring-2 ring-orange-400 dark:ring-[#FED172]">
+                  <Image src="/logo-getrest.jpg" alt="GetRest Store" fill className="object-cover" />
                 </div>
                 <div>
-                  <h1 className="text-2xl md:text-3xl font-black tracking-tight">
-                    <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-                      GETREST
-                    </span>
-                    <span className="text-white/90"> STORE</span>
+                  <h1 className="text-xl md:text-2xl font-black text-gray-900 dark:text-white">
+                    GetRest <span className="text-[#F3742B] dark:text-[#FED172]">Store</span>
                   </h1>
-                  <p className="text-xs text-gray-400 uppercase tracking-widest">Premium Dota 2 Items</p>
-                </div>
-              </div>
-              <Navbar />
-            </div>
-
-            {/* Search & Stats */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-              <div className="md:col-span-2 relative">
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-lg blur opacity-30"></div>
-                <div className="relative flex items-center bg-[#1a1f3a] rounded-lg border border-cyan-500/30">
-                  <Search className="absolute left-4 text-cyan-400" size={20} />
-                  <Input
-                    placeholder="Search exclusive items..."
-                    value={query}
-                    onChange={(e) => setQuery(e.target.value)}
-                    className="pl-12 bg-transparent border-0 focus-visible:ring-0 text-white placeholder:text-gray-500 h-12"
-                  />
+                  <p className="text-xs text-gray-600 dark:text-gray-400">Premium Dota 2 Marketplace</p>
                 </div>
               </div>
 
-              {/* Stats */}
-              <div className="grid grid-cols-2 gap-2">
-                <div className="bg-gradient-to-br from-cyan-500/10 to-purple-500/10 rounded-lg p-3 border border-cyan-500/20">
-                  <div className="flex items-center gap-2 text-cyan-400 mb-1">
-                    <Package size={14} />
-                    <span className="text-xs font-semibold uppercase">Items</span>
-                  </div>
-                  <p className="text-xl font-bold">{filteredAndSorted.length}</p>
-                </div>
-                <div className="bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-lg p-3 border border-purple-500/20">
-                  <div className="flex items-center gap-2 text-purple-400 mb-1">
-                    <TrendingUp size={14} />
-                    <span className="text-xs font-semibold uppercase">Stock</span>
-                  </div>
-                  <p className="text-xl font-bold">{products.reduce((sum, p) => sum + p.qty, 0)}</p>
-                </div>
+              <div className="flex items-center gap-3">
+                <button
+                  onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                  className="p-2 rounded-lg bg-orange-100 dark:bg-[#612E37] hover:bg-orange-200 dark:hover:bg-[#612E37]/80 transition-colors"
+                  aria-label="Toggle theme"
+                >
+                  {theme === "dark" ? <Sun size={20} className="text-[#FED172]" /> : <Moon size={20} className="text-[#F3742B]" />}
+                </button>
+                <Navbar />
               </div>
             </div>
 
-            {/* Filters */}
+            {/* Search Bar */}
+            <div className="relative mb-4">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
+              <Input
+                placeholder="Search items by name or hero..."
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                className="pl-12 h-12 bg-white dark:bg-[#2a1f5e] border-orange-200 dark:border-[#612E37] focus:border-[#F3742B] dark:focus:border-[#FED172] text-gray-900 dark:text-white placeholder:text-gray-400"
+              />
+            </div>
+
+            {/* Stats & Filters */}
             <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <Zap className="text-yellow-400" size={16} />
-                <span className="text-sm text-gray-400">Live Marketplace</span>
+              <div className="flex items-center gap-4">
+                <div className="flex items-center gap-2 px-3 py-1.5 bg-orange-50 dark:bg-[#612E37]/30 rounded-full border border-orange-200 dark:border-[#612E37]">
+                  <ShoppingBag size={14} className="text-[#F3742B] dark:text-[#FED172]" />
+                  <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">{filteredAndSorted.length} Items</span>
+                </div>
+                <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 bg-yellow-50 dark:bg-[#612E37]/30 rounded-full border border-yellow-200 dark:border-[#612E37]">
+                  <Package size={14} className="text-[#F3742B] dark:text-[#FED172]" />
+                  <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">{products.reduce((sum, p) => sum + p.qty, 0)} In Stock</span>
+                </div>
               </div>
 
               <div className="flex items-center gap-2">
                 {/* Sort */}
                 <div className="relative group">
-                  <button className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 hover:from-cyan-500/30 hover:to-purple-500/30 text-white rounded-lg text-sm transition-all border border-cyan-500/30 backdrop-blur">
+                  <button className="flex items-center gap-2 px-3 py-2 bg-white dark:bg-[#612E37] hover:bg-orange-50 dark:hover:bg-[#612E37]/80 border border-orange-200 dark:border-[#612E37] rounded-lg text-sm font-medium text-gray-700 dark:text-gray-200 transition-colors">
                     <SortAsc size={14} />
                     <span className="hidden sm:inline">Sort</span>
                   </button>
-                  <div className="absolute top-full mt-2 right-0 w-48 bg-[#1a1f3a] rounded-lg shadow-2xl border border-cyan-500/30 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-10 backdrop-blur-xl">
+                  <div className="absolute top-full mt-2 right-0 w-48 bg-white dark:bg-[#2a1f5e] rounded-lg shadow-xl border border-orange-200 dark:border-[#612E37] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-10">
                     {[
-                      { value: "price-high", label: "💰 Highest Price" },
-                      { value: "price-low", label: "🔥 Lowest Price" },
-                      { value: "name-asc", label: "🔤 A → Z" },
-                      { value: "name-desc", label: "🔤 Z → A" },
+                      { value: "price-high", label: "Price: High to Low" },
+                      { value: "price-low", label: "Price: Low to High" },
+                      { value: "name-asc", label: "Name: A to Z" },
+                      { value: "name-desc", label: "Name: Z to A" },
                     ].map((option) => (
                       <button
                         key={option.value}
                         onClick={() => setSortBy(option.value as SortOption)}
-                        className={`w-full text-left px-4 py-2.5 text-sm hover:bg-cyan-500/20 transition-colors first:rounded-t-lg last:rounded-b-lg ${sortBy === option.value ? "bg-gradient-to-r from-cyan-500/20 to-purple-500/20 text-cyan-400" : ""
+                        className={`w-full text-left px-4 py-2.5 text-sm hover:bg-orange-50 dark:hover:bg-[#612E37]/50 transition-colors first:rounded-t-lg last:rounded-b-lg ${sortBy === option.value ? "bg-orange-100 dark:bg-[#612E37] text-[#F3742B] dark:text-[#FED172] font-semibold" : "text-gray-700 dark:text-gray-300"
                           }`}
                       >
                         {option.label}
@@ -267,16 +247,16 @@ export default function HomePage() {
 
                 {/* Price Filter */}
                 <div className="relative group">
-                  <button className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-500/20 to-pink-500/20 hover:from-purple-500/30 hover:to-pink-500/30 text-white rounded-lg text-sm transition-all border border-purple-500/30 backdrop-blur">
+                  <button className="flex items-center gap-2 px-3 py-2 bg-white dark:bg-[#612E37] hover:bg-orange-50 dark:hover:bg-[#612E37]/80 border border-orange-200 dark:border-[#612E37] rounded-lg text-sm font-medium text-gray-700 dark:text-gray-200 transition-colors">
                     <Filter size={14} />
-                    <span className="hidden sm:inline">Price</span>
+                    <span className="hidden sm:inline">Filter</span>
                   </button>
-                  <div className="absolute top-full mt-2 right-0 w-44 bg-[#1a1f3a] rounded-lg shadow-2xl border border-purple-500/30 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-10 backdrop-blur-xl">
+                  <div className="absolute top-full mt-2 right-0 w-44 bg-white dark:bg-[#2a1f5e] rounded-lg shadow-xl border border-orange-200 dark:border-[#612E37] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-10">
                     {priceRanges.map((range) => (
                       <button
                         key={range.label}
                         onClick={() => setPriceRange([range.min, range.max])}
-                        className={`w-full text-left px-4 py-2.5 text-sm hover:bg-purple-500/20 transition-colors first:rounded-t-lg last:rounded-b-lg ${priceRange[0] === range.min && priceRange[1] === range.max ? "bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-purple-400" : ""
+                        className={`w-full text-left px-4 py-2.5 text-sm hover:bg-orange-50 dark:hover:bg-[#612E37]/50 transition-colors first:rounded-t-lg last:rounded-b-lg ${priceRange[0] === range.min && priceRange[1] === range.max ? "bg-orange-100 dark:bg-[#612E37] text-[#F3742B] dark:text-[#FED172] font-semibold" : "text-gray-700 dark:text-gray-300"
                           }`}
                       >
                         {range.label}
@@ -291,69 +271,58 @@ export default function HomePage() {
       )}
 
       {/* Main Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 py-6">
+      <div className="max-w-7xl mx-auto px-4 py-6">
         {isLoading ? (
-          <div className="grid grid-cols-1 gap-3">
-            {[...Array(8)].map((_, i) => (
-              <div key={i} className="animate-pulse bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-xl h-24 border border-cyan-500/20" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[...Array(9)].map((_, i) => (
+              <div key={i} className="animate-pulse bg-orange-100 dark:bg-[#612E37]/30 rounded-xl h-64 border border-orange-200 dark:border-[#612E37]" />
             ))}
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {filteredAndSorted.slice(0, visibleCount).map((item, index) => (
               <motion.div
                 key={item.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.02, type: "spring", stiffness: 100 }}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: index * 0.02 }}
                 onClick={() => handleCardClick(item)}
                 className="group cursor-pointer"
               >
-                <div className="relative">
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-xl blur opacity-0 group-hover:opacity-75 transition duration-500 group-hover:duration-200"></div>
-                  <div className="relative bg-gradient-to-br from-[#1a1f3a] to-[#0f1229] rounded-xl border border-cyan-500/30 group-hover:border-cyan-400 transition-all overflow-hidden backdrop-blur">
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-cyan-500/20 to-transparent rounded-full blur-2xl"></div>
+                <div className="bg-white dark:bg-[#2a1f5e] rounded-xl border-2 border-orange-200 dark:border-[#612E37] hover:border-[#F3742B] dark:hover:border-[#FED172] transition-all overflow-hidden shadow-sm hover:shadow-xl">
+                  {/* Image */}
+                  <div className="relative h-48 bg-gradient-to-br from-orange-50 to-yellow-50 dark:from-[#231650] dark:to-[#612E37] overflow-hidden">
+                    <LiquipediaImage
+                      itemName={item.name}
+                      className="w-full h-full object-contain p-4 group-hover:scale-110 transition-transform duration-300"
+                    />
+                    <div className="absolute top-3 right-3 px-2 py-1 bg-white/90 dark:bg-[#231650]/90 backdrop-blur rounded-full border border-orange-200 dark:border-[#612E37]">
+                      <span className="text-xs font-bold text-[#F3742B] dark:text-[#FED172]">{item.qty} left</span>
+                    </div>
+                  </div>
 
-                    <div className="relative p-4 flex items-center gap-4">
-                      {/* Image */}
-                      <div className="relative w-20 h-20 md:w-24 md:h-24 flex-shrink-0 rounded-lg overflow-hidden bg-gradient-to-br from-cyan-500/20 to-purple-500/20 border border-cyan-500/30 group-hover:border-cyan-400 transition-all group-hover:scale-105 duration-300">
-                        <LiquipediaImage
-                          itemName={item.name}
-                          className="w-full h-full object-cover"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                  {/* Info */}
+                  <div className="p-4">
+                    <div className="mb-2">
+                      <h3 className="font-bold text-lg text-gray-900 dark:text-white truncate group-hover:text-[#F3742B] dark:group-hover:text-[#FED172] transition-colors">
+                        {item.name}
+                      </h3>
+                      <p className="text-sm text-gray-500 dark:text-gray-400 truncate flex items-center gap-1">
+                        <Star size={12} className="text-yellow-500" fill="currentColor" />
+                        {item.hero || "Dota 2"}
+                      </p>
+                    </div>
+
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <p className="text-xs text-gray-500 dark:text-gray-400 mb-0.5">Price</p>
+                        <p className="text-2xl font-black text-[#F3742B] dark:text-[#FED172]">
+                          {formatRupiah(item.price)}
+                        </p>
                       </div>
-
-                      {/* Info */}
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-start justify-between gap-2 mb-2">
-                          <div className="flex-1 min-w-0">
-                            <h3 className="font-bold text-base md:text-lg text-white truncate group-hover:text-cyan-400 transition-colors">
-                              {item.name}
-                            </h3>
-                            <p className="text-xs text-gray-400 truncate flex items-center gap-1">
-                              <Star size={10} className="text-yellow-400" />
-                              {item.hero || "Dota 2"}
-                            </p>
-                          </div>
-                          <div className="flex-shrink-0 px-2 py-1 bg-cyan-500/20 rounded-full border border-cyan-500/30">
-                            <span className="text-xs font-semibold text-cyan-400">{item.qty} left</span>
-                          </div>
-                        </div>
-
-                        {/* Price */}
-                        <div className="flex items-center justify-between">
-                          <div>
-                            <p className="text-xs text-gray-500 mb-0.5">Price</p>
-                            <p className="text-xl md:text-2xl font-black bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-                              {formatRupiah(item.price)}
-                            </p>
-                          </div>
-                          <button className="px-4 py-2 bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 rounded-lg text-sm font-semibold transition-all transform group-hover:scale-105">
-                            View
-                          </button>
-                        </div>
-                      </div>
+                      <button className="px-4 py-2 bg-gradient-to-r from-[#F3742B] to-[#B83A14] hover:from-[#B83A14] hover:to-[#F3742B] text-white rounded-lg font-semibold text-sm shadow-lg shadow-orange-500/30 transition-all transform group-hover:scale-105">
+                        Buy Now
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -364,24 +333,20 @@ export default function HomePage() {
 
         {visibleCount < filteredAndSorted.length && (
           <div className="text-center mt-8">
-            <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-full border border-cyan-500/30">
-              <div className="flex gap-1">
-                <div className="w-2 h-2 bg-cyan-400 rounded-full animate-bounce"></div>
-                <div className="w-2 h-2 bg-purple-400 rounded-full animate-bounce" style={{ animationDelay: "0.1s" }}></div>
-                <div className="w-2 h-2 bg-pink-400 rounded-full animate-bounce" style={{ animationDelay: "0.2s" }}></div>
-              </div>
-              <span className="text-sm text-gray-300">Loading quantum items...</span>
+            <div className="inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+              <div className="w-2 h-2 bg-[#F3742B] rounded-full animate-bounce"></div>
+              <div className="w-2 h-2 bg-[#FED172] rounded-full animate-bounce" style={{ animationDelay: "0.1s" }}></div>
+              <div className="w-2 h-2 bg-[#B83A14] rounded-full animate-bounce" style={{ animationDelay: "0.2s" }}></div>
+              <span className="ml-2">Loading more items...</span>
             </div>
           </div>
         )}
 
         {filteredAndSorted.length === 0 && !isLoading && (
           <div className="text-center py-20">
-            <div className="text-6xl mb-4 animate-pulse">⚡</div>
-            <h3 className="text-2xl font-bold mb-2 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-              No Items Found
-            </h3>
-            <p className="text-gray-400">Try adjusting your quantum filters</p>
+            <ShoppingBag className="mx-auto mb-4 text-gray-300 dark:text-gray-600" size={64} />
+            <h3 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">No Items Found</h3>
+            <p className="text-gray-500 dark:text-gray-400">Try adjusting your search or filters</p>
           </div>
         )}
 
@@ -395,126 +360,97 @@ export default function HomePage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/90 backdrop-blur-xl flex justify-center items-center z-50 p-4"
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm flex justify-center items-center z-50 p-4"
             onClick={handleCloseModal}
           >
             <motion.div
-              initial={{ scale: 0.9, opacity: 0, y: 20 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.9, opacity: 0, y: 20 }}
-              className="relative w-full max-w-2xl"
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              className="relative bg-white dark:bg-[#2a1f5e] p-6 md:p-8 rounded-2xl w-full max-w-2xl shadow-2xl border-2 border-orange-200 dark:border-[#612E37]"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-2xl blur opacity-75"></div>
-              <div className="relative bg-gradient-to-br from-[#1a1f3a] to-[#0f1229] p-6 md:p-8 rounded-2xl border border-cyan-500/30 backdrop-blur-xl">
-                <button
-                  onClick={handleCloseModal}
-                  className="absolute top-4 right-4 p-2 bg-red-500/20 hover:bg-red-500/30 rounded-full transition-colors border border-red-500/30"
-                  aria-label="Close"
+              <button
+                onClick={handleCloseModal}
+                className="absolute top-4 right-4 p-2 bg-red-100 dark:bg-red-900/30 hover:bg-red-200 dark:hover:bg-red-900/50 rounded-full transition-colors"
+                aria-label="Close"
+              >
+                <X className="w-5 h-5 text-red-600 dark:text-red-400" />
+              </button>
+
+              <div className="mb-6">
+                <h2 className="text-2xl md:text-3xl font-black text-gray-900 dark:text-white mb-2">
+                  {selectedItem.name}
+                </h2>
+                <p className="text-gray-600 dark:text-gray-400 flex items-center gap-2">
+                  <Star size={14} className="text-yellow-500" fill="currentColor" />
+                  {selectedItem.hero}
+                </p>
+              </div>
+
+              <div className="flex items-center gap-3 mb-6 p-4 bg-orange-50 dark:bg-[#612E37]/30 rounded-xl border border-orange-200 dark:border-[#612E37]">
+                <a href={`https://steamcommunity.com/profiles/${STEAM_ID}`} target="_blank" rel="noopener noreferrer">
+                  <img src={steamAvatar} alt="Seller" className="w-16 h-16 rounded-full border-2 border-[#F3742B] dark:border-[#FED172]" />
+                </a>
+                <div className="flex-1">
+                  <a href={`https://steamcommunity.com/profiles/${STEAM_ID}`} target="_blank" rel="noopener noreferrer" className="font-bold text-lg text-gray-900 dark:text-white hover:text-[#F3742B] dark:hover:text-[#FED172] transition-colors">
+                    {steamName}
+                  </a>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">1161 Items • 691 Delivered</p>
+                </div>
+                <div className="px-3 py-1.5 bg-gradient-to-r from-[#FED172] to-[#F3742B] text-[#231650] text-xs font-black rounded-full uppercase">
+                  Verified
+                </div>
+              </div>
+
+              <div className="space-y-2 mb-6 p-4 bg-green-50 dark:bg-green-900/20 rounded-xl border border-green-200 dark:border-green-800">
+                <p className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300">
+                  <CheckCircle className="w-4 h-4 text-green-600 dark:text-green-400 mt-0.5 flex-shrink-0" />
+                  <span>30 days Steam friendship required</span>
+                </p>
+                <p className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300">
+                  <CheckCircle className="w-4 h-4 text-green-600 dark:text-green-400 mt-0.5 flex-shrink-0" />
+                  <span>Check availability in <a href={`https://steamcommunity.com/profiles/${STEAM_ID}/inventory`} target="_blank" className="text-[#F3742B] dark:text-[#FED172] underline font-semibold">Inventory</a></span>
+                </p>
+                <p className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300">
+                  <CheckCircle className="w-4 h-4 text-green-600 dark:text-green-400 mt-0.5 flex-shrink-0" />
+                  <span>50% down payment for booking</span>
+                </p>
+              </div>
+
+              <div className="grid grid-cols-3 gap-3">
+                <Button
+                  onClick={() => window.open(videoUrl, "_blank")}
+                  className="h-12 bg-purple-600 hover:bg-purple-700 text-white font-semibold"
                 >
-                  <X className="w-5 h-5 text-red-400" />
-                </button>
+                  <TvMinimalPlay className="w-4 h-4 mr-2" />
+                  Preview
+                </Button>
 
-                <div className="mb-6">
-                  <h2 className="text-2xl md:text-3xl font-black mb-2 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-                    {selectedItem.name}
-                  </h2>
-                  <p className="text-gray-400 flex items-center gap-2">
-                    <Star size={14} className="text-yellow-400" />
-                    {selectedItem.hero}
-                  </p>
-                </div>
+                <a
+                  href="https://www.facebook.com/LexyAlexaRekber/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="h-12 inline-flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors"
+                >
+                  <Facebook className="w-4 h-4" />
+                  Facebook
+                </a>
 
-                <div className="flex items-center gap-3 mb-6 p-4 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-xl border border-cyan-500/30">
-                  <a href={`https://steamcommunity.com/profiles/${STEAM_ID}`} target="_blank" rel="noopener noreferrer">
-                    <img src={steamAvatar} alt="Steam Avatar" className="w-16 h-16 rounded-full border-2 border-cyan-400 shadow-lg shadow-cyan-500/50" />
-                  </a>
-                  <div className="flex-1">
-                    <a href={`https://steamcommunity.com/profiles/${STEAM_ID}`} target="_blank" rel="noopener noreferrer" className="font-bold text-lg hover:text-cyan-400 transition-colors">
-                      {steamName}
-                    </a>
-                    <p className="text-sm text-gray-400">1161 Items • 691 Delivered</p>
-                  </div>
-                  <div className="px-3 py-1.5 bg-gradient-to-r from-yellow-500 to-orange-500 text-black text-xs font-black rounded-full uppercase shadow-lg">
-                    Verified
-                  </div>
-                </div>
-
-                <div className="space-y-2 mb-6 p-4 bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-xl border border-green-500/30">
-                  <p className="flex items-start gap-2 text-sm">
-                    <CheckCircle className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
-                    <span>30 days Steam friendship required</span>
-                  </p>
-                  <p className="flex items-start gap-2 text-sm">
-                    <CheckCircle className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
-                    <span>Check availability in <a href={`https://steamcommunity.com/profiles/${STEAM_ID}/inventory`} target="_blank" className="text-cyan-400 underline">Inventory</a></span>
-                  </p>
-                  <p className="flex items-start gap-2 text-sm">
-                    <CheckCircle className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
-                    <span>50% down payment for booking</span>
-                  </p>
-                </div>
-
-                <div className="grid grid-cols-3 gap-3">
-                  <Button
-                    onClick={() => window.open(videoUrl, "_blank")}
-                    className="h-12 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white font-semibold shadow-lg shadow-purple-500/50"
-                  >
-                    <TvMinimalPlay className="w-4 h-4 mr-2" />
-                    Preview
-                  </Button>
-
-                  <a
-                    href="https://www.facebook.com/LexyAlexaRekber/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="h-12 inline-flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold rounded-lg shadow-lg shadow-blue-500/50"
-                  >
-                    <Facebook className="w-4 h-4" />
-                    Facebook
-                  </a>
-
-                  <a
-                    href={`https://wa.me/6281388883983?text=${encodeURIComponent(`Hi! I want to buy "${selectedItem.name}"`)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="h-12 inline-flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-semibold rounded-lg shadow-lg shadow-green-500/50"
-                  >
-                    <MessageCircle className="w-4 h-4" />
-                    WhatsApp
-                  </a>
-                </div>
+                <a
+                  href={`https://wa.me/6281388883983?text=${encodeURIComponent(`Hi! I want to buy "${selectedItem.name}"`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="h-12 inline-flex items-center justify-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg transition-colors"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  WhatsApp
+                </a>
               </div>
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
-
-      <style jsx global>{`
-        @keyframes blob {
-          0% { transform: translate(0px, 0px) scale(1); }
-          33% { transform: translate(30px, -50px) scale(1.1); }
-          66% { transform: translate(-20px, 20px) scale(0.9); }
-          100% { transform: translate(0px, 0px) scale(1); }
-        }
-        @keyframes tilt {
-          0%, 100% { transform: rotate(0deg); }
-          25% { transform: rotate(1deg); }
-          75% { transform: rotate(-1deg); }
-        }
-        .animate-blob {
-          animation: blob 7s infinite;
-        }
-        .animate-tilt {
-          animation: tilt 10s infinite linear;
-        }
-        .animation-delay-2000 {
-          animation-delay: 2s;
-        }
-        .animation-delay-4000 {
-          animation-delay: 4s;
-        }
-      `}</style>
     </div>
   )
 }
