@@ -572,7 +572,7 @@ export default function HomePage() {
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
-              className="relative bg-white dark:bg-[#151e32] p-6 md:p-8 rounded-2xl w-full max-w-2xl shadow-2xl border border-slate-200 dark:border-white/10 max-h-[90vh] overflow-y-auto"
+              className="relative bg-white dark:bg-[#151e32] p-5 md:p-8 rounded-2xl w-full max-w-2xl shadow-2xl border border-slate-200 dark:border-white/10 max-h-[90vh] overflow-y-auto"
               onClick={(e) => e.stopPropagation()}
             >
               <button
@@ -633,8 +633,8 @@ export default function HomePage() {
                   onClick={() => window.open(videoUrl, "_blank")}
                   className="h-11 bg-white dark:bg-white/10 hover:bg-slate-50 dark:hover:bg-white/20 text-slate-900 dark:text-white font-bold border border-slate-200 dark:border-white/10"
                 >
-                  <TvMinimalPlay className="w-4 h-4 mr-2" />
-                  Preview
+                  <TvMinimalPlay className="w-4 h-4 sm:mr-2" />
+                  <span className="hidden sm:inline">Preview</span>
                 </Button>
 
                 <a
@@ -643,8 +643,8 @@ export default function HomePage() {
                   rel="noopener noreferrer"
                   className="h-11 inline-flex items-center justify-center px-4 bg-[#1877F2] hover:bg-[#1864f2] text-white font-bold rounded-lg transition-all text-sm shadow-lg shadow-blue-500/20"
                 >
-                  <Facebook className="w-4 h-4 mr-2" />
-                  Facebook
+                  <Facebook className="w-4 h-4 sm:mr-2" />
+                  <span className="hidden sm:inline">Facebook</span>
                 </a>
 
                 <a
@@ -653,8 +653,8 @@ export default function HomePage() {
                   rel="noopener noreferrer"
                   className="h-11 inline-flex items-center justify-center px-4 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold rounded-lg transition-all text-sm shadow-lg shadow-green-500/20"
                 >
-                  <MessageCircle className="w-4 h-4 mr-2" />
-                  WhatsApp
+                  <MessageCircle className="w-4 h-4 sm:mr-2" />
+                  <span className="hidden sm:inline">WhatsApp</span>
                 </a>
               </div>
             </motion.div>

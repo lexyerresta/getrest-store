@@ -22,6 +22,12 @@
 - **Price Sorting** - Multiple sort options (high to low, A-Z, etc)
 - **Real-time Stock** - Dynamic inventory tracking
 
+### 🎰 Test My Luck (Gacha)
+- **Interactive Spinner** - Fun way to discover random items
+- **Rarity System** - Visual rarity tiers (Mythical, Legendary, etc.) based on price
+- **Animation Effects** - Engaging confetti and spinning animations
+- **Integrated Checkout** - Direct link to view and buy the won item
+
 ### 💬 Steam Comments
 - **Live Testimonials** - Scrapes real comments from Steam profile
 - **Floating Panel** - Slide-in comments viewer with infinite scroll
@@ -82,7 +88,8 @@ getrest-store/
 ├── components/
 │   ├── ui/                     # Radix UI components
 │   ├── LiquipediaImage.tsx     # Image loader component
-│   └── SteamComments.tsx       # Comments panel component
+│   ├── SteamComments.tsx       # Comments panel component
+│   └── TestMyLuck.tsx          # Gacha & Contact component
 ├── scripts/
 │   ├── scrape-steam-comments.js  # Steam scraper
 │   ├── download-images.js        # Image downloader
@@ -186,11 +193,13 @@ const STEAM_PROFILE_URL = `https://steamcommunity.com/profiles/${STEAM_ID}`
 - Comments floating button
 - Real testimonials from Steam
 - Avatar and username display
+- **Verified Seller Badge** (Dynamic SVG)
 
 ### 4. Modal System
-- Product details
+- Product details with responsive buttons
 - Seller verification
-- Contact buttons (Preview, Facebook, WhatsApp)
+- **Test My Luck (Gacha)**
+- **Contact Us (Linktree Style)**
 - Steam inventory link
 
 ## 🐛 Known Issues
