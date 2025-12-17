@@ -198,18 +198,21 @@ const STEAM_PROFILE_URL = `https://steamcommunity.com/profiles/${STEAM_ID}`
 
 ### 4. Modal System
 - Product details with responsive buttons
+- **Product Sharing** - Share direct links to specific products
 - Seller verification
-- **Test My Luck (Gacha)**
+- **Test My Luck (Gacha)** - Gamified shopping with Reroll functionality
 - **Welcome Popup** - Responsive bottom sheet/modal with featured items
-- **Contact Us (Linktree Style)**
 - **Contact Us (Linktree Style)**
 - Steam inventory link
 
 ### 5. Shopping Cart & Checkout (NEW)
 - **Persistent Cart** - Items saved in local storage
 - **WhatsApp Integration** - Automated order formatting with total calculation
+- **Buy Now** - Skip the cart and checkout a single item immediately
 - **Smart Quantity Input** - Manual typing with stock validation
-- **Delete Confirmation** - Safety popup before removing items
+- **Bulk Selection** - Select all, delete selected items with one click
+- **Toast Notifications** - Fast, non-intrusive feedback for cart actions
+- **Safety Features** - Confirmation modals for single and bulk deletions
 
 ## 🐛 Known Issues
 

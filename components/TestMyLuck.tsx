@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Sparkles, X, Dices, TrendingUp, Award, Star, MessageCircle, ExternalLink } from "lucide-react"
+import { Sparkles, X, Dices, TrendingUp, Award, Star, MessageCircle, ExternalLink, RefreshCw } from "lucide-react"
 import { Button } from "./ui/button"
 import { LiquipediaImage } from "./LiquipediaImage"
 import Image from "next/image"
@@ -286,6 +286,11 @@ export function TestMyLuck({ products, onItemSelected }: LuckyDrawProps) {
                                                 <Dices className="w-5 h-5 mr-2" />
                                             </motion.div>
                                             SPINNING...
+                                        </>
+                                    ) : selectedItem ? (
+                                        <>
+                                            <RefreshCw className="w-5 h-5 mr-2" />
+                                            REROLL! 🔄
                                         </>
                                     ) : (
                                         <>
