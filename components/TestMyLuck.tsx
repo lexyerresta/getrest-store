@@ -2,9 +2,10 @@
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Sparkles, X, Dices, TrendingUp, Award, Star } from "lucide-react"
+import { Sparkles, X, Dices, TrendingUp, Award, Star, MessageCircle, ExternalLink } from "lucide-react"
 import { Button } from "./ui/button"
 import { LiquipediaImage } from "./LiquipediaImage"
+import Image from "next/image"
 
 type Product = {
     id: string
@@ -22,6 +23,7 @@ type LuckyDrawProps = {
 
 export function TestMyLuck({ products, onItemSelected }: LuckyDrawProps) {
     const [isOpen, setIsOpen] = useState(false)
+    const [isContactOpen, setIsContactOpen] = useState(false)
     const [isSpinning, setIsSpinning] = useState(false)
     const [selectedItem, setSelectedItem] = useState<Product | null>(null)
     const [rarity, setRarity] = useState<string>("")
@@ -101,16 +103,28 @@ export function TestMyLuck({ products, onItemSelected }: LuckyDrawProps) {
 
     return (
         <>
-            {/* Floating Button */}
-            <button
-                onClick={() => setIsOpen(true)}
-                className="fixed bottom-24 right-6 z-40 p-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white rounded-full shadow-2xl shadow-purple-500/50 transition-all transform hover:scale-110 animate-pulse"
-                aria-label="Test your luck"
-            >
-                <Sparkles size={24} />
-            </button>
+            {/* Floating Buttons Container */}
+            <div className="fixed bottom-6 right-6 z-40 flex flex-col items-center gap-3">
+                {/* Main Feature: Test My Luck */}
+                <button
+                    onClick={() => setIsOpen(true)}
+                    className="p-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white rounded-full shadow-2xl shadow-purple-500/50 transition-all transform hover:scale-110 animate-pulse"
+                    aria-label="Test your luck"
+                >
+                    <Dices size={28} />
+                </button>
 
-            {/* Modal */}
+                {/* Contact Trigger Button */}
+                <button
+                    onClick={() => setIsContactOpen(true)}
+                    className="p-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white rounded-full shadow-2xl shadow-purple-500/50 transition-all transform hover:scale-110"
+                    aria-label="Contact Us"
+                >
+                    <MessageCircle size={28} />
+                </button>
+            </div>
+
+            {/* Gacha Modal */}
             <AnimatePresence>
                 {isOpen && (
                     <>
@@ -298,9 +312,134 @@ export function TestMyLuck({ products, onItemSelected }: LuckyDrawProps) {
                             </div>
 
                             {/* Info */}
-                            <p className="text-xs text-center text-gray-500 dark:text-gray-400 mt-4">
+                            <p className="text-xs text-center text-gray-500 dark:text-gray-400 mt-4 mb-6">
                                 💡 Random item dari {products.length} koleksi kami
                             </p>
+
+                            {/* Contact Links */}
+                            <div className="border-t border-gray-200 dark:border-white/10 pt-4 mt-2">
+                                <h4 className="text-center text-xs font-bold uppercase tracking-wider text-gray-400 mb-3">Connect With Us</h4>
+                                <div className="grid grid-cols-3 gap-2">
+                                    <a
+                                        href="https://facebook.com/LexyAlexaRekber"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex flex-col items-center justify-center gap-1 p-2 bg-blue-50 dark:bg-blue-900/20 hover:bg-blue-100 dark:hover:bg-blue-900/40 border border-blue-200 dark:border-blue-800 rounded-lg transition-colors text-xs font-bold text-blue-700 dark:text-blue-400"
+                                    >
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="FB" width={20} height={20} />
+                                        Facebook
+                                    </a>
+                                    <a
+                                        href={`https://wa.me/6281388883983?text=${encodeURIComponent("Halo GetRest Store! Saya mau tanya-tanya nih.")}`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex flex-col items-center justify-center gap-1 p-2 bg-green-50 dark:bg-green-900/20 hover:bg-green-100 dark:hover:bg-green-900/40 border border-green-200 dark:border-green-800 rounded-lg transition-colors text-xs font-bold text-green-700 dark:text-green-400"
+                                    >
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA" width={20} height={20} />
+                                        WhatsApp
+                                    </a>
+                                    <a
+                                        href="https://steamcommunity.com/id/GetRestSTORE"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex flex-col items-center justify-center gap-1 p-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 rounded-lg transition-colors text-xs font-bold text-slate-700 dark:text-slate-300"
+                                    >
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Steam_icon_logo.svg" alt="Steam" width={20} height={20} />
+                                        Steam
+                                    </a>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </>
+                )}
+            </AnimatePresence>
+
+            {/* Contact Modal */}
+            <AnimatePresence>
+                {isContactOpen && (
+                    <>
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            onClick={() => setIsContactOpen(false)}
+                            className="fixed inset-0 bg-black/70 backdrop-blur-md z-50"
+                        />
+                        <motion.div
+                            initial={{ scale: 0.9, opacity: 0, y: 20 }}
+                            animate={{ scale: 1, opacity: 1, y: 0 }}
+                            exit={{ scale: 0.9, opacity: 0, y: 20 }}
+                            transition={{ type: "spring", damping: 25, stiffness: 300 }}
+                            className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-sm bg-gradient-to-br from-white to-purple-50 dark:from-[#2a1f5e] dark:to-[#231650] rounded-2xl shadow-2xl z-50 p-6 mx-4"
+                        >
+                            <button
+                                onClick={() => setIsContactOpen(false)}
+                                className="absolute top-4 right-4 p-2 bg-red-100 dark:bg-red-900/30 hover:bg-red-200 dark:hover:bg-red-900/50 rounded-full transition-colors"
+                            >
+                                <X size={20} className="text-red-600 dark:text-red-400" />
+                            </button>
+
+                            <div className="text-center mb-6">
+                                <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full mb-3 shadow-lg group">
+                                    <MessageCircle className="w-7 h-7 text-white" />
+                                </div>
+                                <h2 className="text-xl font-black text-gray-900 dark:text-white">
+                                    Contact Us
+                                </h2>
+                                <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                                    Hubungi kami melalui platform favoritmu
+                                </p>
+                            </div>
+
+                            <div className="space-y-3">
+                                <a
+                                    href={`https://wa.me/6281388883983?text=${encodeURIComponent("Halo GetRest Store! Saya mau tanya-tanya nih.")}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center gap-4 p-4 bg-white dark:bg-black/20 hover:bg-green-50 dark:hover:bg-green-900/20 border-2 border-transparent hover:border-green-500 rounded-xl transition-all group"
+                                >
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA" className="w-8 h-8" />
+                                    <div className="flex-1 text-left">
+                                        <h4 className="font-bold text-gray-900 dark:text-white group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors">WhatsApp</h4>
+                                        <p className="text-xs text-gray-500 dark:text-gray-400">Chat langung dengan admin</p>
+                                    </div>
+                                    <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-green-500" />
+                                </a>
+
+                                <a
+                                    href="https://facebook.com/LexyAlexaRekber"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center gap-4 p-4 bg-white dark:bg-black/20 hover:bg-blue-50 dark:hover:bg-blue-900/20 border-2 border-transparent hover:border-blue-500 rounded-xl transition-all group"
+                                >
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="FB" className="w-8 h-8" />
+                                    <div className="flex-1 text-left">
+                                        <h4 className="font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Facebook</h4>
+                                        <p className="text-xs text-gray-500 dark:text-gray-400">Kunjungi halaman Facebook kami</p>
+                                    </div>
+                                    <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-blue-500" />
+                                </a>
+
+                                <a
+                                    href="https://steamcommunity.com/id/GetRestSTORE"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center gap-4 p-4 bg-white dark:bg-black/20 hover:bg-slate-50 dark:hover:bg-slate-700/50 border-2 border-transparent hover:border-slate-500 rounded-xl transition-all group"
+                                >
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Steam_icon_logo.svg" alt="Steam" className="w-8 h-8" />
+                                    <div className="flex-1 text-left">
+                                        <h4 className="font-bold text-gray-900 dark:text-white group-hover:text-slate-600 dark:group-hover:text-slate-300 transition-colors">Steam</h4>
+                                        <p className="text-xs text-gray-500 dark:text-gray-400">Cek profil Steam kami</p>
+                                    </div>
+                                    <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-slate-500" />
+                                </a>
+                            </div>
+
+                            <div className="mt-6 text-center">
+                                <p className="text-xs text-slate-400">
+                                    Kami akan membalas secepat mungkin! ⚡
+                                </p>
+                            </div>
                         </motion.div>
                     </>
                 )}
