@@ -139,11 +139,11 @@ export function TestMyLuck({ products, onItemSelected }: LuckyDrawProps) {
 
                         {/* Panel */}
                         <motion.div
-                            initial={{ scale: 0.9, opacity: 0, y: 20 }}
-                            animate={{ scale: 1, opacity: 1, y: 0 }}
-                            exit={{ scale: 0.9, opacity: 0, y: 20 }}
+                            initial={{ scale: 0.9, opacity: 0, x: "-50%", y: "20%" }}
+                            animate={{ scale: 1, opacity: 1, x: "-50%", y: "-50%" }}
+                            exit={{ scale: 0.9, opacity: 0, x: "-50%", y: "20%" }}
                             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-                            className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md bg-gradient-to-br from-white to-purple-50 dark:from-[#2a1f5e] dark:to-[#231650] rounded-2xl shadow-2xl z-50 p-6 mx-4"
+                            className="fixed left-1/2 top-1/2 w-[90%] md:w-full max-w-md bg-gradient-to-br from-white to-purple-50 dark:from-[#2a1f5e] dark:to-[#231650] rounded-2xl shadow-2xl z-50 p-5 md:p-6 max-h-[90vh] overflow-y-auto"
                         >
                             {/* Close Button */}
                             <button
@@ -366,11 +366,11 @@ export function TestMyLuck({ products, onItemSelected }: LuckyDrawProps) {
                             className="fixed inset-0 bg-black/70 backdrop-blur-md z-50"
                         />
                         <motion.div
-                            initial={{ scale: 0.9, opacity: 0, y: 20 }}
-                            animate={{ scale: 1, opacity: 1, y: 0 }}
-                            exit={{ scale: 0.9, opacity: 0, y: 20 }}
+                            initial={{ scale: 0.9, opacity: 0, x: "-50%", y: "20%" }}
+                            animate={{ scale: 1, opacity: 1, x: "-50%", y: "-50%" }}
+                            exit={{ scale: 0.9, opacity: 0, x: "-50%", y: "20%" }}
                             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-                            className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-sm bg-gradient-to-br from-white to-purple-50 dark:from-[#2a1f5e] dark:to-[#231650] rounded-2xl shadow-2xl z-50 p-6 mx-4"
+                            className="fixed left-1/2 top-1/2 w-[90%] md:w-full max-w-sm bg-gradient-to-br from-white to-purple-50 dark:from-[#2a1f5e] dark:to-[#231650] rounded-2xl shadow-2xl z-50 p-5 md:p-6 max-h-[90vh] overflow-y-auto"
                         >
                             <button
                                 onClick={() => setIsContactOpen(false)}
