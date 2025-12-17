@@ -202,7 +202,14 @@ const STEAM_PROFILE_URL = `https://steamcommunity.com/profiles/${STEAM_ID}`
 - **Test My Luck (Gacha)**
 - **Welcome Popup** - Responsive bottom sheet/modal with featured items
 - **Contact Us (Linktree Style)**
+- **Contact Us (Linktree Style)**
 - Steam inventory link
+
+### 5. Shopping Cart & Checkout (NEW)
+- **Persistent Cart** - Items saved in local storage
+- **WhatsApp Integration** - Automated order formatting with total calculation
+- **Smart Quantity Input** - Manual typing with stock validation
+- **Delete Confirmation** - Safety popup before removing items
 
 ## 🐛 Known Issues
 
