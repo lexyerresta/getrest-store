@@ -547,10 +547,23 @@ function MainContent() {
     window.open(whatsappUrl, "_blank")
   }
 
-  const handleShare = (product: Product) => {
+  const handleShare = async (product: Product) => {
     const url = `${window.location.origin}${pathname}?product=${encodeURIComponent(product.name)}`
-    navigator.clipboard.writeText(url)
-    addToast("Link product copied to clipboard!", "success")
+
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: `GetRest Store - ${product.name}`,
+          text: `Cek item ${product.name} (${product.hero}) ini di GetRest Store! Harganya cuma ${formatRupiah(product.price)}`,
+          url: url
+        })
+      } catch (err) {
+        console.error("Error sharing:", err)
+      }
+    } else {
+      navigator.clipboard.writeText(url)
+      addToast("Link product copied to clipboard!", "success")
+    }
   }
 
 
@@ -708,10 +721,13 @@ function MainContent() {
                 onClick={() => handleCardClick(item)}
                 className="group relative bg-white dark:bg-[#151e32] rounded-xl border border-slate-200 dark:border-white/10 hover:border-orange-300 dark:hover:border-orange-500/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer overflow-hidden"
               >
-                {/* Fire Badge */}
-                <div className="absolute top-2 left-2 z-10">
+                {/* Fire Badge & Qty */}
+                <div className="absolute top-2 left-2 z-10 flex gap-1">
                   <span className="text-[10px] font-bold px-2 py-0.5 bg-orange-500 text-white rounded-full shadow-lg flex items-center gap-1">
                     <Flame size={10} fill="currentColor" /> HOT
+                  </span>
+                  <span className="text-[10px] font-bold px-2 py-0.5 bg-slate-900/80 text-white rounded-full backdrop-blur-sm shadow-lg border border-white/10">
+                    {item.qty} Stock
                   </span>
                 </div>
 
