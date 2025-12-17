@@ -15,6 +15,7 @@
 - **Responsive Design** - Optimized for mobile, tablet, and desktop
 - **Smooth Animations** - Framer Motion for buttery transitions
 - **Clean E-commerce Layout** - Product cards with large images and clear CTAs
+- **Responsive Footer** - Polished end-of-page indicator with useful links
 
 ### 🎮 Dota 2 Integration
 - **132 Item Images** - Locally cached Liquipedia cosmetic icons
@@ -199,6 +200,7 @@ const STEAM_PROFILE_URL = `https://steamcommunity.com/profiles/${STEAM_ID}`
 - Product details with responsive buttons
 - Seller verification
 - **Test My Luck (Gacha)**
+- **Welcome Popup** - Responsive bottom sheet/modal with featured items
 - **Contact Us (Linktree Style)**
 - Steam inventory link
 
