@@ -844,8 +844,8 @@ function MainContent() {
                             LOW STOCK
                           </span>
                         )}
-                        <span className="text-[10px] font-bold px-2 py-0.5 bg-white/90 dark:bg-black/60 backdrop-blur text-slate-700 dark:text-white rounded-full shadow-sm border border-slate-200 dark:border-white/10">
-                          x{item.qty}
+                        <span className="text-[10px] font-bold px-2 py-0.5 bg-slate-900/80 text-white rounded-full backdrop-blur-sm shadow-lg border border-white/10">
+                          {item.qty} Stock
                         </span>
                       </div>
                     </div>
