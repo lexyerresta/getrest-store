@@ -42,6 +42,10 @@ type Product = {
   price: number
 }
 
+type CartItem = Product & {
+  cartQty: number
+}
+
 type PriceOverride = {
   name: string
   price: number
@@ -340,6 +344,119 @@ export default function HomePage() {
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false)
   const [isCommentsOpen, setIsCommentsOpen] = useState(false)
 
+  // Cart State
+  const [cart, setCart] = useState<CartItem[]>([])
+  const [isCartOpen, setIsCartOpen] = useState(false)
+
+  // Load cart from localStorage
+  useEffect(() => {
+    const savedCart = localStorage.getItem('cart')
+    if (savedCart) {
+      setCart(JSON.parse(savedCart))
+    }
+  }, [])
+
+  // Save cart to localStorage
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart))
+  }, [cart])
+
+  const addToCart = (product: Product, event?: React.MouseEvent) => {
+    event?.stopPropagation()
+    setCart(prev => {
+      const existing = prev.find(item => item.id === product.id)
+      if (existing) {
+        return prev.map(item =>
+          item.id === product.id
+            ? { ...item, cartQty: Math.min(item.cartQty + 1, item.qty) }
+            : item
+        )
+      }
+      return [...prev, { ...product, cartQty: 1 }]
+    })
+    // Optional: Add simple toast/feedback here
+    setIsCartOpen(true)
+  }
+
+  const removeFromCart = (productId: string) => {
+    setCart(prev => prev.filter(item => item.id !== productId))
+  }
+
+  // Confirmation State
+  const [itemToRemove, setItemToRemove] = useState<string | null>(null)
+
+  const updateCartQty = (productId: string, delta: number) => {
+    // If trying to decrease from 1, ask for confirmation
+    if (delta === -1) {
+      const item = cart.find(i => i.id === productId)
+      if (item && item.cartQty === 1) {
+        setItemToRemove(productId)
+        return
+      }
+    }
+
+    setCart(prev => {
+      return prev.map(item => {
+        if (item.id === productId) {
+          const newQty = item.cartQty + delta
+          // Limit between 1 and max stock (qty)
+          if (newQty < 1) return item
+          if (newQty > item.qty) return item
+          return { ...item, cartQty: newQty }
+        }
+        return item
+      })
+    })
+  }
+
+  const handleManualQtyChange = (productId: string, value: string) => {
+    const newQty = parseInt(value)
+
+    // Check if user cleared input or entered 0
+    if (value === "" || newQty === 0) {
+      if (value !== "") { // If explicit 0, ask to remove
+        setItemToRemove(productId)
+      }
+      return
+    }
+
+    if (!isNaN(newQty)) {
+      setCart(prev => prev.map(item => {
+        if (item.id === productId) {
+          // Limit to max stock
+          const validQty = Math.min(newQty, item.qty)
+          return { ...item, cartQty: validQty }
+        }
+        return item
+      }))
+    }
+  }
+
+  const confirmRemove = () => {
+    if (itemToRemove) {
+      removeFromCart(itemToRemove)
+      setItemToRemove(null)
+    }
+  }
+
+  const cancelRemove = () => {
+    setItemToRemove(null)
+  }
+
+  const cartTotal = cart.reduce((sum, item) => sum + (item.price * item.cartQty), 0)
+  const cartCount = cart.reduce((sum, item) => sum + item.cartQty, 0)
+
+  const checkoutWhatsApp = () => {
+    const itemsList = cart.map(item =>
+      `${item.cartQty}x ${item.name} (${formatRupiah(item.price * item.cartQty)})`
+    ).join('\n')
+
+    const message = `Halo GetRest Store! Saya ingin memesan:\n\n${itemsList}\n\nTotal: ${formatRupiah(cartTotal)}\n\nMohon dicek apakah stok tersedia? Terima kasih!`
+
+    const whatsappUrl = `https://wa.me/6281388883983?text=${encodeURIComponent(message)}`
+    window.open(whatsappUrl, "_blank")
+  }
+
   // Lock body scroll when comments modal is open
   useEffect(() => {
     if (isCommentsOpen) {
@@ -406,6 +523,19 @@ export default function HomePage() {
                   aria-label="Toggle theme"
                 >
                   {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+                </button>
+
+                <button
+                  onClick={() => setIsCartOpen(true)}
+                  className="relative p-2 rounded-lg bg-slate-100 dark:bg-white/10 hover:bg-slate-200 dark:hover:bg-white/20 text-slate-700 dark:text-white transition-colors"
+                  aria-label="Open cart"
+                >
+                  <ShoppingBag size={20} />
+                  {cartCount > 0 && (
+                    <span className="absolute -top-1 -right-1 w-5 h-5 bg-orange-600 text-white text-[10px] font-black flex items-center justify-center rounded-full ring-2 ring-white dark:ring-[#0B1120]">
+                      {cartCount}
+                    </span>
+                  )}
                 </button>
               </div>
             </div>
@@ -479,9 +609,13 @@ export default function HomePage() {
                     <span className="text-sm font-black text-orange-600 dark:text-orange-500">
                       {formatRupiah(item.price).replace(",00", "")}
                     </span>
-                    <div className="w-6 h-6 rounded-md bg-slate-100 dark:bg-white/10 flex items-center justify-center text-slate-400 group-hover:bg-orange-500 group-hover:text-white transition-colors">
+                    <button
+                      onClick={(e) => { e.stopPropagation(); addToCart(item, e); }}
+                      className="w-6 h-6 rounded-md bg-slate-100 dark:bg-white/10 flex items-center justify-center text-slate-400 group-hover:bg-orange-500 group-hover:text-white transition-colors"
+                      aria-label="Add to cart"
+                    >
                       <ShoppingBag size={12} />
-                    </div>
+                    </button>
                   </div>
                 </div>
               </motion.div>
@@ -579,9 +713,13 @@ export default function HomePage() {
                             {formatRupiah(item.price).replace(",00", "")}
                           </span>
                         </div>
-                        <div className="w-8 h-8 rounded-lg bg-slate-100 dark:bg-white/10 flex items-center justify-center text-slate-400 group-hover:bg-orange-500 group-hover:text-white transition-colors">
+                        <button
+                          onClick={(e) => { e.stopPropagation(); addToCart(item, e); }}
+                          className="w-8 h-8 rounded-lg bg-slate-100 dark:bg-white/10 flex items-center justify-center text-slate-400 group-hover:bg-orange-500 group-hover:text-white transition-colors"
+                          aria-label="Add to cart"
+                        >
                           <ShoppingBag size={14} />
-                        </div>
+                        </button>
                       </div>
                     </div>
                   </motion.div>
@@ -763,16 +901,109 @@ export default function HomePage() {
                   <span className="hidden sm:inline">Facebook</span>
                 </a>
 
-                <a
-                  href={`https://wa.me/6281388883983?text=${encodeURIComponent(`Halo! Saya mau beli "${selectedItem.name}" dari GetRest Store. Apakah masih tersedia?`)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="h-11 inline-flex items-center justify-center px-4 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold rounded-lg transition-all text-sm shadow-lg shadow-green-500/20"
+                <Button
+                  onClick={() => addToCart(selectedItem)}
+                  className="h-11 bg-orange-600 hover:bg-orange-700 text-white font-bold shadow-lg shadow-orange-500/20 active:scale-95 transition-all"
                 >
-                  <MessageCircle className="w-4 h-4 sm:mr-2" />
-                  <span className="hidden sm:inline">WhatsApp</span>
-                </a>
+                  <ShoppingBag className="w-4 h-4 sm:mr-2" />
+                  <span className="hidden sm:inline">Add to Cart</span>
+                </Button>
               </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Cart Drawer */}
+      <AnimatePresence>
+        {isCartOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm"
+            onClick={() => setIsCartOpen(false)}
+          >
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              className="absolute right-0 top-0 bottom-0 w-full max-w-md bg-white dark:bg-[#151e32] shadow-2xl flex flex-col"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="p-4 border-b border-slate-200 dark:border-white/10 flex items-center justify-between bg-slate-50 dark:bg-[#0B1120]">
+                <h2 className="text-xl font-black text-slate-900 dark:text-white flex items-center gap-2">
+                  <ShoppingBag className="text-orange-500" />
+                  Shopping Cart
+                  <span className="bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 text-xs px-2 py-0.5 rounded-full">
+                    {cartCount} Items
+                  </span>
+                </h2>
+                <button
+                  onClick={() => setIsCartOpen(false)}
+                  className="p-2 bg-slate-200 dark:bg-white/10 rounded-full text-slate-600 dark:text-slate-300"
+                >
+                  <X size={20} />
+                </button>
+              </div>
+
+              <div className="flex-1 overflow-y-auto p-4 space-y-4">
+                {cart.length === 0 ? (
+                  <div className="h-full flex flex-col items-center justify-center text-center opacity-50">
+                    <ShoppingBag size={64} className="mb-4 text-slate-300 dark:text-slate-600" />
+                    <p className="font-bold text-slate-900 dark:text-white">Your cart is empty</p>
+                    <p className="text-sm">Start adding some awesome items!</p>
+                  </div>
+                ) : (
+                  cart.map(item => (
+                    <div key={item.id} className="flex gap-3 bg-slate-50 dark:bg-white/5 p-3 rounded-xl border border-slate-100 dark:border-white/5">
+                      <div className="w-16 h-16 bg-white dark:bg-black/20 rounded-lg p-1 flex-shrink-0 border border-slate-200 dark:border-white/10">
+                        <LiquipediaImage itemName={item.name} className="object-contain" />
+                      </div>
+                      <div className="flex-1 min-w-0 flex flex-col justify-between">
+                        <div className="flex justify-between items-start">
+                          <h4 className="font-bold text-sm text-slate-900 dark:text-white truncate pr-2">{item.name}</h4>
+                          <button onClick={() => setItemToRemove(item.id)} className="text-red-500 hover:text-red-600">
+                            <X size={16} />
+                          </button>
+                        </div>
+                        <div className="flex items-center justify-between mt-2">
+                          <div className="font-black text-orange-600 dark:text-orange-500 text-sm">
+                            {formatRupiah(item.price * item.cartQty)}
+                          </div>
+                          <div className="flex items-center gap-2 bg-white dark:bg-white/10 rounded-lg p-1">
+                            <button onClick={() => updateCartQty(item.id, -1)} className="w-6 h-6 flex items-center justify-center bg-slate-100 dark:bg-white/10 rounded hover:bg-slate-200 text-slate-900 dark:text-white">-</button>
+                            <input
+                              type="number"
+                              value={item.cartQty}
+                              onChange={(e) => handleManualQtyChange(item.id, e.target.value)}
+                              className="w-10 text-center bg-transparent text-sm font-bold text-slate-900 dark:text-white focus:outline-none [-moz-appearance:_textfield] [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none"
+                            />
+                            <button onClick={() => updateCartQty(item.id, 1)} className="w-6 h-6 flex items-center justify-center bg-slate-100 dark:bg-white/10 rounded hover:bg-slate-200">+</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))
+                )}
+              </div>
+
+              {cart.length > 0 && (
+                <div className="p-4 border-t border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-[#0B1120]">
+                  <div className="flex justify-between items-center mb-4">
+                    <span className="text-slate-500 dark:text-slate-400 font-bold">Total</span>
+                    <span className="text-2xl font-black text-slate-900 dark:text-white">{formatRupiah(cartTotal)}</span>
+                  </div>
+                  <button
+                    onClick={checkoutWhatsApp}
+                    className="w-full py-3.5 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-lg rounded-xl shadow-lg shadow-green-500/20 active:scale-95 transition-transform flex items-center justify-center gap-2"
+                  >
+                    <MessageCircle size={20} />
+                    Checkout via WhatsApp
+                  </button>
+                </div>
+              )}
             </motion.div>
           </motion.div>
         )}
@@ -851,6 +1082,46 @@ export default function HomePage() {
           </div>
         </div>
       </footer>
+
+      {/* Remove Confirmation Modal */}
+      <AnimatePresence>
+        {itemToRemove && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm flex justify-center items-center p-4"
+            onClick={cancelRemove}
+          >
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              className="bg-white dark:bg-[#151e32] p-6 rounded-2xl w-full max-w-sm shadow-xl border border-slate-200 dark:border-white/10"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <h3 className="text-lg font-black text-slate-900 dark:text-white mb-2">Remove Item?</h3>
+              <p className="text-slate-500 dark:text-slate-400 mb-6 text-sm">
+                Are you sure you want to remove this item from your cart?
+              </p>
+              <div className="flex gap-3">
+                <button
+                  onClick={cancelRemove}
+                  className="flex-1 py-2.5 rounded-xl font-bold text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 transition-colors"
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={confirmRemove}
+                  className="flex-1 py-2.5 rounded-xl font-bold text-white bg-red-600 hover:bg-red-700 shadow-lg shadow-red-500/20 transition-colors"
+                >
+                  Remove
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <WelcomePopup products={products} onSelectProduct={handleCardClick} />
       <TestMyLuck products={products} onItemSelected={handleCardClick} />
