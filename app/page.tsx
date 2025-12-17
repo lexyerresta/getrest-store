@@ -1,6 +1,19 @@
 "use client"
 
-import { useEffect, useState, useRef, useMemo } from "react"
+import { useEffect, useState, useRef, useMemo, Suspense } from "react"
+// ... (imports remain the same)
+
+// ... (priceRanges, FilterContent, FilterContentProps remain the same)
+
+
+
+export default function HomePage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><div className="animate-spin rounded-full h-32 w-32 border-b-2 border-orange-500"></div></div>}>
+      <MainContent />
+    </Suspense>
+  )
+}
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { motion, AnimatePresence } from "framer-motion"
@@ -190,7 +203,7 @@ const FilterContent = ({
   </div>
 )
 
-export default function HomePage() {
+function MainContent() {
   const [products, setProducts] = useState<Product[]>([])
   const [query, setQuery] = useState("")
   const debouncedQuery = useDebounce(query, 300)
