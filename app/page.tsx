@@ -22,8 +22,12 @@ import {
   SortAsc, // Re-added SortAsc
   ExternalLink, // Re-added ExternalLink
   TrendingUp,
-  Flame
+  Flame,
+  Trash2,
+  Zap,
+  Share2
 } from "lucide-react"
+import { useSearchParams, useRouter, usePathname } from "next/navigation"
 
 import { useDebounce } from "@/lib/useDebounce"
 import { useTheme } from "next-themes"
@@ -31,6 +35,7 @@ import { LiquipediaImage } from "@/components/LiquipediaImage"
 import { SteamComments } from "@/components/SteamComments"
 import { TestMyLuck } from "@/components/TestMyLuck"
 import { WelcomePopup } from "@/components/WelcomePopup"
+import { ToastContainer, ToastMessage, ToastType } from "@/components/Toast"
 import Image from "next/image"
 
 type Product = {
@@ -306,18 +311,7 @@ export default function HomePage() {
       minimumFractionDigits: 0,
     }).format(value)
 
-  const handleCardClick = (item: Product) => {
-    setSelectedItem(item)
-    const youtubeSearchUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(item.name)}`
-    setVideoUrl(youtubeSearchUrl)
-    setIsModalOpen(true)
-  }
 
-  const handleCloseModal = () => {
-    setIsModalOpen(false)
-    setSelectedItem(null)
-    setVideoUrl("")
-  }
 
   const getLiquipediaUrl = (itemName: string) => {
     const slug = itemName.replace(/\s+/g, '_')
@@ -344,28 +338,75 @@ export default function HomePage() {
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false)
   const [isCommentsOpen, setIsCommentsOpen] = useState(false)
 
+  const searchParams = useSearchParams()
+  const router = useRouter()
+  const pathname = usePathname()
+
   // Cart State
   const [cart, setCart] = useState<CartItem[]>([])
+  const [selectedIds, setSelectedIds] = useState<string[]>([])
   const [isCartOpen, setIsCartOpen] = useState(false)
+
+  // Confirmation State for Deletion
+  const [pendingDeleteIds, setPendingDeleteIds] = useState<string[] | null>(null)
 
   // Load cart from localStorage
   useEffect(() => {
     const savedCart = localStorage.getItem('cart')
     if (savedCart) {
-      setCart(JSON.parse(savedCart))
+      const parsed = JSON.parse(savedCart)
+      setCart(parsed)
+      // Default select all on load
+      setSelectedIds(parsed.map((i: CartItem) => i.id))
     }
   }, [])
+
+  // Clean up selectedIds when cart items are removed
+  useEffect(() => {
+    setSelectedIds(prev => prev.filter(id => cart.some(item => item.id === id)))
+  }, [cart])
 
   // Save cart to localStorage
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart))
   }, [cart])
 
+  // Toast State
+  const [toasts, setToasts] = useState<ToastMessage[]>([])
+
+  const addToast = (message: string, type: ToastType = "success") => {
+    const id = Math.random().toString(36).substring(7)
+    setToasts((prev) => [...prev, { id, message, type }])
+  }
+
+  const removeToast = (id: string) => {
+    setToasts((prev) => prev.filter((t) => t.id !== id))
+  }
+
   const addToCart = (product: Product, event?: React.MouseEvent) => {
     event?.stopPropagation()
+
+    // Side effect outside of setState updater to avoid double calls in Strict Mode
+    const existing = cart.find(item => item.id === product.id)
+
+    // Check if max stock reached
+    if (existing && existing.cartQty >= product.qty) {
+      addToast(`Max stock reached for ${product.name}! Only ${product.qty} available.`, "error")
+      return
+    }
+
+    // Success Toast
+    if (existing) {
+      addToast(`Added another ${product.name} to cart!`, "success")
+    } else {
+      addToast(`${product.name} added to cart!`, "success")
+      // Auto-select new item
+      setSelectedIds(prev => [...prev, product.id])
+    }
+
     setCart(prev => {
-      const existing = prev.find(item => item.id === product.id)
-      if (existing) {
+      const existingInPrev = prev.find(item => item.id === product.id)
+      if (existingInPrev) {
         return prev.map(item =>
           item.id === product.id
             ? { ...item, cartQty: Math.min(item.cartQty + 1, item.qty) }
@@ -374,23 +415,19 @@ export default function HomePage() {
       }
       return [...prev, { ...product, cartQty: 1 }]
     })
-    // Optional: Add simple toast/feedback here
-    setIsCartOpen(true)
   }
 
-  const removeFromCart = (productId: string) => {
-    setCart(prev => prev.filter(item => item.id !== productId))
+  const removeFromCart = (ids: string[]) => {
+    setCart(prev => prev.filter(item => !ids.includes(item.id)))
+    setSelectedIds(prev => prev.filter(id => !ids.includes(id)))
   }
-
-  // Confirmation State
-  const [itemToRemove, setItemToRemove] = useState<string | null>(null)
 
   const updateCartQty = (productId: string, delta: number) => {
     // If trying to decrease from 1, ask for confirmation
     if (delta === -1) {
       const item = cart.find(i => i.id === productId)
       if (item && item.cartQty === 1) {
-        setItemToRemove(productId)
+        setPendingDeleteIds([productId])
         return
       }
     }
@@ -399,7 +436,6 @@ export default function HomePage() {
       return prev.map(item => {
         if (item.id === productId) {
           const newQty = item.cartQty + delta
-          // Limit between 1 and max stock (qty)
           if (newQty < 1) return item
           if (newQty > item.qty) return item
           return { ...item, cartQty: newQty }
@@ -415,7 +451,7 @@ export default function HomePage() {
     // Check if user cleared input or entered 0
     if (value === "" || newQty === 0) {
       if (value !== "") { // If explicit 0, ask to remove
-        setItemToRemove(productId)
+        setPendingDeleteIds([productId])
       }
       return
     }
@@ -433,21 +469,52 @@ export default function HomePage() {
   }
 
   const confirmRemove = () => {
-    if (itemToRemove) {
-      removeFromCart(itemToRemove)
-      setItemToRemove(null)
+    if (pendingDeleteIds) {
+      removeFromCart(pendingDeleteIds)
+      setPendingDeleteIds(null)
     }
   }
 
   const cancelRemove = () => {
-    setItemToRemove(null)
+    setPendingDeleteIds(null)
   }
 
-  const cartTotal = cart.reduce((sum, item) => sum + (item.price * item.cartQty), 0)
+  // Selection Logic
+  const toggleSelection = (id: string) => {
+    setSelectedIds(prev =>
+      prev.includes(id) ? prev.filter(i => i !== id) : [...prev, id]
+    )
+  }
+
+  const toggleSelectAll = () => {
+    if (selectedIds.length === cart.length) {
+      setSelectedIds([])
+    } else {
+      setSelectedIds(cart.map(i => i.id))
+    }
+  }
+
+  const promptBulkDelete = () => {
+    if (selectedIds.length > 0) {
+      setPendingDeleteIds([...selectedIds])
+    }
+  }
+
+  const cartTotal = cart
+    .filter(item => selectedIds.includes(item.id))
+    .reduce((sum, item) => sum + (item.price * item.cartQty), 0)
+
   const cartCount = cart.reduce((sum, item) => sum + item.cartQty, 0)
 
   const checkoutWhatsApp = () => {
-    const itemsList = cart.map(item =>
+    const selectedItems = cart.filter(item => selectedIds.includes(item.id))
+
+    if (selectedItems.length === 0) {
+      addToast("Please select items to checkout!", "info")
+      return
+    }
+
+    const itemsList = selectedItems.map(item =>
       `${item.cartQty}x ${item.name} (${formatRupiah(item.price * item.cartQty)})`
     ).join('\n')
 
@@ -457,6 +524,56 @@ export default function HomePage() {
     window.open(whatsappUrl, "_blank")
   }
 
+  const handleBuyNow = (product: Product, event?: React.MouseEvent) => {
+    event?.stopPropagation()
+
+    // Direct WhatsApp link for single item
+    const message = `Halo GetRest Store! Saya ingin membeli langsung:\n\n1x ${product.name} (${formatRupiah(product.price)})\n\nMohon dicek apakah stok tersedia? Terima kasih!`
+
+    const whatsappUrl = `https://wa.me/6281388883983?text=${encodeURIComponent(message)}`
+    window.open(whatsappUrl, "_blank")
+  }
+
+  const handleShare = (product: Product) => {
+    const url = `${window.location.origin}${pathname}?product=${encodeURIComponent(product.name)}`
+    navigator.clipboard.writeText(url)
+    addToast("Link product copied to clipboard!", "success")
+  }
+
+
+
+  const handleCardClick = (product: Product) => {
+    setSelectedItem(product)
+    setIsModalOpen(true)
+
+    // Update URL without full reload
+    const params = new URLSearchParams(searchParams)
+    params.set("product", product.name)
+    router.replace(`${pathname}?${params.toString()}`, { scroll: false })
+  }
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false)
+    setSelectedItem(null)
+
+    // Clear URL param
+    const params = new URLSearchParams(searchParams)
+    params.delete("product")
+    router.replace(`${pathname}?${params.toString()}`, { scroll: false })
+  }
+
+  // Handle URL params on load
+  useEffect(() => {
+    const productParam = searchParams.get("product")
+    if (productParam && products.length > 0 && !selectedItem) {
+      const item = products.find(p => p.name === productParam)
+      if (item) {
+        setSelectedItem(item)
+        setIsModalOpen(true)
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [products, searchParams])
   // Lock body scroll when comments modal is open
   useEffect(() => {
     if (isCommentsOpen) {
@@ -609,13 +726,23 @@ export default function HomePage() {
                     <span className="text-sm font-black text-orange-600 dark:text-orange-500">
                       {formatRupiah(item.price).replace(",00", "")}
                     </span>
-                    <button
-                      onClick={(e) => { e.stopPropagation(); addToCart(item, e); }}
-                      className="w-6 h-6 rounded-md bg-slate-100 dark:bg-white/10 flex items-center justify-center text-slate-400 group-hover:bg-orange-500 group-hover:text-white transition-colors"
-                      aria-label="Add to cart"
-                    >
-                      <ShoppingBag size={12} />
-                    </button>
+                    <div className="flex gap-2">
+                      <button
+                        onClick={(e) => { e.stopPropagation(); handleBuyNow(item, e); }}
+                        className="w-6 h-6 rounded-md bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center text-orange-600 dark:text-orange-400 hover:bg-orange-500 hover:text-white transition-colors"
+                        aria-label="Buy Now"
+                        title="Buy Now"
+                      >
+                        <Zap size={12} fill="currentColor" />
+                      </button>
+                      <button
+                        onClick={(e) => { e.stopPropagation(); addToCart(item, e); }}
+                        className="w-6 h-6 rounded-md bg-slate-100 dark:bg-white/10 flex items-center justify-center text-slate-400 group-hover:bg-orange-500 group-hover:text-white transition-colors"
+                        aria-label="Add to cart"
+                      >
+                        <ShoppingBag size={12} />
+                      </button>
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -713,13 +840,23 @@ export default function HomePage() {
                             {formatRupiah(item.price).replace(",00", "")}
                           </span>
                         </div>
-                        <button
-                          onClick={(e) => { e.stopPropagation(); addToCart(item, e); }}
-                          className="w-8 h-8 rounded-lg bg-slate-100 dark:bg-white/10 flex items-center justify-center text-slate-400 group-hover:bg-orange-500 group-hover:text-white transition-colors"
-                          aria-label="Add to cart"
-                        >
-                          <ShoppingBag size={14} />
-                        </button>
+                        <div className="flex gap-2">
+                          <button
+                            onClick={(e) => { e.stopPropagation(); handleBuyNow(item, e); }}
+                            className="w-8 h-8 rounded-lg bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center text-orange-600 dark:text-orange-400 hover:bg-orange-500 hover:text-white transition-colors"
+                            aria-label="Buy Now"
+                            title="Buy Now"
+                          >
+                            <Zap size={14} fill="currentColor" />
+                          </button>
+                          <button
+                            onClick={(e) => { e.stopPropagation(); addToCart(item, e); }}
+                            className="w-8 h-8 rounded-lg bg-slate-100 dark:bg-white/10 flex items-center justify-center text-slate-400 group-hover:bg-orange-500 group-hover:text-white transition-colors"
+                            aria-label="Add to cart"
+                          >
+                            <ShoppingBag size={14} />
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </motion.div>
@@ -829,6 +966,8 @@ export default function HomePage() {
               className="relative bg-white dark:bg-[#151e32] p-5 md:p-8 rounded-2xl w-full max-w-2xl shadow-2xl border border-slate-200 dark:border-white/10 max-h-[90vh] overflow-y-auto"
               onClick={(e) => e.stopPropagation()}
             >
+
+
               <button
                 onClick={handleCloseModal}
                 className="absolute top-4 right-4 p-2 bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 rounded-full transition-colors"
@@ -891,22 +1030,28 @@ export default function HomePage() {
                   <span className="hidden sm:inline">Preview</span>
                 </Button>
 
-                <a
-                  href="https://www.facebook.com/LexyAlexaRekber/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="h-11 inline-flex items-center justify-center px-4 bg-[#1877F2] hover:bg-[#1864f2] text-white font-bold rounded-lg transition-all text-sm shadow-lg shadow-blue-500/20"
+                <button
+                  onClick={() => handleShare(selectedItem)}
+                  className="h-11 inline-flex items-center justify-center px-4 bg-slate-100 dark:bg-white/10 hover:bg-slate-200 dark:hover:bg-white/20 text-slate-900 dark:text-white font-bold rounded-lg transition-all text-sm border border-slate-200 dark:border-white/10"
                 >
-                  <Facebook className="w-4 h-4 sm:mr-2" />
-                  <span className="hidden sm:inline">Facebook</span>
-                </a>
+                  <Share2 className="w-4 h-4 sm:mr-2" />
+                  <span className="hidden sm:inline">Share</span>
+                </button>
 
                 <Button
                   onClick={() => addToCart(selectedItem)}
-                  className="h-11 bg-orange-600 hover:bg-orange-700 text-white font-bold shadow-lg shadow-orange-500/20 active:scale-95 transition-all"
+                  className="h-11 bg-slate-900 dark:bg-slate-800 hover:bg-slate-800 dark:hover:bg-slate-700 text-white font-bold shadow-lg shadow-black/20 active:scale-95 transition-all"
                 >
                   <ShoppingBag className="w-4 h-4 sm:mr-2" />
                   <span className="hidden sm:inline">Add to Cart</span>
+                </Button>
+
+                <Button
+                  onClick={() => handleBuyNow(selectedItem)}
+                  className="h-11 col-span-3 sm:col-span-3 lg:col-span-3 bg-orange-600 hover:bg-orange-700 text-white font-bold shadow-lg shadow-orange-500/20 active:scale-95 transition-all w-full flex items-center justify-center gap-2 mt-2"
+                >
+                  <Zap className="w-4 h-4 fill-white" />
+                  Buy Now Directly
                 </Button>
               </div>
             </motion.div>
@@ -932,22 +1077,51 @@ export default function HomePage() {
               className="absolute right-0 top-0 bottom-0 w-full max-w-md bg-white dark:bg-[#151e32] shadow-2xl flex flex-col"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="p-4 border-b border-slate-200 dark:border-white/10 flex items-center justify-between bg-slate-50 dark:bg-[#0B1120]">
-                <h2 className="text-xl font-black text-slate-900 dark:text-white flex items-center gap-2">
-                  <ShoppingBag className="text-orange-500" />
-                  Shopping Cart
-                  <span className="bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 text-xs px-2 py-0.5 rounded-full">
-                    {cartCount} Items
-                  </span>
-                </h2>
-                <button
-                  onClick={() => setIsCartOpen(false)}
-                  className="p-2 bg-slate-200 dark:bg-white/10 rounded-full text-slate-600 dark:text-slate-300"
-                >
-                  <X size={20} />
-                </button>
+              {/* Cart Header */}
+              <div className="p-4 border-b border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-[#0B1120]">
+                <div className="flex items-center justify-between mb-4">
+                  <h2 className="text-xl font-black text-slate-900 dark:text-white flex items-center gap-2">
+                    <ShoppingBag className="text-orange-500" />
+                    Shopping Cart
+                    <span className="bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 text-xs px-2 py-0.5 rounded-full">
+                      {cartCount} Items
+                    </span>
+                  </h2>
+                  <button
+                    onClick={() => setIsCartOpen(false)}
+                    className="p-2 bg-slate-200 dark:bg-white/10 rounded-full text-slate-600 dark:text-slate-300"
+                  >
+                    <X size={20} />
+                  </button>
+                </div>
+
+                {/* Bulk Actions Header */}
+                {cart.length > 0 && (
+                  <div className="flex items-center justify-between pt-2">
+                    <div className="flex items-center gap-2">
+                      <input
+                        type="checkbox"
+                        checked={selectedIds.length === cart.length && cart.length > 0}
+                        onChange={toggleSelectAll}
+                        className="w-4 h-4 rounded border-gray-300 text-orange-600 focus:ring-orange-500 rounded-sm cursor-pointer accent-orange-500"
+                      />
+                      <span className="text-sm font-bold text-slate-700 dark:text-slate-300 select-none cursor-pointer" onClick={toggleSelectAll}>
+                        Select All
+                      </span>
+                    </div>
+                    {selectedIds.length > 0 && (
+                      <button
+                        onClick={promptBulkDelete}
+                        className="text-xs font-bold text-red-500 hover:text-red-600 flex items-center gap-1 bg-red-50 dark:bg-red-900/10 px-2 py-1 rounded-md transition-colors"
+                      >
+                        <Trash2 size={12} /> Delete Selected ({selectedIds.length})
+                      </button>
+                    )}
+                  </div>
+                )}
               </div>
 
+              {/* Cart Items List */}
               <div className="flex-1 overflow-y-auto p-4 space-y-4">
                 {cart.length === 0 ? (
                   <div className="h-full flex flex-col items-center justify-center text-center opacity-50">
@@ -957,15 +1131,26 @@ export default function HomePage() {
                   </div>
                 ) : (
                   cart.map(item => (
-                    <div key={item.id} className="flex gap-3 bg-slate-50 dark:bg-white/5 p-3 rounded-xl border border-slate-100 dark:border-white/5">
+                    <div key={item.id} className={`flex gap-3 p-3 rounded-xl border transition-colors ${selectedIds.includes(item.id) ? 'bg-orange-50 dark:bg-orange-500/5 border-orange-200 dark:border-orange-500/20' : 'bg-slate-50 dark:bg-white/5 border-slate-100 dark:border-white/5'}`}>
+                      {/* Item Checkbox */}
+                      <div className="flex items-center justify-center">
+                        <input
+                          type="checkbox"
+                          checked={selectedIds.includes(item.id)}
+                          onChange={() => toggleSelection(item.id)}
+                          className="w-4 h-4 rounded border-gray-300 text-orange-600 focus:ring-orange-500 rounded-sm cursor-pointer accent-orange-500"
+                        />
+                      </div>
+
                       <div className="w-16 h-16 bg-white dark:bg-black/20 rounded-lg p-1 flex-shrink-0 border border-slate-200 dark:border-white/10">
                         <LiquipediaImage itemName={item.name} className="object-contain" />
                       </div>
+
                       <div className="flex-1 min-w-0 flex flex-col justify-between">
                         <div className="flex justify-between items-start">
-                          <h4 className="font-bold text-sm text-slate-900 dark:text-white truncate pr-2">{item.name}</h4>
-                          <button onClick={() => setItemToRemove(item.id)} className="text-red-500 hover:text-red-600">
-                            <X size={16} />
+                          <h4 className="font-bold text-sm text-slate-900 dark:text-white truncate pr-2 cursor-pointer hover:text-orange-500" onClick={() => toggleSelection(item.id)}>{item.name}</h4>
+                          <button onClick={() => setPendingDeleteIds([item.id])} className="text-slate-400 hover:text-red-500 transition-colors">
+                            <Trash2 size={16} />
                           </button>
                         </div>
                         <div className="flex items-center justify-between mt-2">
@@ -992,12 +1177,13 @@ export default function HomePage() {
               {cart.length > 0 && (
                 <div className="p-4 border-t border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-[#0B1120]">
                   <div className="flex justify-between items-center mb-4">
-                    <span className="text-slate-500 dark:text-slate-400 font-bold">Total</span>
+                    <span className="text-slate-500 dark:text-slate-400 font-bold">Total ({selectedIds.length} items)</span>
                     <span className="text-2xl font-black text-slate-900 dark:text-white">{formatRupiah(cartTotal)}</span>
                   </div>
                   <button
                     onClick={checkoutWhatsApp}
-                    className="w-full py-3.5 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-lg rounded-xl shadow-lg shadow-green-500/20 active:scale-95 transition-transform flex items-center justify-center gap-2"
+                    disabled={selectedIds.length === 0}
+                    className="w-full py-3.5 bg-[#25D366] hover:bg-[#20bd5a] disabled:bg-slate-300 disabled:cursor-not-allowed dark:disabled:bg-slate-700 text-white font-bold text-lg rounded-xl shadow-lg shadow-green-500/20 active:scale-95 transition-transform flex items-center justify-center gap-2"
                   >
                     <MessageCircle size={20} />
                     Checkout via WhatsApp
@@ -1083,9 +1269,9 @@ export default function HomePage() {
         </div>
       </footer>
 
-      {/* Remove Confirmation Modal */}
+      {/* Remove Confirmation Modal (Reusable for Bulk) */}
       <AnimatePresence>
-        {itemToRemove && (
+        {pendingDeleteIds && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -1100,9 +1286,13 @@ export default function HomePage() {
               className="bg-white dark:bg-[#151e32] p-6 rounded-2xl w-full max-w-sm shadow-xl border border-slate-200 dark:border-white/10"
               onClick={(e) => e.stopPropagation()}
             >
-              <h3 className="text-lg font-black text-slate-900 dark:text-white mb-2">Remove Item?</h3>
+              <h3 className="text-lg font-black text-slate-900 dark:text-white mb-2">
+                {pendingDeleteIds.length > 1 ? `Remove ${pendingDeleteIds.length} Items?` : "Remove Item?"}
+              </h3>
               <p className="text-slate-500 dark:text-slate-400 mb-6 text-sm">
-                Are you sure you want to remove this item from your cart?
+                {pendingDeleteIds.length > 1
+                  ? "Are you sure you want to remove the selected items from your cart?"
+                  : "Are you sure you want to remove this item from your cart?"}
               </p>
               <div className="flex gap-3">
                 <button
@@ -1125,6 +1315,7 @@ export default function HomePage() {
 
       <WelcomePopup products={products} onSelectProduct={handleCardClick} />
       <TestMyLuck products={products} onItemSelected={handleCardClick} />
+      <ToastContainer toasts={toasts} removeToast={removeToast} />
     </div>
   )
 }
