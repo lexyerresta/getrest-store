@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState, useRef } from "react"
+import { useEffect, useState, useRef, useMemo } from "react"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { motion, AnimatePresence } from "framer-motion"
@@ -20,7 +20,9 @@ import {
   ChevronDown,
   BadgeCheck, // Added BadgeCheck
   SortAsc, // Re-added SortAsc
-  ExternalLink // Re-added ExternalLink
+  ExternalLink, // Re-added ExternalLink
+  TrendingUp,
+  Flame
 } from "lucide-react"
 
 import { useDebounce } from "@/lib/useDebounce"
@@ -48,6 +50,136 @@ type PriceOverride = {
 }[]
 
 type SortOption = "price-high" | "price-low" | "name-asc" | "name-desc"
+
+
+const priceRanges = [
+  { label: "All Prices", min: 0, max: Infinity },
+  { label: "Under 50K", min: 0, max: 50000 },
+  { label: "50K - 200K", min: 50000, max: 200000 },
+  { label: "200K - 500K", min: 200000, max: 500000 },
+  { label: "Above 500K", min: 500000, max: Infinity },
+]
+
+interface FilterContentProps {
+  query: string
+  setQuery: (q: string) => void
+  selectedHero: string
+  setSelectedHero: (h: string) => void
+  uniqueHeroes: string[]
+  sortBy: SortOption
+  setSortBy: (s: SortOption) => void
+  priceRange: [number, number]
+  setPriceRange: (r: [number, number]) => void
+}
+
+const FilterContent = ({
+  query,
+  setQuery,
+  selectedHero,
+  setSelectedHero,
+  uniqueHeroes,
+  sortBy,
+  setSortBy,
+  priceRange,
+  setPriceRange
+}: FilterContentProps) => (
+  <div className="space-y-6">
+    {/* Seller Info (Mini) */}
+    <div className="bg-white dark:bg-[#151e32] p-5 rounded-xl border border-slate-200 dark:border-white/10 flex items-center gap-4 shadow-sm">
+      <div className="w-12 h-12 bg-white p-0.5 rounded-full border border-orange-100 ring-2 ring-orange-500/20">
+        <Image src="/logo-getrest.jpg" alt="Logo" width={48} height={48} className="rounded-full object-cover" />
+      </div>
+      <div>
+        <div className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-0.5">Official Seller</div>
+        <div className="text-base font-black text-slate-900 dark:text-white flex items-center gap-1.5">
+          GetRest Store
+          <BadgeCheck size={18} className="text-[#1877F2] fill-[#1877F2] text-white" />
+        </div>
+      </div>
+    </div>
+    {/* Search Box */}
+    <div className="bg-white dark:bg-[#151e32] border border-slate-200 dark:border-white/10 p-5 rounded-xl shadow-sm">
+      <h3 className="text-slate-800 dark:text-white text-sm font-bold uppercase mb-3 tracking-wider flex items-center gap-2">
+        <Search size={14} className="text-orange-500" /> Search
+      </h3>
+      <div className="relative">
+        <Input
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          className="bg-slate-50 dark:bg-[#0B1120] border-slate-200 dark:border-white/10 focus:border-orange-500 dark:focus:border-orange-500 h-11 text-sm rounded-lg"
+          placeholder="Type to search items..."
+        />
+      </div>
+    </div>
+
+    {/* Filter Panel */}
+    <div className="bg-white dark:bg-[#151e32] border border-slate-200 dark:border-white/10 rounded-xl overflow-hidden shadow-sm">
+      <div className="p-4 border-b border-slate-200 dark:border-white/10 bg-slate-50/50 dark:bg-white/5 flex items-center gap-2">
+        <Filter size={16} className="text-orange-500" />
+        <span className="text-slate-900 dark:text-white font-bold text-sm">Advanced Filters</span>
+      </div>
+
+      <div className="p-5 space-y-6">
+        {/* Hero Select */}
+        <div>
+          <label className="block text-slate-500 dark:text-slate-400 text-xs font-bold uppercase mb-2">Hero</label>
+          <div className="relative">
+            <select
+              value={selectedHero}
+              onChange={(e) => setSelectedHero(e.target.value)}
+              className="w-full appearance-none bg-slate-50 dark:bg-[#0B1120] border border-slate-200 dark:border-white/10 rounded-lg text-slate-700 dark:text-slate-200 text-sm px-4 py-2.5 focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-all"
+            >
+              <option value="all">All Heroes</option>
+              {uniqueHeroes.map(h => <option key={h} value={h || ""}>{h}</option>)}
+            </select>
+            <ChevronDown className="absolute right-3 top-3 text-slate-400 pointer-events-none" size={14} />
+          </div>
+        </div>
+
+        {/* Price Sort */}
+        <div>
+          <label className="block text-slate-500 dark:text-slate-400 text-xs font-bold uppercase mb-2">Sort By</label>
+          <div className="relative">
+            <select
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value as SortOption)}
+              className="w-full appearance-none bg-slate-50 dark:bg-[#0B1120] border border-slate-200 dark:border-white/10 rounded-lg text-slate-700 dark:text-slate-200 text-sm px-4 py-2.5 focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-all"
+            >
+              <option value="price-high">Price: High to Low</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="name-asc">Name: A to Z</option>
+              <option value="name-desc">Name: Z to A</option>
+            </select>
+            <ChevronDown className="absolute right-3 top-3 text-slate-400 pointer-events-none" size={14} />
+          </div>
+        </div>
+
+        {/* Price Filtering Checks */}
+        <div>
+          <label className="block text-slate-500 dark:text-slate-400 text-xs font-bold uppercase mb-3">Price Range</label>
+          <div className="space-y-2">
+            {priceRanges.map((range, idx) => {
+              const isSelected = priceRange[0] === range.min && priceRange[1] === range.max;
+              return (
+                <div
+                  key={idx}
+                  onClick={() => setPriceRange([range.min, range.max])}
+                  className={`flex items-center gap-3 cursor-pointer p-2 rounded-lg transition-all ${isSelected ? 'bg-orange-50 dark:bg-orange-500/10 text-orange-700 dark:text-orange-400 font-bold border border-orange-200 dark:border-orange-500/20' : 'hover:bg-slate-50 dark:hover:bg-white/5 text-slate-600 dark:text-slate-400 border border-transparent'}`}
+                >
+                  <div className={`w-4 h-4 rounded-full flex items-center justify-center border transition-all ${isSelected ? 'border-orange-500 bg-orange-500 text-white' : 'border-slate-300 dark:border-slate-600'}`}>
+                    {isSelected && <div className="w-1.5 h-1.5 bg-white rounded-full" />}
+                  </div>
+                  <span className="text-sm">{range.label}</span>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+)
 
 export default function HomePage() {
   const [products, setProducts] = useState<Product[]>([])
@@ -138,7 +270,7 @@ export default function HomePage() {
   }, [])
 
   // Get unique heroes
-  const uniqueHeroes = Array.from(new Set(products.map(p => p.hero).filter(Boolean))).sort()
+  const uniqueHeroes = Array.from(new Set(products.map(p => p.hero).filter((h): h is string => !!h))).sort()
 
   // Filter & Sort
   const filteredAndSorted = products
@@ -183,14 +315,6 @@ export default function HomePage() {
     setVideoUrl("")
   }
 
-  const priceRanges = [
-    { label: "All Prices", min: 0, max: Infinity },
-    { label: "Under 50K", min: 0, max: 50000 },
-    { label: "50K - 200K", min: 50000, max: 200000 },
-    { label: "200K - 500K", min: 200000, max: 500000 },
-    { label: "Above 500K", min: 500000, max: Infinity },
-  ]
-
   const getLiquipediaUrl = (itemName: string) => {
     const slug = itemName.replace(/\s+/g, '_')
     return `https://liquipedia.net/dota2/${slug}`
@@ -213,107 +337,6 @@ export default function HomePage() {
     }
   }, [isHeroDropdownOpen, isSortDropdownOpen, isPriceDropdownOpen])
 
-  // Filter Content Component to avoid duplication
-  const FilterContent = () => (
-    <div className="space-y-6">
-      {/* Search Box */}
-      <div className="bg-white dark:bg-[#151e32] border border-slate-200 dark:border-white/10 p-5 rounded-xl shadow-sm">
-        <h3 className="text-slate-800 dark:text-white text-sm font-bold uppercase mb-3 tracking-wider flex items-center gap-2">
-          <Search size={14} className="text-orange-500" /> Search
-        </h3>
-        <div className="relative">
-          <Input
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            className="bg-slate-50 dark:bg-[#0B1120] border-slate-200 dark:border-white/10 focus:border-orange-500 dark:focus:border-orange-500 h-11 text-sm rounded-lg"
-            placeholder="Type to search items..."
-          />
-        </div>
-      </div>
-
-      {/* Filter Panel */}
-      <div className="bg-white dark:bg-[#151e32] border border-slate-200 dark:border-white/10 rounded-xl overflow-hidden shadow-sm">
-        <div className="p-4 border-b border-slate-200 dark:border-white/10 bg-slate-50/50 dark:bg-white/5 flex items-center gap-2">
-          <Filter size={16} className="text-orange-500" />
-          <span className="text-slate-900 dark:text-white font-bold text-sm">Advanced Filters</span>
-        </div>
-
-        <div className="p-5 space-y-6">
-          {/* Hero Select */}
-          <div>
-            <label className="block text-slate-500 dark:text-slate-400 text-xs font-bold uppercase mb-2">Hero</label>
-            <div className="relative">
-              <select
-                value={selectedHero}
-                onChange={(e) => setSelectedHero(e.target.value)}
-                className="w-full appearance-none bg-slate-50 dark:bg-[#0B1120] border border-slate-200 dark:border-white/10 rounded-lg text-slate-700 dark:text-slate-200 text-sm px-4 py-2.5 focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-all"
-              >
-                <option value="all">All Heroes</option>
-                {uniqueHeroes.map(h => <option key={h} value={h || ""}>{h}</option>)}
-              </select>
-              <ChevronDown className="absolute right-3 top-3 text-slate-400 pointer-events-none" size={14} />
-            </div>
-          </div>
-
-          {/* Price Sort */}
-          <div>
-            <label className="block text-slate-500 dark:text-slate-400 text-xs font-bold uppercase mb-2">Sort By</label>
-            <div className="relative">
-              <select
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value as SortOption)}
-                className="w-full appearance-none bg-slate-50 dark:bg-[#0B1120] border border-slate-200 dark:border-white/10 rounded-lg text-slate-700 dark:text-slate-200 text-sm px-4 py-2.5 focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-all"
-              >
-                <option value="price-high">Price: High to Low</option>
-                <option value="price-low">Price: Low to High</option>
-                <option value="name-asc">Name: A to Z</option>
-                <option value="name-desc">Name: Z to A</option>
-              </select>
-              <ChevronDown className="absolute right-3 top-3 text-slate-400 pointer-events-none" size={14} />
-            </div>
-          </div>
-
-          {/* Price Filtering Checks */}
-          <div>
-            <label className="block text-slate-500 dark:text-slate-400 text-xs font-bold uppercase mb-3">Price Range</label>
-            <div className="space-y-2">
-              {priceRanges.map((range, idx) => {
-                const isSelected = priceRange[0] === range.min && priceRange[1] === range.max;
-                return (
-                  <div
-                    key={idx}
-                    onClick={() => setPriceRange([range.min, range.max])}
-                    className={`flex items-center gap-3 cursor-pointer p-2 rounded-lg transition-all ${isSelected ? 'bg-orange-50 dark:bg-orange-500/10 text-orange-700 dark:text-orange-400 font-bold border border-orange-200 dark:border-orange-500/20' : 'hover:bg-slate-50 dark:hover:bg-white/5 text-slate-600 dark:text-slate-400 border border-transparent'}`}
-                  >
-                    <div className={`w-4 h-4 rounded-full flex items-center justify-center border transition-all ${isSelected ? 'border-orange-500 bg-orange-500 text-white' : 'border-slate-300 dark:border-slate-600'}`}>
-                      {isSelected && <div className="w-1.5 h-1.5 bg-white rounded-full" />}
-                    </div>
-                    <span className="text-sm">{range.label}</span>
-                  </div>
-                )
-              })}
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      {/* Seller Info (Mini) */}
-      <div className="bg-white dark:bg-[#151e32] p-5 rounded-xl border border-slate-200 dark:border-white/10 flex items-center gap-4 shadow-sm">
-        <div className="w-12 h-12 bg-white p-0.5 rounded-full border border-orange-100 ring-2 ring-orange-500/20">
-          <Image src="/logo-getrest.jpg" alt="Logo" width={48} height={48} className="rounded-full object-cover" />
-        </div>
-        <div>
-          <div className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-0.5">Official Seller</div>
-          <div className="text-base font-black text-slate-900 dark:text-white flex items-center gap-1.5">
-            GetRest Store
-            <BadgeCheck size={18} className="text-[#1877F2] fill-[#1877F2] text-white" />
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false)
   const [isCommentsOpen, setIsCommentsOpen] = useState(false)
 
@@ -328,6 +351,16 @@ export default function HomePage() {
       document.body.style.overflow = "unset"
     }
   }, [isCommentsOpen])
+
+  const popularItems = useMemo(() => {
+    return [...products]
+      .filter(p => p.qty > 0)
+      .sort((a, b) => {
+        if (a.qty !== b.qty) return a.qty - b.qty
+        return b.price - a.price
+      })
+      .slice(0, 4)
+  }, [products])
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-[#0B1120] text-slate-900 dark:text-slate-100 font-sans selection:bg-orange-500 selection:text-white transition-colors duration-300">
@@ -393,6 +426,69 @@ export default function HomePage() {
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 py-6">
+        {/* Popular Items Section */}
+        <section className="mb-10">
+          <div className="flex items-center gap-2 mb-4">
+            <div className="p-2 bg-orange-100 dark:bg-orange-900/20 rounded-lg">
+              <TrendingUp size={24} className="text-orange-600 dark:text-orange-500" />
+            </div>
+            <div>
+              <h2 className="text-2xl font-black text-slate-900 dark:text-white">Popular Items</h2>
+              <p className="text-sm text-slate-500 dark:text-slate-400">Most sought-after premium skins</p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {popularItems.map((item, index) => (
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                onClick={() => handleCardClick(item)}
+                className="group relative bg-white dark:bg-[#151e32] rounded-xl border border-slate-200 dark:border-white/10 hover:border-orange-300 dark:hover:border-orange-500/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer overflow-hidden"
+              >
+                {/* Fire Badge */}
+                <div className="absolute top-2 left-2 z-10">
+                  <span className="text-[10px] font-bold px-2 py-0.5 bg-orange-500 text-white rounded-full shadow-lg flex items-center gap-1">
+                    <Flame size={10} fill="currentColor" /> HOT
+                  </span>
+                </div>
+
+                {/* Info Overlay on Hover (Optional, or just static) */}
+                {/* Let's stick to clean standard card */}
+
+                {/* Image */}
+                <div className="relative aspect-[4/3] bg-gradient-to-br from-orange-50/50 to-red-50/50 dark:from-[#2a1f5e] dark:to-[#1a1425] p-4 flex items-center justify-center overflow-hidden">
+                  <LiquipediaImage
+                    itemName={item.name}
+                    className="w-full h-full object-contain drop-shadow-lg group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+
+                {/* Info */}
+                <div className="p-3">
+                  <div className="flex items-center gap-1.5 mb-1">
+                    <Star size={10} className="text-orange-500 fill-orange-500" />
+                    <span className="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400 tracking-wider text-ellipsis overflow-hidden whitespace-nowrap">{item.hero || "Dota 2"}</span>
+                  </div>
+                  <h3 className="font-bold text-slate-800 dark:text-white text-sm line-clamp-1 group-hover:text-orange-600 dark:group-hover:text-orange-500 transition-colors mb-2">
+                    {item.name}
+                  </h3>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm font-black text-orange-600 dark:text-orange-500">
+                      {formatRupiah(item.price).replace(",00", "")}
+                    </span>
+                    <div className="w-6 h-6 rounded-md bg-slate-100 dark:bg-white/10 flex items-center justify-center text-slate-400 group-hover:bg-orange-500 group-hover:text-white transition-colors">
+                      <ShoppingBag size={12} />
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
         <div className="flex flex-col lg:flex-row gap-6 items-start">
 
           {/* LEFT: Product Grid */}
@@ -509,7 +605,17 @@ export default function HomePage() {
 
           {/* RIGHT: Sidebar Filters (Desktop only) */}
           <aside className="hidden lg:block w-80 flex-shrink-0 sticky top-24 h-fit">
-            <FilterContent />
+            <FilterContent
+              query={query}
+              setQuery={setQuery}
+              selectedHero={selectedHero}
+              setSelectedHero={setSelectedHero}
+              uniqueHeroes={uniqueHeroes}
+              sortBy={sortBy}
+              setSortBy={setSortBy}
+              priceRange={priceRange}
+              setPriceRange={setPriceRange}
+            />
           </aside>
 
         </div>
@@ -543,7 +649,17 @@ export default function HomePage() {
                 </button>
               </div>
 
-              <FilterContent />
+              <FilterContent
+                query={query}
+                setQuery={setQuery}
+                selectedHero={selectedHero}
+                setSelectedHero={setSelectedHero}
+                uniqueHeroes={uniqueHeroes}
+                sortBy={sortBy}
+                setSortBy={setSortBy}
+                priceRange={priceRange}
+                setPriceRange={setPriceRange}
+              />
 
               <div className="sticky bottom-0 mt-6 pt-4 pb-2 bg-slate-50 dark:bg-[#0B1120] border-t border-slate-200 dark:border-white/10">
                 <button
@@ -715,6 +831,26 @@ export default function HomePage() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Footer */}
+      <footer className="py-12 text-center border-t border-slate-200 dark:border-white/10 mt-12 bg-white dark:bg-[#151e32]">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex flex-col items-center justify-center gap-4">
+            <div className="w-16 h-16 bg-slate-100 dark:bg-white/5 rounded-full flex items-center justify-center mb-2">
+              <CheckCircle size={32} className="text-green-500" />
+            </div>
+            <h3 className="text-xl font-black text-slate-900 dark:text-white">You've reached the end!</h3>
+            <p className="text-slate-500 dark:text-slate-400 max-w-md mx-auto">
+              That's all the items we have for now. Check back later for new stock or try searching for something specific.
+            </p>
+            <div className="flex items-center gap-2 mt-4 text-xs font-bold text-slate-400 uppercase tracking-widest">
+              <span>GetRest Store</span>
+              <span>•</span>
+              <span>&copy; {new Date().getFullYear()}</span>
+            </div>
+          </div>
+        </div>
+      </footer>
 
       <WelcomePopup products={products} onSelectProduct={handleCardClick} />
       <TestMyLuck products={products} onItemSelected={handleCardClick} />
