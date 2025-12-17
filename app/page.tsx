@@ -49,6 +49,7 @@ import { SteamComments } from "@/components/SteamComments"
 import { TestMyLuck } from "@/components/TestMyLuck"
 import { WelcomePopup } from "@/components/WelcomePopup"
 import { ToastContainer, ToastMessage, ToastType } from "@/components/Toast"
+import { FlashSale } from "@/components/FlashSale"
 import Image from "next/image"
 
 type Product = {
@@ -58,6 +59,8 @@ type Product = {
   icon: string | null
   qty: number
   price: number
+  originalPrice?: number
+  isFlashSale?: boolean
 }
 
 type CartItem = Product & {
@@ -384,6 +387,8 @@ function MainContent() {
     localStorage.setItem('cart', JSON.stringify(cart))
   }, [cart])
 
+
+
   // Toast State
   const [toasts, setToasts] = useState<ToastMessage[]>([])
 
@@ -527,9 +532,15 @@ function MainContent() {
       return
     }
 
-    const itemsList = selectedItems.map(item =>
-      `${item.cartQty}x ${item.name} (${formatRupiah(item.price * item.cartQty)})`
-    ).join('\n')
+    const itemsList = selectedItems.map(item => {
+      const priceStr = item.originalPrice && item.originalPrice > item.price
+        ? `~${formatRupiah(item.originalPrice * item.cartQty)}~ ${formatRupiah(item.price * item.cartQty)}`
+        : `(${formatRupiah(item.price * item.cartQty)})`
+
+      const namePrefix = item.isFlashSale ? "[FLASH SALE] " : ""
+
+      return `${item.cartQty}x ${namePrefix}${item.name} ${priceStr}`
+    }).join('\n')
 
     const message = `Halo GetRest Store! Saya ingin memesan:\n\n${itemsList}\n\nTotal: ${formatRupiah(cartTotal)}\n\nMohon dicek apakah stok tersedia? Terima kasih!`
 
@@ -541,16 +552,35 @@ function MainContent() {
     event?.stopPropagation()
 
     // Direct WhatsApp link for single item
-    const message = `Halo GetRest Store! Saya ingin membeli langsung:\n\n1x ${product.name} (${formatRupiah(product.price)})\n\nMohon dicek apakah stok tersedia? Terima kasih!`
+    const priceStr = product.originalPrice && product.originalPrice > product.price
+      ? `~${formatRupiah(product.originalPrice)}~ ${formatRupiah(product.price)}`
+      : `(${formatRupiah(product.price)})`
+
+    const namePrefix = product.isFlashSale ? "[FLASH SALE ⚡] " : ""
+
+    const message = `Halo GetRest Store! Saya ingin membeli langsung:\n\n1x ${namePrefix}${product.name} ${priceStr}\n\nMohon dicek apakah stok tersedia? Terima kasih!`
 
     const whatsappUrl = `https://wa.me/6281388883983?text=${encodeURIComponent(message)}`
     window.open(whatsappUrl, "_blank")
   }
 
-  const handleShare = (product: Product) => {
+  const handleShare = async (product: Product) => {
     const url = `${window.location.origin}${pathname}?product=${encodeURIComponent(product.name)}`
-    navigator.clipboard.writeText(url)
-    addToast("Link product copied to clipboard!", "success")
+
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: `GetRest Store - ${product.name}`,
+          text: `Cek item ${product.name} (${product.hero}) ini di GetRest Store! Harganya cuma ${formatRupiah(product.price)}`,
+          url: url
+        })
+      } catch (err) {
+        console.error("Error sharing:", err)
+      }
+    } else {
+      navigator.clipboard.writeText(url)
+      addToast("Link product copied to clipboard!", "success")
+    }
   }
 
 
@@ -655,6 +685,8 @@ function MainContent() {
                   {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
                 </button>
 
+
+
                 <button
                   onClick={() => setIsCartOpen(true)}
                   className="relative p-2 rounded-lg bg-slate-100 dark:bg-white/10 hover:bg-slate-200 dark:hover:bg-white/20 text-slate-700 dark:text-white transition-colors"
@@ -686,6 +718,14 @@ function MainContent() {
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 py-6">
+        {/* Flash Sale Section */}
+        <FlashSale
+          products={products}
+          onCardClick={handleCardClick}
+          onAddToCart={addToCart}
+          onBuyNow={handleBuyNow}
+        />
+
         {/* Popular Items Section */}
         <section className="mb-10">
           <div className="flex items-center gap-2 mb-4">
@@ -708,10 +748,13 @@ function MainContent() {
                 onClick={() => handleCardClick(item)}
                 className="group relative bg-white dark:bg-[#151e32] rounded-xl border border-slate-200 dark:border-white/10 hover:border-orange-300 dark:hover:border-orange-500/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer overflow-hidden"
               >
-                {/* Fire Badge */}
-                <div className="absolute top-2 left-2 z-10">
+                {/* Fire Badge & Qty */}
+                <div className="absolute top-2 left-2 z-10 flex gap-1">
                   <span className="text-[10px] font-bold px-2 py-0.5 bg-orange-500 text-white rounded-full shadow-lg flex items-center gap-1">
                     <Flame size={10} fill="currentColor" /> HOT
+                  </span>
+                  <span className="text-[10px] font-bold px-2 py-0.5 bg-slate-900/80 text-white rounded-full backdrop-blur-sm shadow-lg border border-white/10">
+                    {item.qty} Stock
                   </span>
                 </div>
 
@@ -823,13 +866,14 @@ function MainContent() {
 
                       {/* Floating Badges */}
                       <div className="absolute top-2 right-2 flex flex-col gap-1 items-end">
+
                         {item.qty < 5 && (
                           <span className="text-[10px] font-bold px-2 py-0.5 bg-red-500 text-white rounded-full shadow-lg">
                             LOW STOCK
                           </span>
                         )}
-                        <span className="text-[10px] font-bold px-2 py-0.5 bg-white/90 dark:bg-black/60 backdrop-blur text-slate-700 dark:text-white rounded-full shadow-sm border border-slate-200 dark:border-white/10">
-                          x{item.qty}
+                        <span className="text-[10px] font-bold px-2 py-0.5 bg-slate-900/80 text-white rounded-full backdrop-blur-sm shadow-lg border border-white/10">
+                          {item.qty} Stock
                         </span>
                       </div>
                     </div>
@@ -1167,8 +1211,15 @@ function MainContent() {
                           </button>
                         </div>
                         <div className="flex items-center justify-between mt-2">
-                          <div className="font-black text-orange-600 dark:text-orange-500 text-sm">
-                            {formatRupiah(item.price * item.cartQty)}
+                          <div className="flex flex-col items-end">
+                            {item.originalPrice && item.originalPrice > item.price && (
+                              <span className="text-[10px] text-slate-400 line-through decoration-red-500">
+                                {formatRupiah(item.originalPrice * item.cartQty)}
+                              </span>
+                            )}
+                            <div className={`font-black text-sm ${item.isFlashSale ? "text-red-500" : "text-orange-600 dark:text-orange-500"}`}>
+                              {formatRupiah(item.price * item.cartQty)}
+                            </div>
                           </div>
                           <div className="flex items-center gap-2 bg-white dark:bg-white/10 rounded-lg p-1">
                             <button onClick={() => updateCartQty(item.id, -1)} className="w-6 h-6 flex items-center justify-center bg-slate-100 dark:bg-white/10 rounded hover:bg-slate-200 text-slate-900 dark:text-white">-</button>

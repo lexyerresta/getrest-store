@@ -205,7 +205,7 @@ const STEAM_PROFILE_URL = `https://steamcommunity.com/profiles/${STEAM_ID}`
 - **Contact Us (Linktree Style)**
 - Steam inventory link
 
-### 5. Shopping Cart & Checkout (NEW)
+### 5. Shopping Cart & Checkout
 - **Persistent Cart** - Items saved in local storage
 - **WhatsApp Integration** - Automated order formatting with total calculation
 - **Buy Now** - Skip the cart and checkout a single item immediately
@@ -213,6 +213,16 @@ const STEAM_PROFILE_URL = `https://steamcommunity.com/profiles/${STEAM_ID}`
 - **Bulk Selection** - Select all, delete selected items with one click
 - **Toast Notifications** - Fast, non-intrusive feedback for cart actions
 - **Safety Features** - Confirmation modals for single and bulk deletions
+- **Flash Sale Integration** - Cart displays original/discounted prices with proper formatting
+
+### 6. ⚡ Flash Sale System (NEW)
+- **Daily Rotation** - 4 random items discounted automatically every day
+- **Real-time Countdown** - Live timer ticking down to midnight
+- **11% Discount** - Automatic price calculation formatting
+- **FOMO UI** - Pulsing badges, glow effects, and "Live" indicators
+- **Mobile Optimized** - Responsive layout for timer and banners
+- **Full Payment Warning** - Clear payment terms display
+- **Checkout Integration** - Special `[FLASH SALE]` tags and strikethrough prices in WhatsApp order messages
 
 ## 🐛 Known Issues
 
