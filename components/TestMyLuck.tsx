@@ -59,41 +59,76 @@ export function TestMyLuck({ products, onItemSelected }: LuckyDrawProps) {
 
     const { play } = useDotaAudio()
 
+    // Gacha Visual States
+    const [blurAmount, setBlurAmount] = useState(0)
+    const [shakeIntensity, setShakeIntensity] = useState(0)
+    const [showFlash, setShowFlash] = useState(false)
+
     const spinLuck = () => {
         if (products.length === 0 || isSpinning) return
 
         setIsSpinning(true)
+        setShowFlash(false)
         setSelectedItem(null)
         play("drum_roll")
 
-        // Simulate spinning for 2 seconds
-        const duration = 2000
-        const interval = 100
-        let elapsed = 0
+        let currentSpeed = 50 // Start very fast (ms)
+        let totalTime = 0
+        const slowdownThreshold = 2000 // Start slowing down after 3s (matches drum roll buildup)
+        // Drum roll usually ends around 4s-4.5s
 
-        const spinInterval = setInterval(() => {
+        const animateSpin = () => {
+            // Pick a random visual item
             const randomItem = products[Math.floor(Math.random() * products.length)]
             setSelectedItem(randomItem)
-            elapsed += interval
 
-            if (elapsed >= duration) {
-                clearInterval(spinInterval)
-                setIsSpinning(false)
-                const finalItem = products[Math.floor(Math.random() * products.length)]
-                setSelectedItem(finalItem)
-                const itemRarity = getRarity(finalItem.price)
-                setRarity(itemRarity.name)
-
-                // Play Win Sound based on Rarity/Price
-                if (finalItem.price >= 500000) {
-                    play("gacha_win_legendary")
-                } else if (finalItem.price >= 100000) {
-                    play("gacha_win_rare")
-                } else {
-                    play("gacha_win_common")
-                }
+            // Visual Effects & Speed Control
+            if (totalTime < slowdownThreshold) {
+                // Phase 1: High Speed
+                setBlurAmount(4)
+                setShakeIntensity(2)
+            } else {
+                // Phase 2: Decelerate
+                setBlurAmount(prev => Math.max(0, prev - 0.5)) // Quick clear
+                setShakeIntensity(prev => Math.max(0, prev - 0.2)) // Stabilize
+                currentSpeed = Math.floor(currentSpeed * 1.2) // Exponential slow down (increase delay)
             }
-        }, interval)
+
+            totalTime += currentSpeed
+
+            // Stop Condition: Too slow (speed > 500ms) OR Safety timeout (7s)
+            if (currentSpeed < 500 && totalTime < 7000) {
+                setTimeout(animateSpin, currentSpeed)
+            } else {
+                finishSpin()
+            }
+        }
+
+        const finishSpin = () => {
+            setIsSpinning(false)
+            setBlurAmount(0)
+            setShakeIntensity(0)
+            setShowFlash(true) // Trigger Flash
+
+            // Determine Winner
+            const finalItem = products[Math.floor(Math.random() * products.length)]
+            setSelectedItem(finalItem)
+            const itemRarity = getRarity(finalItem.price)
+            setRarity(itemRarity.name)
+
+            // Sound Effects
+            if (finalItem.price >= 500000) {
+                play("gacha_win_legendary")
+            } else if (finalItem.price >= 100000) {
+                play("gacha_win_rare")
+            } else {
+                play("gacha_win_common")
+            }
+
+            setTimeout(() => setShowFlash(false), 500)
+        }
+
+        animateSpin()
     }
 
     const handleSelectItem = () => {
@@ -182,16 +217,36 @@ export function TestMyLuck({ products, onItemSelected }: LuckyDrawProps) {
 
                             {/* Slot Machine Display */}
                             <div className="relative mb-6">
-                                <div className={`min-h-64 bg-gradient-to-br ${selectedItem ? `${getRarity(selectedItem.price).gradient}` : 'from-gray-200 to-gray-300 dark:from-[#612E37] dark:to-[#231650]'} rounded-xl p-6 flex flex-col items-center justify-center border-4 border-white dark:border-[#612E37] shadow-inner transition-all duration-300`}>
-                                    <AnimatePresence mode="wait">
+                                <motion.div
+                                    animate={{
+                                        x: isSpinning ? [0, -shakeIntensity, shakeIntensity, 0] : 0,
+                                        filter: `blur(${blurAmount}px)`
+                                    }}
+                                    transition={{ duration: 0.1, repeat: isSpinning ? Infinity : 0 }}
+                                    className={`min-h-64 bg-gradient-to-br ${selectedItem ? `${getRarity(selectedItem.price).gradient}` : 'from-gray-200 to-gray-300 dark:from-[#612E37] dark:to-[#231650]'} rounded-xl p-6 flex flex-col items-center justify-center border-4 border-white dark:border-[#612E37] shadow-inner transition-all duration-300 relative overflow-hidden`}
+                                >
+                                    {/* Flash Overlay */}
+                                    <AnimatePresence>
+                                        {showFlash && (
+                                            <motion.div
+                                                initial={{ opacity: 0 }}
+                                                animate={{ opacity: 1 }}
+                                                exit={{ opacity: 0 }}
+                                                className="absolute inset-0 bg-white z-20 pointer-events-none mix-blend-overlay"
+                                                transition={{ duration: 0.2 }}
+                                            />
+                                        )}
+                                    </AnimatePresence>
+
+                                    <AnimatePresence mode="popLayout">
                                         {selectedItem ? (
                                             <motion.div
-                                                key={selectedItem.id}
-                                                initial={{ scale: 0, rotate: -180 }}
-                                                animate={{ scale: 1, rotate: 0 }}
-                                                exit={{ scale: 0, rotate: 180 }}
-                                                transition={{ type: "spring", damping: 15 }}
-                                                className="text-center"
+                                                key={selectedItem.id} // Changed mode to popLayout to allow overlapping transitions during spin
+                                                initial={isSpinning ? { y: 50, opacity: 0 } : { scale: 0, rotate: -180 }}
+                                                animate={isSpinning ? { y: 0, opacity: 1 } : { scale: 1, rotate: 0 }}
+                                                exit={isSpinning ? { y: -50, opacity: 0 } : { scale: 0, rotate: 180 }}
+                                                transition={isSpinning ? { duration: 0.05 } : { type: "spring", damping: 15 }}
+                                                className="text-center relative z-10"
                                             >
                                                 {/* Rarity Badge */}
                                                 {rarity && !isSpinning && (
@@ -211,20 +266,20 @@ export function TestMyLuck({ products, onItemSelected }: LuckyDrawProps) {
                                                 <div className="w-32 h-32 mx-auto mb-3 relative">
                                                     <LiquipediaImage
                                                         itemName={selectedItem.name}
-                                                        className={`${isSpinning ? 'opacity-30 blur-sm' : 'opacity-100 blur-0'} transition-all duration-300`}
+                                                        className="opacity-100 transition-all duration-300"
                                                         priority={true}
                                                     />
                                                 </div>
 
                                                 {/* Item Name */}
-                                                <h3 className={`text-xl font-black mb-2 ${isSpinning ? 'text-white/50' : 'text-white drop-shadow-lg'}`}>
+                                                <h3 className={`text-xl font-black mb-2 text-white drop-shadow-lg`}>
                                                     {selectedItem.name}
                                                 </h3>
 
                                                 {/* Hero */}
                                                 <div className="flex items-center justify-center gap-1 mb-3">
                                                     <Star className="w-4 h-4 text-yellow-300" fill="currentColor" />
-                                                    <p className={`text-sm font-semibold ${isSpinning ? 'text-white/50' : 'text-white'}`}>
+                                                    <p className="text-sm font-semibold text-white">
                                                         {selectedItem.hero || "Dota 2"}
                                                     </p>
                                                 </div>
@@ -254,7 +309,7 @@ export function TestMyLuck({ products, onItemSelected }: LuckyDrawProps) {
                                             </div>
                                         )}
                                     </AnimatePresence>
-                                </div>
+                                </motion.div>
 
                                 {/* Sparkle Effects */}
                                 {isSpinning && (
