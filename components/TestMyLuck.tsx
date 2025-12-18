@@ -6,6 +6,7 @@ import { Sparkles, X, Dices, TrendingUp, Award, Star, MessageCircle, ExternalLin
 import { Button } from "./ui/button"
 import { LiquipediaImage } from "./LiquipediaImage"
 import Image from "next/image"
+import { useDotaAudio } from "@/hooks/useDotaAudio"
 
 type Product = {
     id: string
@@ -56,11 +57,14 @@ export function TestMyLuck({ products, onItemSelected }: LuckyDrawProps) {
         }
     }
 
+    const { play } = useDotaAudio()
+
     const spinLuck = () => {
         if (products.length === 0 || isSpinning) return
 
         setIsSpinning(true)
         setSelectedItem(null)
+        play("drum_roll")
 
         // Simulate spinning for 2 seconds
         const duration = 2000
@@ -79,6 +83,15 @@ export function TestMyLuck({ products, onItemSelected }: LuckyDrawProps) {
                 setSelectedItem(finalItem)
                 const itemRarity = getRarity(finalItem.price)
                 setRarity(itemRarity.name)
+
+                // Play Win Sound based on Rarity/Price
+                if (finalItem.price >= 500000) {
+                    play("gacha_win_legendary")
+                } else if (finalItem.price >= 100000) {
+                    play("gacha_win_rare")
+                } else {
+                    play("gacha_win_common")
+                }
             }
         }, interval)
     }
