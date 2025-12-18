@@ -23,11 +23,14 @@
 - **Hero Filtering** - Filter items by Dota 2 heroes
 - **Price Sorting** - Multiple sort options (high to low, A-Z, etc)
 - **Real-time Stock** - Dynamic inventory tracking
+- **Custom Cursor** - Fully themed Dota 2 cursor with gold dust trail and green "Attack Move" click effects
+- **Audio System** - Authentic Dota 2 Announcer voice lines for cart streaks (Killing Spree, Dominating, Rampage at 5 items!)
 
-### 🎰 Test My Luck (Gacha)
-- **Interactive Spinner** - Fun way to discover random items
+### 🎰 Test My Luck (Gacha) v2.0
+- **Interactive Spinner** - Fun way to discover random items with variable speed control
+- **Cinematic Effects** - Screen shake, blur motion, and dramatic flash reveal on win
+- **Audio Feedback** - Synchronized drum roll and rarity-based win sounds
 - **Rarity System** - Visual rarity tiers (Mythical, Legendary, etc.) based on price
-- **Animation Effects** - Engaging confetti and spinning animations
 - **Integrated Checkout** - Direct link to view and buy the won item
 
 ### 💬 Steam Comments

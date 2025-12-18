@@ -11,7 +11,17 @@ const SOUND_ASSETS = {
     gacha_win_rare: "/sounds/win_rare.mp3",
     gacha_win_legendary: "/sounds/win_legendary.mp3",
     // Errors
-    error: "/sounds/error.mp3"
+    error: "/sounds/error.mp3",
+    // Announcer (Streaks)
+    announcer_killing_spree: "/sounds/announcer/killing_spree.mp3",
+    announcer_dominating: "/sounds/announcer/dominating_real.mp3",
+    announcer_mega_kill: "/sounds/announcer/mega_kill.mp3",
+    announcer_rampage: "/sounds/announcer/rampage_real.mp3", // Added Rampage
+    announcer_unstoppable: "/sounds/announcer/unstoppable.mp3",
+    announcer_wicked_sick: "/sounds/announcer/wicked_sick.mp3",
+    announcer_monster_kill: "/sounds/announcer/monster_kill.mp3",
+    announcer_godlike: "/sounds/announcer/godlike.mp3",
+    announcer_holy_shit: "/sounds/announcer/holy_shit.mp3"
 }
 
 type SoundKey = keyof typeof SOUND_ASSETS

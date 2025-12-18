@@ -52,6 +52,7 @@ import { ToastContainer, ToastMessage, ToastType } from "@/components/Toast"
 import { FlashSale } from "@/components/FlashSale"
 import Image from "next/image"
 import { useDotaAudio } from "@/hooks/useDotaAudio"
+import { DotaCursor } from "@/components/DotaCursor"
 
 type Product = {
   id: string
@@ -478,6 +479,10 @@ function MainContent() {
 
   const { play } = useDotaAudio()
 
+  // Streak Logic
+  const streakCount = useRef(0)
+  const lastStreakTime = useRef(0)
+
   const addToCart = (product: Product, event?: React.MouseEvent) => {
     event?.stopPropagation()
 
@@ -491,15 +496,49 @@ function MainContent() {
       return
     }
 
-    // Success Toast
+    // Handle Streak
+    const now = Date.now()
+    if (now - lastStreakTime.current > 15000) {
+      streakCount.current = 0 // Reset if idle > 15s
+    }
+    streakCount.current += 1
+    lastStreakTime.current = now
+
+    const currentStreak = streakCount.current
+
+    // Play Sounds & Show Special Toasts based on Streak
+    // Play Sounds based on Streak (No Toasts for Streaks > 3 to mimic pure audio announcer)
+    if (currentStreak >= 10) {
+      play("announcer_holy_shit")
+    } else if (currentStreak === 9) {
+      play("announcer_godlike")
+    } else if (currentStreak === 8) {
+      play("announcer_monster_kill")
+    } else if (currentStreak === 7) {
+      play("announcer_wicked_sick")
+    } else if (currentStreak === 6) {
+      play("announcer_unstoppable")
+    } else if (currentStreak === 5) {
+      play("announcer_rampage")
+    } else if (currentStreak === 4) {
+      play("announcer_dominating")
+    } else if (currentStreak === 3) {
+      play("announcer_killing_spree")
+    } else {
+      play("coins")
+    }
+
+    // Always Show Success Toast
     if (existing) {
       addToast(`Added another ${product.name} to cart!`, "success")
     } else {
       addToast(`${product.name} added to cart!`, "success")
-      // Auto-select new item
+    }
+
+    // Auto-select new item
+    if (!existing) {
       setSelectedIds(prev => [...prev, product.id])
     }
-    play("coins")
 
     // DYNAMIC CART: We store the item, BUT pricing is calculated on render
     setCart(prev => {
@@ -1530,6 +1569,7 @@ function MainContent() {
       <WelcomePopup products={products} onSelectProduct={handleCardClick} />
       <TestMyLuck products={products} onItemSelected={handleCardClick} />
       <ToastContainer toasts={toasts} removeToast={removeToast} />
+      <DotaCursor />
     </div>
   )
 }
