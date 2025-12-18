@@ -25,6 +25,7 @@
 - **Real-time Stock** - Dynamic inventory tracking
 - **Custom Cursor** - Fully themed Dota 2 cursor with gold dust trail and green "Attack Move" click effects
 - **Audio System** - Authentic Dota 2 Announcer voice lines for cart streaks (Killing Spree, Dominating, Rampage at 5 items!)
+- **Official Rarity Visuals** - Dynamic glowing borders reflecting Valve's official tier hierarchy (Arcana > Ancient > Immortal > Legendary > Mythical > Rare)
 
 ### 🎰 Test My Luck (Gacha) v2.0
 - **Interactive Spinner** - Fun way to discover random items with variable speed control

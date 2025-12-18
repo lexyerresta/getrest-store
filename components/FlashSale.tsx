@@ -38,6 +38,30 @@ const formatRupiah = (value: number) =>
         minimumFractionDigits: 0,
     }).format(value)
 
+// Rarity Visual Helper (Official Dota 2 Colors)
+const getRarityStyle = (price: number) => {
+    // ARCANA (> 1.000.000): Lime Green God-Tier Glow
+    if (price >= 1000000) return "shadow-[0_0_35px_rgba(173,229,92,0.6)] border-[#ADE55C] border-2 ring-2 ring-[#ADE55C]/30 hover:shadow-[0_0_60px_rgba(173,229,92,0.9)] hover:scale-[1.03] z-20"
+
+    // ANCIENT (> 500.000): Deep Red Glow
+    if (price >= 500000) return "shadow-[0_0_25px_rgba(235,75,75,0.5)] border-[#EB4B4B] border-2 hover:shadow-[0_0_40px_rgba(235,75,75,0.8)] hover:scale-[1.02] z-10"
+
+    // IMMORTAL (> 250.000): Golden Amber Glow
+    if (price >= 250000) return "shadow-[0_0_20px_rgba(228,174,51,0.5)] border-[#E4AE33] border-2 hover:shadow-[0_0_35px_rgba(228,174,51,0.7)] z-10"
+
+    // LEGENDARY (> 150.000): Fuchsia/Pink Glow
+    if (price >= 150000) return "shadow-[0_0_15px_rgba(211,44,230,0.5)] border-[#D32CE6] border-2 hover:shadow-[0_0_30px_rgba(211,44,230,0.7)] z-0"
+
+    // MYTHICAL (> 75.000): Purple Glow
+    if (price >= 75000) return "shadow-[0_0_15px_rgba(136,71,255,0.4)] border-[#8847FF] border-2 hover:shadow-[0_0_25px_rgba(136,71,255,0.6)] z-0"
+
+    // RARE (> 25.000): Blue Glow
+    if (price >= 25000) return "shadow-[0_0_10px_rgba(75,105,255,0.4)] border-[#4B69FF] border hover:shadow-[0_0_20px_rgba(75,105,255,0.6)] z-0"
+
+    // COMMON: Standard
+    return "border-slate-200 dark:border-white/10 hover:border-slate-400 dark:hover:border-white/30 hover:shadow-lg z-0"
+}
+
 export const FlashSale = ({ products, flashSaleItems, timeLeft, onCardClick, onAddToCart, onBuyNow }: FlashSaleProps) => {
 
     if (flashSaleItems.length === 0) return null
@@ -98,7 +122,7 @@ export const FlashSale = ({ products, flashSaleItems, timeLeft, onCardClick, onA
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ delay: index * 0.1 }}
                             onClick={() => onCardClick(item)}
-                            className="group/card relative bg-white dark:bg-[#0B1120] rounded-xl border border-slate-200 dark:border-white/5 hover:border-orange-500 dark:hover:border-orange-500 overflow-hidden cursor-pointer shadow-sm hover:shadow-xl hover:shadow-orange-500/10 transition-all duration-300"
+                            className={`group/card relative bg-white dark:bg-[#0B1120] rounded-xl border overflow-hidden cursor-pointer transition-all duration-300 ${getRarityStyle(item.price)}`}
                         >
                             {/* Pulsing Discount Badge */}
                             <div className="absolute top-0 right-0 z-20">

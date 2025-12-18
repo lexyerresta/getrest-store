@@ -6,6 +6,30 @@ import { useEffect, useState, useRef, useMemo, Suspense } from "react"
 // ... (priceRanges, FilterContent, FilterContentProps remain the same)
 
 
+// Rarity Visual Helper
+// Rarity Visual Helper (Official Dota 2 Colors)
+const getRarityStyle = (price: number) => {
+  // ARCANA (> 1.000.000): Lime Green God-Tier Glow
+  if (price >= 1000000) return "shadow-[0_0_35px_rgba(173,229,92,0.6)] border-[#ADE55C] border-2 ring-2 ring-[#ADE55C]/30 hover:shadow-[0_0_60px_rgba(173,229,92,0.9)] hover:scale-[1.03] z-20"
+
+  // ANCIENT (> 500.000): Deep Red Glow
+  if (price >= 500000) return "shadow-[0_0_25px_rgba(235,75,75,0.5)] border-[#EB4B4B] border-2 hover:shadow-[0_0_40px_rgba(235,75,75,0.8)] hover:scale-[1.02] z-10"
+
+  // IMMORTAL (> 250.000): Golden Amber Glow
+  if (price >= 250000) return "shadow-[0_0_20px_rgba(228,174,51,0.5)] border-[#E4AE33] border-2 hover:shadow-[0_0_35px_rgba(228,174,51,0.7)] z-10"
+
+  // LEGENDARY (> 150.000): Fuchsia/Pink Glow
+  if (price >= 150000) return "shadow-[0_0_15px_rgba(211,44,230,0.5)] border-[#D32CE6] border-2 hover:shadow-[0_0_30px_rgba(211,44,230,0.7)] z-0"
+
+  // MYTHICAL (> 75.000): Purple Glow
+  if (price >= 75000) return "shadow-[0_0_15px_rgba(136,71,255,0.4)] border-[#8847FF] border-2 hover:shadow-[0_0_25px_rgba(136,71,255,0.6)] z-0"
+
+  // RARE (> 25.000): Blue Glow
+  if (price >= 25000) return "shadow-[0_0_10px_rgba(75,105,255,0.4)] border-[#4B69FF] border hover:shadow-[0_0_20px_rgba(75,105,255,0.6)] z-0"
+
+  // COMMON: Standard
+  return "border-slate-200 dark:border-white/10 hover:border-slate-400 dark:hover:border-white/30 hover:shadow-lg z-0"
+}
 
 export default function HomePage() {
   return (
@@ -909,7 +933,7 @@ function MainContent() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
                 onClick={() => handleCardClick(item)}
-                className="group relative bg-white dark:bg-[#151e32] rounded-xl border border-slate-200 dark:border-white/10 hover:border-orange-300 dark:hover:border-orange-500/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer overflow-hidden"
+                className={`group relative bg-white dark:bg-[#151e32] rounded-xl border hover:-translate-y-1 transition-all duration-300 cursor-pointer overflow-hidden ${getRarityStyle(item.price)}`}
               >
                 {/* Fire Badge & Qty */}
                 <div className="absolute top-2 left-2 z-10 flex gap-1">
@@ -1017,7 +1041,7 @@ function MainContent() {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: index * 0.03 }}
                     onClick={() => handleCardClick(item)}
-                    className="group relative bg-white dark:bg-[#151e32] rounded-xl border border-slate-200 dark:border-white/10 hover:border-orange-300 dark:hover:border-orange-500/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer overflow-hidden flex flex-col"
+                    className={`group relative bg-white dark:bg-[#151e32] rounded-xl border hover:-translate-y-1 transition-all duration-300 cursor-pointer overflow-hidden flex flex-col ${getRarityStyle(item.price)}`}
                   >
                     {/* Image Container */}
                     <div className="relative aspect-[4/3] bg-gradient-to-br from-slate-50 to-orange-50 dark:from-[#0B1120] dark:to-[#1a1425] p-4 flex items-center justify-center overflow-hidden">
