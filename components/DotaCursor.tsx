@@ -11,7 +11,6 @@ const CURSOR_POINTER = `url('data:image/svg+xml;utf8,<svg width="32" height="32"
 export function DotaCursor() {
     const [clickEffects, setClickEffects] = useState<{ id: number; x: number; y: number }[]>([])
     const [trail, setTrail] = useState<{ id: number; x: number; y: number }[]>([])
-    const requestRef = useRef<number>()
 
     // Global Cursor Style Injection
     useEffect(() => {
