@@ -51,6 +51,7 @@ import { WelcomePopup } from "@/components/WelcomePopup"
 import { ToastContainer, ToastMessage, ToastType } from "@/components/Toast"
 import { FlashSale } from "@/components/FlashSale"
 import Image from "next/image"
+import { useDotaAudio } from "@/hooks/useDotaAudio"
 
 type Product = {
   id: string
@@ -474,6 +475,9 @@ function MainContent() {
     setToasts((prev) => prev.filter((t) => t.id !== id))
   }
 
+
+  const { play } = useDotaAudio()
+
   const addToCart = (product: Product, event?: React.MouseEvent) => {
     event?.stopPropagation()
 
@@ -483,6 +487,7 @@ function MainContent() {
     // Check if max stock reached
     if (existing && existing.cartQty >= product.qty) {
       addToast(`Max stock reached for ${product.name}! Only ${product.qty} available.`, "error")
+      play("error")
       return
     }
 
@@ -494,6 +499,7 @@ function MainContent() {
       // Auto-select new item
       setSelectedIds(prev => [...prev, product.id])
     }
+    play("coins")
 
     // DYNAMIC CART: We store the item, BUT pricing is calculated on render
     setCart(prev => {
@@ -647,6 +653,7 @@ function MainContent() {
 
   const handleBuyNow = (rawProduct: Product, event?: React.MouseEvent) => {
     event?.stopPropagation()
+    play("coins")
 
     // DYNAMIC PRICE CHECK FOR BUY NOW
     // Even if clicking from a list, we double check active flash sale status
