@@ -19,6 +19,7 @@
 
 ### 🎮 Dota 2 Integration
 - **132 Item Images** - Locally cached Liquipedia cosmetic icons
+- **YouTube Preview Integration** - One-click YouTube search for Hero + Item gameplay previews
 - **Hero Filtering** - Filter items by Dota 2 heroes
 - **Price Sorting** - Multiple sort options (high to low, A-Z, etc)
 - **Real-time Stock** - Dynamic inventory tracking
@@ -211,18 +212,18 @@ const STEAM_PROFILE_URL = `https://steamcommunity.com/profiles/${STEAM_ID}`
 - **Buy Now** - Skip the cart and checkout a single item immediately
 - **Smart Quantity Input** - Manual typing with stock validation
 - **Bulk Selection** - Select all, delete selected items with one click
-- **Toast Notifications** - Fast, non-intrusive feedback for cart actions
+- **Compact Notifications** - Fast (0.7s), non-intrusive feedback for cart actions (optimized for mobile)
 - **Safety Features** - Confirmation modals for single and bulk deletions
 - **Flash Sale Integration** - Cart displays original/discounted prices with proper formatting
+- **Removal Alerts** - Visual confirmation when items are taken out of the cart
 
-### 6. ⚡ Flash Sale System (NEW)
-- **Daily Rotation** - 4 random items discounted automatically every day
-- **Real-time Countdown** - Live timer ticking down to midnight
-- **11% Discount** - Automatic price calculation formatting
-- **FOMO UI** - Pulsing badges, glow effects, and "Live" indicators
-- **Mobile Optimized** - Responsive layout for timer and banners
-- **Full Payment Warning** - Clear payment terms display
 - **Checkout Integration** - Special `[FLASH SALE]` tags and strikethrough prices in WhatsApp order messages
+
+### 7. 📱 Mobile Optimized 2.0 (NEW)
+- **Long Screen Support** - Optimized layouts for modern tall-display smartphones
+- **Compact Navigation** - Slim adaptive header and sticky filter bar for better thumb reachability
+- **Floating Button Layout** - Repositioned and resized action buttons to prevent content overlap
+- **Bottom Content Buffer** - Added vertical buffers to ensure floating elements never hide CTAs
 
 ## 🐛 Known Issues
 
