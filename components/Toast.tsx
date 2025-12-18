@@ -19,7 +19,7 @@ interface ToastProps {
 
 export const ToastContainer = ({ toasts, removeToast }: ToastProps) => {
     return (
-        <div className="fixed top-4 right-4 z-[100] flex flex-col gap-2 pointer-events-none">
+        <div className="fixed bottom-4 right-4 z-[100] flex flex-col-reverse gap-2 pointer-events-none">
             <AnimatePresence>
                 {toasts.map((toast) => (
                     <ToastItem key={toast.id} toast={toast} removeToast={removeToast} />
@@ -33,7 +33,7 @@ const ToastItem = ({ toast, removeToast }: { toast: ToastMessage; removeToast: (
     useEffect(() => {
         const timer = setTimeout(() => {
             removeToast(toast.id)
-        }, 1000)
+        }, 700)
 
         return () => clearTimeout(timer)
     }, [toast.id, removeToast])
@@ -41,10 +41,10 @@ const ToastItem = ({ toast, removeToast }: { toast: ToastMessage; removeToast: (
     return (
         <motion.div
             layout
-            initial={{ opacity: 0, y: -20, scale: 0.9 }}
+            initial={{ opacity: 0, y: 20, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.2 } }}
-            className="pointer-events-auto min-w-[300px] max-w-sm bg-white dark:bg-[#1a1425] border border-slate-200 dark:border-white/10 shadow-xl rounded-xl p-4 flex items-start gap-3 backdrop-blur-md"
+            className="pointer-events-auto min-w-[280px] sm:min-w-[300px] max-w-[calc(100vw-32px)] sm:max-w-sm bg-white dark:bg-[#1a1425] border border-slate-200 dark:border-white/10 shadow-xl rounded-xl p-3 sm:p-4 flex items-start gap-2 sm:gap-3 backdrop-blur-md"
         >
             <div className="flex-shrink-0 mt-0.5">
                 {toast.type === "success" && <CheckCircle className="text-green-500 w-5 h-5" />}

@@ -217,7 +217,6 @@ function MainContent() {
 
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [selectedItem, setSelectedItem] = useState<Product | null>(null)
-  const [videoUrl, setVideoUrl] = useState<string>("")
 
   const [sortBy, setSortBy] = useState<SortOption>("price-high")
   const [priceRange, setPriceRange] = useState<[number, number]>([0, Infinity])
@@ -235,6 +234,80 @@ function MainContent() {
 
   const [steamName, setSteamName] = useState("")
   const [steamAvatar, setSteamAvatar] = useState("")
+
+  // --- FLASH SALE LOGIC (LIFTED UP) ---
+  const [timeLeft, setTimeLeft] = useState("")
+  const [currentDate, setCurrentDate] = useState("")
+
+  // Initialize date on client side
+  useEffect(() => {
+    const now = new Date()
+    setCurrentDate(now.toLocaleDateString('en-CA')) // YYYY-MM-DD
+  }, [])
+
+  // Get 4 random items based on daily seed
+  const flashSaleItems = useMemo(() => {
+    if (products.length === 0 || !currentDate) return []
+
+    // Create seed from YYYY-MM-DD string (remove dashes)
+    const seedBase = parseInt(currentDate.replace(/-/g, ''))
+
+    let seed = seedBase;
+    const random = () => {
+      const a = 1664525;
+      const c = 1013904223;
+      const m = 4294967296;
+      seed = (a * seed + c) % m;
+      return seed / m;
+    };
+
+    const shuffled = [...products]
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+
+    return shuffled.slice(0, 4).map(item => ({
+      ...item,
+      originalPrice: item.price,
+      price: Math.floor(item.price * 0.89), // 11% discount
+      isFlashSale: true
+    }))
+  }, [products, currentDate])
+
+  // Countdown Timer
+  useEffect(() => {
+    const updateTimeAndDate = () => {
+      const now = new Date()
+      // Check if DATE explicitly changed to trigger refresh
+      const todayStr = now.toLocaleDateString('en-CA')
+
+      if (todayStr !== currentDate && currentDate !== "") {
+        setCurrentDate(todayStr)
+      }
+
+      // End of Day (23:59:59)
+      const endOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59)
+      const diff = endOfDay.getTime() - now.getTime()
+
+      if (diff <= 0) return "00:00:00"
+
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24)
+      const minutes = Math.floor((diff / (1000 * 60)) % 60)
+      const seconds = Math.floor((diff / 1000) % 60)
+
+      return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`
+    }
+
+    setTimeLeft(updateTimeAndDate())
+
+    const timer = setInterval(() => {
+      setTimeLeft(updateTimeAndDate())
+    }, 1000)
+
+    return () => clearInterval(timer)
+  }, [currentDate])
+  // --- END FLASH SALE LOGIC ---
 
   // using latest json
   useEffect(() => {
@@ -422,6 +495,7 @@ function MainContent() {
       setSelectedIds(prev => [...prev, product.id])
     }
 
+    // DYNAMIC CART: We store the item, BUT pricing is calculated on render
     setCart(prev => {
       const existingInPrev = prev.find(item => item.id === product.id)
       if (existingInPrev) {
@@ -431,11 +505,21 @@ function MainContent() {
             : item
         )
       }
+      // When adding, we add the BASE product. Dynamic price logic handles the rest.
+      // But if we want to store 'originalPrice' just in case, we can.
+      // However, to fix "Flash Sale Expired" issue, we basically ignore stored price if it conflicts.
+      // Simplest way: Store as is.
       return [...prev, { ...product, cartQty: 1 }]
     })
   }
 
   const removeFromCart = (ids: string[]) => {
+    const itemsToRemove = cart.filter(item => ids.includes(item.id))
+    if (itemsToRemove.length === 1) {
+      addToast(`Removed ${itemsToRemove[0].name} from cart`, "info")
+    } else if (itemsToRemove.length > 1) {
+      addToast(`Removed ${itemsToRemove.length} items from cart`, "info")
+    }
     setCart(prev => prev.filter(item => !ids.includes(item.id)))
     setSelectedIds(prev => prev.filter(id => !ids.includes(id)))
   }
@@ -520,7 +604,12 @@ function MainContent() {
 
   const cartTotal = cart
     .filter(item => selectedIds.includes(item.id))
-    .reduce((sum, item) => sum + (item.price * item.cartQty), 0)
+    .filter(item => selectedIds.includes(item.id))
+    .reduce((sum, rawItem) => {
+      const flashItem = flashSaleItems.find(f => f.id === rawItem.id)
+      const finalPrice = flashItem ? flashItem.price : (rawItem.originalPrice || rawItem.price)
+      return sum + (finalPrice * rawItem.cartQty)
+    }, 0)
 
   const cartCount = cart.reduce((sum, item) => sum + item.cartQty, 0)
 
@@ -532,7 +621,15 @@ function MainContent() {
       return
     }
 
-    const itemsList = selectedItems.map(item => {
+    const itemsList = selectedItems.map(rawItem => {
+      // DYNAMIC PRICE LOOKUP
+      const flashItem = flashSaleItems.find(f => f.id === rawItem.id)
+      const item = flashItem
+        ? { ...rawItem, price: flashItem.price, originalPrice: flashItem.originalPrice, isFlashSale: true }
+        // Logic to revert: if cart item HAS originalPrice stored but is NOT in flash sale anymore
+        // we should revert to originalPrice.
+        : { ...rawItem, price: rawItem.originalPrice || rawItem.price, isFlashSale: false, originalPrice: undefined }
+
       const priceStr = item.originalPrice && item.originalPrice > item.price
         ? `~${formatRupiah(item.originalPrice * item.cartQty)}~ ${formatRupiah(item.price * item.cartQty)}`
         : `(${formatRupiah(item.price * item.cartQty)})`
@@ -548,8 +645,15 @@ function MainContent() {
     window.open(whatsappUrl, "_blank")
   }
 
-  const handleBuyNow = (product: Product, event?: React.MouseEvent) => {
+  const handleBuyNow = (rawProduct: Product, event?: React.MouseEvent) => {
     event?.stopPropagation()
+
+    // DYNAMIC PRICE CHECK FOR BUY NOW
+    // Even if clicking from a list, we double check active flash sale status
+    const flashItem = flashSaleItems.find(f => f.id === rawProduct.id)
+    const product = flashItem
+      ? { ...rawProduct, price: flashItem.price, originalPrice: flashItem.originalPrice, isFlashSale: true }
+      : rawProduct
 
     // Direct WhatsApp link for single item
     const priceStr = product.originalPrice && product.originalPrice > product.price
@@ -564,14 +668,25 @@ function MainContent() {
     window.open(whatsappUrl, "_blank")
   }
 
-  const handleShare = async (product: Product) => {
+  const handleShare = async (rawProduct: Product) => {
+    // Check if it's a flash sale item to share the discounted price
+    const flashItem = flashSaleItems.find(f => f.id === rawProduct.id)
+    const product = flashItem
+      ? { ...rawProduct, price: flashItem.price, originalPrice: flashItem.originalPrice, isFlashSale: true }
+      : rawProduct
+
     const url = `${window.location.origin}${pathname}?product=${encodeURIComponent(product.name)}`
+
+    // Format text with discount info if applicable
+    const priceText = product.isFlashSale
+      ? `Lagi Flash Sale! Dari ${formatRupiah(product.originalPrice || 0)} jadi ${formatRupiah(product.price)} aja!`
+      : `Harganya cuma ${formatRupiah(product.price)}`
 
     if (navigator.share) {
       try {
         await navigator.share({
           title: `GetRest Store - ${product.name}`,
-          text: `Cek item ${product.name} (${product.hero}) ini di GetRest Store! Harganya cuma ${formatRupiah(product.price)}`,
+          text: `Cek item ${product.name} (${product.hero}) ini di GetRest Store! ${priceText}`,
           url: url
         })
       } catch (err) {
@@ -643,15 +758,15 @@ function MainContent() {
     <div className="min-h-screen bg-slate-50 dark:bg-[#0B1120] text-slate-900 dark:text-slate-100 font-sans selection:bg-orange-500 selection:text-white transition-colors duration-300">
       {/* Header */}
       {mounted && (
-        <header className="sticky top-0 z-40 bg-white/90 dark:bg-[#151e32]/90 backdrop-blur-md border-b border-slate-200 dark:border-white/10 shadow-sm transition-colors duration-300">
-          <div className="max-w-7xl mx-auto px-4 py-3">
+        <header className="sticky top-0 z-40 bg-white/95 dark:bg-[#151e32]/95 backdrop-blur-md border-b border-slate-200 dark:border-white/10 shadow-sm transition-colors duration-300">
+          <div className="max-w-7xl mx-auto px-4 py-2 sm:py-3">
             <div className="flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <div className="relative w-10 h-10 rounded-lg overflow-hidden shadow-sm ring-1 ring-slate-200 dark:ring-white/10">
+              <div className="flex items-center gap-2 sm:gap-3">
+                <div className="relative w-8 h-8 sm:w-10 sm:h-10 rounded-lg overflow-hidden shadow-sm ring-1 ring-slate-200 dark:ring-white/10">
                   <Image src="/logo-getrest.jpg" alt="GetRest Store" fill className="object-cover" />
                 </div>
                 <div>
-                  <h1 className="text-xl font-bold tracking-tight text-slate-900 dark:text-white">
+                  <h1 className="text-base sm:text-xl font-bold tracking-tight text-slate-900 dark:text-white leading-none">
                     GetRest <span className="text-orange-600 dark:text-orange-500">Store</span>
                   </h1>
                 </div>
@@ -679,22 +794,22 @@ function MainContent() {
 
                 <button
                   onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                  className="p-2 rounded-lg bg-slate-100 dark:bg-white/10 hover:bg-slate-200 dark:hover:bg-white/20 text-slate-700 dark:text-orange-400 transition-all"
+                  className="p-1.5 sm:p-2 rounded-lg bg-slate-100 dark:bg-white/10 hover:bg-slate-200 dark:hover:bg-white/20 text-slate-700 dark:text-orange-400 transition-all"
                   aria-label="Toggle theme"
                 >
-                  {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+                  {theme === "dark" ? <Sun size={16} className="sm:w-[18px] sm:h-[18px]" /> : <Moon size={16} className="sm:w-[18px] sm:h-[18px]" />}
                 </button>
 
 
 
                 <button
                   onClick={() => setIsCartOpen(true)}
-                  className="relative p-2 rounded-lg bg-slate-100 dark:bg-white/10 hover:bg-slate-200 dark:hover:bg-white/20 text-slate-700 dark:text-white transition-colors"
+                  className="relative p-1.5 sm:p-2 rounded-lg bg-slate-100 dark:bg-white/10 hover:bg-slate-200 dark:hover:bg-white/20 text-slate-700 dark:text-white transition-colors"
                   aria-label="Open cart"
                 >
-                  <ShoppingBag size={20} />
+                  <ShoppingBag size={18} className="sm:w-5 sm:h-5" />
                   {cartCount > 0 && (
-                    <span className="absolute -top-1 -right-1 w-5 h-5 bg-orange-600 text-white text-[10px] font-black flex items-center justify-center rounded-full ring-2 ring-white dark:ring-[#0B1120]">
+                    <span className="absolute -top-1 -right-1 w-4 h-4 sm:w-5 sm:h-5 bg-orange-600 text-white text-[8px] sm:text-[10px] font-black flex items-center justify-center rounded-full ring-2 ring-white dark:ring-[#0B1120]">
                       {cartCount}
                     </span>
                   )}
@@ -706,21 +821,23 @@ function MainContent() {
       )}
 
       {/* Mobile Filter Button */}
-      <div className="lg:hidden sticky top-[65px] z-30 px-4 py-2 bg-slate-50/95 dark:bg-[#0B1120]/95 backdrop-blur border-b border-slate-200 dark:border-white/10">
+      <div className="lg:hidden sticky top-[45px] sm:top-[65px] z-30 px-4 py-1.5 bg-slate-50/95 dark:bg-[#0B1120]/95 backdrop-blur border-b border-slate-200 dark:border-white/10">
         <button
           onClick={() => setIsMobileFilterOpen(true)}
-          className="w-full flex items-center justify-center gap-2 py-2 bg-white dark:bg-[#151e32] border border-slate-200 dark:border-white/10 rounded-lg shadow-sm font-bold text-sm text-slate-700 dark:text-slate-300 active:scale-[0.98] transition-transform"
+          className="w-full flex items-center justify-center gap-2 py-1.5 bg-white dark:bg-[#151e32] border border-slate-200 dark:border-white/10 rounded-lg shadow-sm font-bold text-xs text-slate-700 dark:text-slate-300 active:scale-[0.98] transition-transform"
         >
-          <Filter size={14} className="text-orange-500" />
-          Filter Items & Search
+          <Filter size={12} className="text-orange-500" />
+          Filter & Search
         </button>
       </div>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 py-6">
+      <div className="max-w-7xl mx-auto px-4 py-6 pb-32">
         {/* Flash Sale Section */}
         <FlashSale
           products={products}
+          flashSaleItems={flashSaleItems}
+          timeLeft={timeLeft}
           onCardClick={handleCardClick}
           onAddToCart={addToCart}
           onBuyNow={handleBuyNow}
@@ -729,12 +846,12 @@ function MainContent() {
         {/* Popular Items Section */}
         <section className="mb-10">
           <div className="flex items-center gap-2 mb-4">
-            <div className="p-2 bg-orange-100 dark:bg-orange-900/20 rounded-lg">
-              <TrendingUp size={24} className="text-orange-600 dark:text-orange-500" />
+            <div className="p-1.5 sm:p-2 bg-orange-100 dark:bg-orange-900/20 rounded-lg">
+              <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6 text-orange-600 dark:text-orange-500" />
             </div>
             <div>
-              <h2 className="text-2xl font-black text-slate-900 dark:text-white">Popular Items</h2>
-              <p className="text-sm text-slate-500 dark:text-slate-400">Most sought-after premium skins</p>
+              <h2 className="text-lg sm:text-2xl font-black text-slate-900 dark:text-white leading-none">Popular Items</h2>
+              <p className="text-[10px] sm:text-sm text-slate-500 dark:text-slate-400 mt-1 sm:mt-0">Premium items most sought-after</p>
             </div>
           </div>
 
@@ -770,33 +887,33 @@ function MainContent() {
                 </div>
 
                 {/* Info */}
-                <div className="p-3">
-                  <div className="flex items-center gap-1.5 mb-1">
-                    <Star size={10} className="text-orange-500 fill-orange-500" />
-                    <span className="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400 tracking-wider text-ellipsis overflow-hidden whitespace-nowrap">{item.hero || "Dota 2"}</span>
+                <div className="p-2 sm:p-3">
+                  <div className="flex items-center gap-1 mb-1">
+                    <Star size={8} className="text-orange-500 fill-orange-500" />
+                    <span className="text-[9px] sm:text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400 tracking-wider text-ellipsis overflow-hidden whitespace-nowrap">{item.hero || "Dota 2"}</span>
                   </div>
-                  <h3 className="font-bold text-slate-800 dark:text-white text-sm line-clamp-1 group-hover:text-orange-600 dark:group-hover:text-orange-500 transition-colors mb-2">
+                  <h3 className="font-bold text-slate-800 dark:text-white text-[11px] sm:text-sm line-clamp-1 group-hover:text-orange-600 dark:group-hover:text-orange-500 transition-colors mb-1.5 sm:mb-2">
                     {item.name}
                   </h3>
                   <div className="flex items-center justify-between">
-                    <span className="text-sm font-black text-orange-600 dark:text-orange-500">
+                    <span className="text-xs sm:text-sm font-black text-orange-600 dark:text-orange-500">
                       {formatRupiah(item.price).replace(",00", "")}
                     </span>
-                    <div className="flex gap-2">
+                    <div className="flex gap-1.5 sm:gap-2">
                       <button
                         onClick={(e) => { e.stopPropagation(); handleBuyNow(item, e); }}
-                        className="w-6 h-6 rounded-md bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center text-orange-600 dark:text-orange-400 hover:bg-orange-500 hover:text-white transition-colors"
+                        className="w-5 h-5 sm:w-6 sm:h-6 rounded-md bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center text-orange-600 dark:text-orange-400 hover:bg-orange-500 hover:text-white transition-colors"
                         aria-label="Buy Now"
                         title="Buy Now"
                       >
-                        <Zap size={12} fill="currentColor" />
+                        <Zap className="w-2.5 h-2.5 sm:w-3 sm:h-3" fill="currentColor" />
                       </button>
                       <button
                         onClick={(e) => { e.stopPropagation(); addToCart(item, e); }}
-                        className="w-6 h-6 rounded-md bg-slate-100 dark:bg-white/10 flex items-center justify-center text-slate-400 group-hover:bg-orange-500 group-hover:text-white transition-colors"
+                        className="w-5 h-5 sm:w-6 sm:h-6 rounded-md bg-slate-100 dark:bg-white/10 flex items-center justify-center text-slate-400 group-hover:bg-orange-500 group-hover:text-white transition-colors"
                         aria-label="Add to cart"
                       >
-                        <ShoppingBag size={12} />
+                        <ShoppingBag size={10} className="sm:w-3 sm:h-3" />
                       </button>
                     </div>
                   </div>
@@ -1080,7 +1197,10 @@ function MainContent() {
 
               <div className="grid grid-cols-3 gap-3">
                 <Button
-                  onClick={() => window.open(videoUrl, "_blank")}
+                  onClick={() => {
+                    const query = encodeURIComponent(`${selectedItem.hero || ''} ${selectedItem.name} Dota 2 Preview`)
+                    window.open(`https://www.youtube.com/results?search_query=${query}`, '_blank')
+                  }}
                   className="h-11 bg-white dark:bg-white/10 hover:bg-slate-50 dark:hover:bg-white/20 text-slate-900 dark:text-white font-bold border border-slate-200 dark:border-white/10"
                 >
                   <TvMinimalPlay className="w-4 h-4 sm:mr-2" />
@@ -1211,16 +1331,39 @@ function MainContent() {
                           </button>
                         </div>
                         <div className="flex items-center justify-between mt-2">
-                          <div className="flex flex-col items-end">
-                            {item.originalPrice && item.originalPrice > item.price && (
-                              <span className="text-[10px] text-slate-400 line-through decoration-red-500">
-                                {formatRupiah(item.originalPrice * item.cartQty)}
-                              </span>
-                            )}
-                            <div className={`font-black text-sm ${item.isFlashSale ? "text-red-500" : "text-orange-600 dark:text-orange-500"}`}>
-                              {formatRupiah(item.price * item.cartQty)}
-                            </div>
-                          </div>
+                          {/* DYNAMIC PRICE DISPLAY IN CART */}
+                          {(() => {
+                            const flashItem = flashSaleItems.find(f => f.id === item.id)
+                            const displayItem = flashItem
+                              ? { ...item, price: flashItem.price, originalPrice: flashItem.originalPrice, isFlashSale: true }
+                              : { ...item, price: item.originalPrice || item.price, isFlashSale: false, originalPrice: undefined }
+
+                            return (
+                              <div className="flex flex-col items-end">
+                                {displayItem.originalPrice && displayItem.originalPrice > displayItem.price && (
+                                  <span className="text-[10px] text-slate-400 line-through decoration-red-500">
+                                    {formatRupiah(displayItem.originalPrice * item.cartQty)}
+                                  </span>
+                                )}
+                                <div className="absolute top-2 left-2 z-10 opacity-0 group-hover/card:opacity-100 transition-opacity">
+                                  <button
+                                    onClick={(e) => {
+                                      e.stopPropagation()
+                                      const query = encodeURIComponent(`${item.name} ${item.hero || ''} Dota 2 Preview`)
+                                      window.open(`https://www.youtube.com/results?search_query=${query}`, '_blank')
+                                    }}
+                                    className="p-2 bg-red-600 text-white rounded-full shadow-lg hover:bg-red-700 transition-colors"
+                                    title="Watch Preview on YouTube"
+                                  >
+                                    <TvMinimalPlay size={16} />
+                                  </button>
+                                </div>
+                                <div className={`font-black text-sm ${displayItem.isFlashSale ? "text-red-500" : "text-orange-600 dark:text-orange-500"}`}>
+                                  {formatRupiah(displayItem.price * item.cartQty)}
+                                </div>
+                              </div>
+                            )
+                          })()}
                           <div className="flex items-center gap-2 bg-white dark:bg-white/10 rounded-lg p-1">
                             <button onClick={() => updateCartQty(item.id, -1)} className="w-6 h-6 flex items-center justify-center bg-slate-100 dark:bg-white/10 rounded hover:bg-slate-200 text-slate-900 dark:text-white">-</button>
                             <input
