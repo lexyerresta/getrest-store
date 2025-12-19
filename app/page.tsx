@@ -1080,25 +1080,25 @@ function MainContent() {
                       <div className="mt-auto pt-3 border-t border-slate-100 dark:border-white/5 flex items-end justify-between">
                         <div className="flex flex-col">
                           <span className="text-[10px] text-slate-400 font-medium">Price</span>
-                          <span className="text-base font-black text-orange-600 dark:text-orange-500">
+                          <span className="text-xs sm:text-sm md:text-base font-black text-orange-600 dark:text-orange-500 tracking-tight">
                             {formatRupiah(item.price).replace(",00", "")}
                           </span>
                         </div>
-                        <div className="flex gap-2">
+                        <div className="flex gap-1.5 sm:gap-2">
                           <button
                             onClick={(e) => { e.stopPropagation(); handleBuyNow(item, e); }}
-                            className="w-8 h-8 rounded-lg bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center text-orange-600 dark:text-orange-400 hover:bg-orange-500 hover:text-white transition-colors"
+                            className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center text-orange-600 dark:text-orange-400 hover:bg-orange-500 hover:text-white transition-colors"
                             aria-label="Buy Now"
                             title="Buy Now"
                           >
-                            <Zap size={14} fill="currentColor" />
+                            <Zap size={12} className="sm:w-3.5 sm:h-3.5" fill="currentColor" />
                           </button>
                           <button
                             onClick={(e) => { e.stopPropagation(); addToCart(item, e); }}
-                            className="w-8 h-8 rounded-lg bg-slate-100 dark:bg-white/10 flex items-center justify-center text-slate-400 group-hover:bg-orange-500 group-hover:text-white transition-colors"
+                            className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-slate-100 dark:bg-white/10 flex items-center justify-center text-slate-400 group-hover:bg-orange-500 group-hover:text-white transition-colors"
                             aria-label="Add to cart"
                           >
-                            <ShoppingBag size={14} />
+                            <ShoppingBag size={12} className="sm:w-3.5 sm:h-3.5" />
                           </button>
                         </div>
                       </div>
