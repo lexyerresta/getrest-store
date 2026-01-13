@@ -77,6 +77,7 @@ import { FlashSale } from "@/components/FlashSale"
 import Image from "next/image"
 import { useDotaAudio } from "@/hooks/useDotaAudio"
 import { DotaCursor } from "@/components/DotaCursor"
+import { SkinMarketTicker } from "@/components/SkinMarketTicker"
 
 type Product = {
   id: string
@@ -890,6 +891,9 @@ function MainContent() {
         </header>
       )}
 
+      {/* Market Ticker */}
+      <SkinMarketTicker />
+
       {/* Mobile Filter Button */}
       <div className="lg:hidden sticky top-[45px] sm:top-[65px] z-30 px-4 py-1.5 bg-slate-50/95 dark:bg-[#0B1120]/95 backdrop-blur border-b border-slate-200 dark:border-white/10">
         <button
@@ -972,7 +976,7 @@ function MainContent() {
                     <div className="flex gap-1.5 sm:gap-2">
                       <button
                         onClick={(e) => { e.stopPropagation(); handleBuyNow(item, e); }}
-                        className="w-5 h-5 sm:w-6 sm:h-6 rounded-md bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center text-orange-600 dark:text-orange-400 hover:bg-orange-500 hover:text-white transition-colors"
+                        className="w-5 h-5 sm:w-6 sm:h-6 rounded-md bg-orange-100 dark:bg-orange-500/20 border border-transparent dark:border-orange-500/30 flex items-center justify-center text-orange-600 dark:text-orange-300 hover:bg-orange-500 hover:text-white dark:hover:bg-orange-500 dark:hover:text-white transition-all shadow-sm"
                         aria-label="Buy Now"
                         title="Buy Now"
                       >
@@ -980,7 +984,7 @@ function MainContent() {
                       </button>
                       <button
                         onClick={(e) => { e.stopPropagation(); addToCart(item, e); }}
-                        className="w-5 h-5 sm:w-6 sm:h-6 rounded-md bg-slate-100 dark:bg-white/10 flex items-center justify-center text-slate-400 group-hover:bg-orange-500 group-hover:text-white transition-colors"
+                        className="w-5 h-5 sm:w-6 sm:h-6 rounded-md bg-slate-100 dark:bg-slate-700/50 border border-transparent dark:border-white/10 flex items-center justify-center text-slate-400 dark:text-slate-300 hover:bg-orange-500 hover:text-white dark:hover:bg-orange-500 dark:hover:text-white transition-all shadow-sm"
                         aria-label="Add to cart"
                       >
                         <ShoppingBag size={10} className="sm:w-3 sm:h-3" />
@@ -1087,7 +1091,7 @@ function MainContent() {
                         <div className="flex gap-1.5 sm:gap-2">
                           <button
                             onClick={(e) => { e.stopPropagation(); handleBuyNow(item, e); }}
-                            className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center text-orange-600 dark:text-orange-400 hover:bg-orange-500 hover:text-white transition-colors"
+                            className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-orange-100 dark:bg-orange-500/20 border border-transparent dark:border-orange-500/30 flex items-center justify-center text-orange-600 dark:text-orange-300 hover:bg-orange-500 hover:text-white dark:hover:bg-orange-500 dark:hover:text-white transition-all shadow-sm"
                             aria-label="Buy Now"
                             title="Buy Now"
                           >
@@ -1095,7 +1099,7 @@ function MainContent() {
                           </button>
                           <button
                             onClick={(e) => { e.stopPropagation(); addToCart(item, e); }}
-                            className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-slate-100 dark:bg-white/10 flex items-center justify-center text-slate-400 group-hover:bg-orange-500 group-hover:text-white transition-colors"
+                            className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-slate-100 dark:bg-slate-700/50 border border-transparent dark:border-white/10 flex items-center justify-center text-slate-400 dark:text-slate-300 hover:bg-orange-500 hover:text-white dark:hover:bg-orange-500 dark:hover:text-white transition-all shadow-sm"
                             aria-label="Add to cart"
                           >
                             <ShoppingBag size={12} className="sm:w-3.5 sm:h-3.5" />
