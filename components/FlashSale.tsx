@@ -97,9 +97,9 @@ export const FlashSale = ({ products, flashSaleItems, timeLeft, onCardClick, onA
                     </div>
 
                     <div className="flex flex-col items-center md:items-end gap-1.5 w-full md:w-auto">
-                        <div className="flex items-center justify-between md:justify-end gap-2 sm:gap-3 bg-slate-900 dark:bg-black/40 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg shadow-lg border border-slate-700 dark:border-white/5 w-full md:w-auto">
-                            <span className="text-[9px] sm:text-xs font-bold text-slate-400 uppercase tracking-widest">Ends In</span>
-                            <div className="flex items-center gap-1.5 sm:gap-2 font-mono font-bold text-base sm:text-xl text-yellow-400">
+                        <div className="flex items-center justify-between md:justify-end gap-2 sm:gap-3 bg-orange-50 dark:bg-black/40 text-slate-900 dark:text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg shadow-sm border border-orange-100 dark:border-white/5 w-full md:w-auto">
+                            <span className="text-[9px] sm:text-xs font-bold text-orange-600 dark:text-slate-400 uppercase tracking-widest">Ends In</span>
+                            <div className="flex items-center gap-1.5 sm:gap-2 font-mono font-bold text-base sm:text-xl text-red-600 dark:text-yellow-400">
                                 <Clock size={14} className="sm:w-[18px] sm:h-[18px]" />
                                 {timeLeft}
                             </div>
