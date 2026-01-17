@@ -21,25 +21,25 @@
     "name": "Snailfire",
     "hero": "Snapfire",
     "qty": 4,
-    "price": 225000
+    "price": 299000
   },
   {
     "name": "Tyrant of the Veil",
     "hero": "Wraith King",
     "qty": 3,
-    "price": 79000
+    "price": 99000
   },
   {
     "name": "Tomo'kan Footsoldier",
     "hero": "Hoodwink",
     "qty": 5,
-    "price": 35000
+    "price": 40000
   },
   {
     "name": "Ancestral Heritage",
     "hero": "Jakiro",
     "qty": 4,
-    "price": 35000
+    "price": 45000
   },
   {
     "name": "Spectral Shadow",
@@ -51,37 +51,37 @@
     "name": "Crescent Huntress",
     "hero": "Spectre",
     "qty": 1,
-    "price": 175000
+    "price": 205000
   },
   {
     "name": "Triumph of the Imperatrix",
     "hero": "Legion Commander",
     "qty": 2,
-    "price": 150000
+    "price": 175000
   },
   {
     "name": "Beast of Thunder",
     "hero": "Storm Spirit",
     "qty": 6,
-    "price": 70000
+    "price": 69000
   },
   {
     "name": "Brightfist",
     "hero": "Marci",
     "qty": 3,
-    "price": 180000
+    "price": 175000
   },
   {
     "name": "Dezun Viper",
     "hero": "Dazzle",
     "qty": 5,
-    "price": 85000
+    "price": 95000
   },
   {
     "name": "Primeval Abomination",
     "hero": "Primal Beast",
     "qty": 2,
-    "price": 95000
+    "price": 99000
   },
   {
     "name": "Astral Herald",
@@ -93,13 +93,13 @@
     "name": "Darkwood Eulogy",
     "hero": "Death Prophet",
     "qty": 7,
-    "price": 45000
+    "price": 35000
   },
   {
     "name": "Sea Spirit",
     "hero": "Kunkka",
     "qty": 2,
-    "price": 75000
+    "price": 95000
   },
   {
     "name": "Genuine Weather Aurora",
@@ -117,13 +117,13 @@
     "name": "Grand Suppressor",
     "hero": "Silencer",
     "qty": 6,
-    "price": 75000
+    "price": 69000
   },
   {
     "name": "Darkfeather Factioneer",
     "hero": "Phantom Assassin",
     "qty": 2,
-    "price": 175000
+    "price": 169000
   },
   {
     "name": "Withering Pain",
@@ -147,25 +147,25 @@
     "name": "Bird of Prey",
     "hero": "Legion Commander",
     "qty": 4,
-    "price": 225000
+    "price": 199000
   },
   {
     "name": "Cursed Cryptbreaker",
     "hero": "Pudge",
     "qty": 8,
-    "price": 110000
+    "price": 99000
   },
   {
     "name": "Transcendent Path",
     "hero": "Oracle",
     "qty": 8,
-    "price": 75000
+    "price": 85000
   },
   {
     "name": "Angel of Vex",
     "hero": "Invoker",
     "qty": 6,
-    "price": 250000
+    "price": 265000
   },
   {
     "name": "Seadog's Stash",
@@ -177,13 +177,13 @@
     "name": "Sublime Equilibrium",
     "hero": "Void Spirit",
     "qty": 1,
-    "price": 275000
+    "price": 399000
   },
   {
     "name": "War Rig Eradicators",
     "hero": "Techies",
     "qty": 7,
-    "price": 55000
+    "price": 69000
   },
   {
     "name": "The Wilding Tiger",
@@ -195,55 +195,55 @@
     "name": "Dawn of a Darkness Foretold",
     "hero": "Doom",
     "qty": 6,
-    "price": 110000
+    "price": 99000
   },
   {
     "name": "Feasts of Forever",
     "hero": "Night Stalker",
     "qty": 6,
-    "price": 115000
+    "price": 149000
   },
   {
     "name": "Sacred Chamber Guardian",
     "hero": "Huskar",
     "qty": 6,
-    "price": 65000
+    "price": 75000
   },
   {
     "name": "Freeboot Fortunes",
     "hero": "Ogre Magi",
     "qty": 8,
-    "price": 75000
+    "price": 69000
   },
   {
     "name": "Acrimonies of Obsession",
     "hero": "Vengeful Spirit",
     "qty": 5,
-    "price": 115000
+    "price": 105000
   },
   {
     "name": "Deathstitch Shaman",
     "hero": "Witch Doctor",
     "qty": 6,
-    "price": 40000
+    "price": 39000
   },
   {
     "name": "Ire of Molten Rebirth",
     "hero": "Phoenix",
     "qty": 8,
-    "price": 70000
+    "price": 55000
   },
   {
     "name": "Pitmouse Fraternity",
     "hero": "Meepo",
     "qty": 7,
-    "price": 75000
+    "price": 69000
   },
   {
     "name": "Shimmer of the Anointed",
     "hero": "Nyx Assassin",
     "qty": 9,
-    "price": 45000
+    "price": 29000
   },
   {
     "name": "Shackles of the Enduring Conscript",
@@ -255,55 +255,55 @@
     "name": "Third Awakening",
     "hero": "Dragon Knight",
     "qty": 4,
-    "price": 400000
+    "price": 399000
   },
   {
     "name": "Fires of the Volcanic Guard",
     "hero": "Ember Spirit",
     "qty": 6,
-    "price": 75000
+    "price": 69000
   },
   {
     "name": "Dark Behemoth",
     "hero": "Primal Beast",
     "qty": 3,
-    "price": 210000
+    "price": 219000
   },
   {
     "name": "Blue Horizons",
     "hero": "Marci",
     "qty": 9,
-    "price": 150000
+    "price": 145000
   },
   {
     "name": "Whippersnapper",
     "hero": "Snapfire",
     "qty": 6,
-    "price": 75000
+    "price": 89000
   },
   {
     "name": "Champion of the Fire Lotus",
     "hero": "Monkey King",
     "qty": 5,
-    "price": 130000
+    "price": 129000
   },
   {
     "name": "Dirge Amplifier",
     "hero": "Undying",
     "qty": 6,
-    "price": 45000
+    "price": 49000
   },
   {
     "name": "Scarlet Subversion",
     "hero": "Riki",
     "qty": 4,
-    "price": 210000
+    "price": 205000
   },
   {
     "name": "Forgotten Station",
     "hero": "Terrorblade",
     "qty": 6,
-    "price": 115000
+    "price": 129000
   },
   {
     "name": "Crimson Dawn",
@@ -315,43 +315,43 @@
     "name": "Shadowleaf Insurgent",
     "hero": "Hoodwink",
     "qty": 6,
-    "price": 220000
+    "price": 205000
   },
   {
     "name": "Chines of the Inquisitor",
     "hero": "Faceless Void",
     "qty": 3,
-    "price": 180000
+    "price": 210000
   },
   {
     "name": "Starlorn Adjudicator",
     "hero": "Dawnbreaker",
     "qty": 2,
-    "price": 70000
+    "price": 95000
   },
   {
     "name": "Trophies of the Hallowed Hunt",
     "hero": "Ursa",
-    "qty": 3,
+    "qty": 2,
     "price": 105000
   },
   {
     "name": "Hounds of Obsession",
     "hero": "Chen",
     "qty": 2,
-    "price": 55000
+    "price": 65000
   },
   {
     "name": "Seam Ripper Snuggle Time",
     "hero": "Warlock",
     "qty": 7,
-    "price": 55000
+    "price": 69000
   },
   {
     "name": "Needlepoint Necromancer",
     "hero": "Dazzle",
     "qty": 8,
-    "price": 40000
+    "price": 45000
   },
   {
     "name": "Bootblack Brawler",
@@ -369,7 +369,7 @@
     "name": "Magus Mimicry",
     "hero": "Invoker",
     "qty": 8,
-    "price": 210000
+    "price": 199000
   },
   {
     "name": "Unchained Entropy",
@@ -381,31 +381,31 @@
     "name": "Undying Love",
     "hero": "Undying",
     "qty": 6,
-    "price": 75000
+    "price": 69000
   },
   {
     "name": "Crystal Colossus",
     "hero": "Spirit Breaker",
     "qty": 5,
-    "price": 290000
+    "price": 299000
   },
   {
     "name": "Caprine Chimera",
     "hero": "Lion",
     "qty": 6,
-    "price": 55000
+    "price": 45000
   },
   {
     "name": "Angler in the Abyss",
     "hero": "Slark",
     "qty": 7,
-    "price": 110000
+    "price": 105000
   },
   {
     "name": "Bleeding Edge",
     "hero": "Huskar",
     "qty": 7,
-    "price": 75000
+    "price": 69000
   },
   {
     "name": "Hare of the Cog",
@@ -429,109 +429,109 @@
     "name": "Thundervolt",
     "hero": "Zeus",
     "qty": 7,
-    "price": 75000
+    "price": 69000
   },
   {
     "name": "Pattern of the Silken Queen",
     "hero": "Broodmother",
     "qty": 7,
-    "price": 25000
+    "price": 15000
   },
   {
     "name": "Igneous Infernal",
     "hero": "Doom",
     "qty": 7,
-    "price": 75000
+    "price": 70000
   },
   {
     "name": "Raiments of the Obsidian Forge",
     "hero": "Underlord",
     "qty": 3,
-    "price": 125000
+    "price": 115000
   },
   {
     "name": "Dread Ascendance",
     "hero": "Doom",
     "qty": 6,
-    "price": 777000
+    "price": 699000
   },
   {
     "name": "Loaded Prospects",
     "hero": "Brewmaster",
     "qty": 8,
-    "price": 55000
+    "price": 49000
   },
   {
     "name": "Fate Meridian",
     "hero": "Invoker",
     "qty": 2,
-    "price": 175000
+    "price": 199000
   },
   {
     "name": "Visions of the Lifted Veil",
     "hero": "Phantom Assassin",
     "qty": 2,
-    "price": 230000
+    "price": 299000
   },
   {
     "name": "Raptures of the Abyssal Kin",
     "hero": "Queen of Pain",
     "qty": 2,
-    "price": 65000
+    "price": 53000
   },
   {
     "name": "Forlorn Descent",
     "hero": "Undying",
     "qty": 1,
-    "price": 125000
+    "price": 139000
   },
   {
     "name": "Stonemarch Sovereign",
     "hero": "Wraith King",
     "qty": 3,
-    "price": 195000
+    "price": 299000
   },
   {
     "name": "Molokau Stalker",
     "hero": "Venomancer",
     "qty": 2,
-    "price": 45000
+    "price": 39000
   },
   {
     "name": "Morbific Provision",
     "hero": "Witch Doctor",
     "qty": 1,
-    "price": 75000
+    "price": 69000
   },
   {
     "name": "Primer of the Sapper's Guile",
     "hero": "Techies",
     "qty": 2,
-    "price": 45000
+    "price": 55000
   },
   {
     "name": "Grasp of the Riven Exile",
     "hero": "Weaver",
     "qty": 1,
-    "price": 30000
+    "price": 19000
   },
   {
     "name": "The Murid Divine",
     "hero": "Necrophos",
     "qty": 2,
-    "price": 75000
+    "price": 69000
   },
   {
     "name": "Pillar of the Fractured Citadel",
     "hero": "Spirit Breaker",
     "qty": 1,
-    "price": 110000
+    "price": 105000
   },
   {
     "name": "Rose of Moira",
     "hero": "Muerta",
     "qty": 8,
-    "price": 50000
+    "price": 55000
   },
   {
     "name": "Ancient Exile",
@@ -543,13 +543,13 @@
     "name": "Exquisite Agonies",
     "hero": "Queen of Pain",
     "qty": 4,
-    "price": 55000
+    "price": 49000
   },
   {
     "name": "Bloodmoon Stalker",
     "hero": "Luna",
-    "qty": 4,
-    "price": 85000
+    "qty": 3,
+    "price": 90000
   },
   {
     "name": "Proselyte of the Sakura Clan",
@@ -561,13 +561,13 @@
     "name": "Lotus of the Mountain Bear Clan",
     "hero": "Meepo",
     "qty": 4,
-    "price": 55000
+    "price": 45000
   },
   {
     "name": "Mecha Nyx",
     "hero": "Nyx Assassin",
     "qty": 4,
-    "price": 45000
+    "price": 35000
   },
   {
     "name": "Colossal Terrorpin",
@@ -579,37 +579,37 @@
     "name": "Elegy of the Reaper",
     "hero": "Grimstroke",
     "qty": 1,
-    "price": 65000
+    "price": 75000
   },
   {
     "name": "Phantom's Facade",
     "hero": "Phantom Assassin",
     "qty": 2,
-    "price": 150000
+    "price": 145000
   },
   {
     "name": "Blackwing Bandolera",
     "hero": "Muerta",
     "qty": 3,
-    "price": 55000
+    "price": 65000
   },
   {
     "name": "Dread of Night",
     "hero": "Night Stalker",
     "qty": 3,
-    "price": 60000
+    "price": 69000
   },
   {
     "name": "Vile Vessel",
     "hero": "Shadow Demon",
     "qty": 8,
-    "price": 110000
+    "price": 105000
   },
   {
     "name": "Svarog the Infernal",
     "hero": "Primal Beast",
     "qty": 8,
-    "price": 45000
+    "price": 55000
   },
   {
     "name": "Tendrils of the Timeless",
@@ -621,19 +621,19 @@
     "name": "Ardalan Arms Race",
     "hero": "Snapfire",
     "qty": 2,
-    "price": 90000
+    "price": 119000
   },
   {
     "name": "Faithful Fortune",
     "hero": "Marci",
     "qty": 3,
-    "price": 75000
+    "price": 85000
   },
   {
     "name": "Darkblade Adept",
     "hero": "Templar Assassin",
     "qty": 4,
-    "price": 75000
+    "price": 99000
   },
   {
     "name": "Fluttering Breeze",
@@ -645,7 +645,7 @@
     "name": "Foreseen Horizons",
     "hero": "Oracle",
     "qty": 8,
-    "price": 35000
+    "price": 45000
   },
   {
     "name": "Designs of the Dragon",
@@ -657,7 +657,7 @@
     "name": "Bloodzo the Bear",
     "hero": "Ursa",
     "qty": 6,
-    "price": 55000
+    "price": 59000
   },
   {
     "name": "Starforge Reformer",
@@ -668,20 +668,20 @@
   {
     "name": "Little Red",
     "hero": "Marci",
-    "qty": 7,
-    "price": 44000
+    "qty": 6,
+    "price": 50000
   },
   {
     "name": "Bilge Rat Buccaneer",
     "hero": "Hoodwink",
     "qty": 7,
-    "price": 35000
+    "price": 40000
   },
   {
     "name": "Shellshock Saturnalia",
     "hero": "Snapfire",
     "qty": 8,
-    "price": 65000
+    "price": 69000
   },
   {
     "name": "Ardalan Arsonist",
@@ -699,37 +699,37 @@
     "name": "Velveteen Vanquisher",
     "hero": "Pudge",
     "qty": 6,
-    "price": 120000
+    "price": 139000
   },
   {
     "name": "Mechamancer",
     "hero": "Venomancer",
     "qty": 3,
-    "price": 175000
+    "price": 229000
   },
   {
     "name": "Cunning Corsair",
     "hero": "Riki",
     "qty": 1,
-    "price": 500000
+    "price": 450000
   },
   {
     "name": "Riptide Raider",
     "hero": "Monkey King",
     "qty": 1,
-    "price": 175000
+    "price": 179000
   },
   {
     "name": "Meranth Dragoon",
     "hero": "Sven",
     "qty": 1,
-    "price": 210000
+    "price": 235000
   },
   {
     "name": "Seaborne Reprisal",
     "hero": "Kunkka",
     "qty": 2,
-    "price": 875000
+    "price": 950000
   },
   {
     "name": "Eternal Testament",
@@ -741,7 +741,7 @@
     "name": "Seablight Procession",
     "hero": "Undying",
     "qty": 2,
-    "price": 165000
+    "price": 179000
   },
   {
     "name": "Pressure Regulator",
@@ -753,19 +753,19 @@
     "name": "Secrets of the Katekhein",
     "hero": "Winter Wyvern",
     "qty": 2,
-    "price": 85000
+    "price": 99000
   },
   {
     "name": "Abyssal Vortex",
     "hero": "Enigma",
     "qty": 3,
-    "price": 110000
+    "price": 120000
   },
   {
     "name": "Spoils of the Vodou Rover",
     "hero": "Witch Doctor",
     "qty": 3,
-    "price": 145000
+    "price": 129000
   },
   {
     "name": "Rumrunner's Carronade",
@@ -777,19 +777,19 @@
     "name": "Covenant of the Depths",
     "hero": "Invoker",
     "qty": 1,
-    "price": 525000
+    "price": 700000
   },
   {
     "name": "Shadowforce Gale",
     "hero": "Luna",
     "qty": 1,
-    "price": 75000
+    "price": 85000
   },
   {
     "name": "The Family Values Bundle",
     "hero": "Meepo",
     "qty": 1,
-    "price": 130000
+    "price": 125000
   },
   {
     "name": "Nightsilver's Resolve",
@@ -813,6 +813,30 @@
     "name": "Onikage Disciple",
     "hero": "Phantom Assassin",
     "qty": 7,
-    "price": 110000
+    "price": 105000
+  },
+  {
+    "name": "Grudges of the Gallows Tree",
+    "hero": "Treant Protector",
+    "qty": 9,
+    "price": 119000
+  },
+  {
+    "name": "Martyrdom of the Brineborn",
+    "hero": "Naga Siren",
+    "qty": 4,
+    "price": 99000
+  },
+  {
+    "name": "The Dread Prophet",
+    "hero": "Nature's Prophet",
+    "qty": 1,
+    "price": 165000
+  },
+  {
+    "name": "Corruption of the Virulent Krait",
+    "hero": "Venomancer",
+    "qty": 1,
+    "price": 129000
   }
 ]
