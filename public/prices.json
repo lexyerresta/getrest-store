@@ -80,7 +80,7 @@
   {
     "name": "Primeval Abomination",
     "hero": "Primal Beast",
-    "qty": 2,
+    "qty": 1,
     "price": 99000
   },
   {
@@ -248,7 +248,7 @@
   {
     "name": "Shackles of the Enduring Conscript",
     "hero": "Axe",
-    "qty": 4,
+    "qty": 3,
     "price": 85000
   },
   {
@@ -452,7 +452,7 @@
   {
     "name": "Dread Ascendance",
     "hero": "Doom",
-    "qty": 6,
+    "qty": 5,
     "price": 699000
   },
   {
@@ -524,13 +524,13 @@
   {
     "name": "Pillar of the Fractured Citadel",
     "hero": "Spirit Breaker",
-    "qty": 1,
+    "qty": 0,
     "price": 105000
   },
   {
     "name": "Rose of Moira",
     "hero": "Muerta",
-    "qty": 8,
+    "qty": 7,
     "price": 55000
   },
   {
@@ -776,13 +776,13 @@
   {
     "name": "Covenant of the Depths",
     "hero": "Invoker",
-    "qty": 1,
+    "qty": 0,
     "price": 700000
   },
   {
     "name": "Shadowforce Gale",
     "hero": "Luna",
-    "qty": 1,
+    "qty": 0,
     "price": 85000
   },
   {
@@ -836,7 +836,7 @@
   {
     "name": "Corruption of the Virulent Krait",
     "hero": "Venomancer",
-    "qty": 1,
+    "qty": 0,
     "price": 129000
   }
 ]
