@@ -338,7 +338,7 @@
   {
     "name": "Hounds of Obsession",
     "hero": "Chen",
-    "qty": 2,
+    "qty": 1,
     "price": 65000
   },
   {
@@ -362,7 +362,7 @@
   {
     "name": "Canis Crystallum",
     "hero": "Crystal Maiden",
-    "qty": 8,
+    "qty": 7,
     "price": 115000
   },
   {
@@ -566,7 +566,7 @@
   {
     "name": "Mecha Nyx",
     "hero": "Nyx Assassin",
-    "qty": 4,
+    "qty": 3,
     "price": 35000
   },
   {
