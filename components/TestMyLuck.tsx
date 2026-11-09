@@ -304,7 +304,7 @@ export function TestMyLuck({ products, onItemSelected }: LuckyDrawProps) {
                                             <div className="text-center text-white/70">
                                                 <Sparkles className="w-16 h-16 mx-auto mb-3 opacity-50" />
                                                 <p className="text-sm font-medium">
-                                                    Click "GACHA!" to test your luck
+                                                    Click &quot;GACHA!&quot; to test your luck
                                                 </p>
                                             </div>
                                         )}

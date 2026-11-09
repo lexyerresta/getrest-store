@@ -7,9 +7,9 @@ export async function GET() {
   try {
     const filePath = path.join(process.cwd(), "public", "prices.json")
     const fileContent = await fs.readFile(filePath, "utf-8")
-    const items = JSON.parse(fileContent) 
+    const items: { name: string; hero?: string; qty?: number; price?: number }[] = JSON.parse(fileContent)
 
-    const data = items.map((item: any) => ({
+    const data = items.map((item) => ({
       name: item.name,
       hero: item.hero || "",
       qty: item.qty ?? null,
@@ -32,10 +32,11 @@ export async function GET() {
         "Content-Length": buffer.length.toString(),
       },
     })
-  } catch (err: any) {
-    console.error("Download Template Error:", err.message)
+  } catch (err: unknown) {
+    const message = err instanceof Error ? err.message : "An unexpected error occurred"
+    console.error("Download Template Error:", message)
     return NextResponse.json(
-      { success: false, error: err.message },
+      { success: false, error: message },
       { status: 500 }
     )
   }

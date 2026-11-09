@@ -128,3 +128,16 @@ html {
 body {
   @apply transition-colors duration-300;
 }
+
+/* Warm paper and ink echo the Nodezio family; item artwork supplies the colour. */
+.shop-intro { display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+.shop-browse { flex-shrink: 0; }
+.shop-intro > div { animation: shop-arrive 450ms ease-out both; }
+.shop-browse { animation: shop-arrive 450ms 100ms ease-out both; }
+@keyframes shop-arrive { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+:where(a, button, input, select, [tabindex]):focus-visible { outline: 2px solid #c2410c; outline-offset: 4px; }
+@media (max-width: 639px) { .shop-intro { display: block; } }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}

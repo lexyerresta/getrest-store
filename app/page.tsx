@@ -1,46 +1,19 @@
 "use client"
 
 import { useEffect, useState, useRef, useMemo, Suspense } from "react"
-// ... (imports remain the same)
-
-// ... (priceRanges, FilterContent, FilterContentProps remain the same)
-
-
-// Rarity Visual Helper
-// Rarity Visual Helper (Official Dota 2 Colors)
-const getRarityStyle = (price: number) => {
-  // ARCANA (> 1.000.000): Lime Green God-Tier Glow
-  if (price >= 1000000) return "shadow-[0_0_35px_rgba(173,229,92,0.6)] border-[#ADE55C] border-2 ring-2 ring-[#ADE55C]/30 hover:shadow-[0_0_60px_rgba(173,229,92,0.9)] hover:scale-[1.03] z-20"
-
-  // ANCIENT (> 500.000): Deep Red Glow
-  if (price >= 500000) return "shadow-[0_0_25px_rgba(235,75,75,0.5)] border-[#EB4B4B] border-2 hover:shadow-[0_0_40px_rgba(235,75,75,0.8)] hover:scale-[1.02] z-10"
-
-  // IMMORTAL (> 250.000): Golden Amber Glow
-  if (price >= 250000) return "shadow-[0_0_20px_rgba(228,174,51,0.5)] border-[#E4AE33] border-2 hover:shadow-[0_0_35px_rgba(228,174,51,0.7)] z-10"
-
-  // LEGENDARY (> 150.000): Fuchsia/Pink Glow
-  if (price >= 150000) return "shadow-[0_0_15px_rgba(211,44,230,0.5)] border-[#D32CE6] border-2 hover:shadow-[0_0_30px_rgba(211,44,230,0.7)] z-0"
-
-  // MYTHICAL (> 75.000): Purple Glow
-  if (price >= 75000) return "shadow-[0_0_15px_rgba(136,71,255,0.4)] border-[#8847FF] border-2 hover:shadow-[0_0_25px_rgba(136,71,255,0.6)] z-0"
-
-  // RARE (> 25.000): Blue Glow
-  if (price >= 25000) return "shadow-[0_0_10px_rgba(75,105,255,0.4)] border-[#4B69FF] border hover:shadow-[0_0_20px_rgba(75,105,255,0.6)] z-0"
-
-  // COMMON: Standard
-  return "border-slate-200 dark:border-white/10 hover:border-slate-400 dark:hover:border-white/30 hover:shadow-lg z-0"
-}
+// Price does not determine Dota rarity; the item art carries the catalogue colour.
+const getRarityStyle = (_price: number) => "border-slate-200 dark:border-white/10 hover:border-orange-600 dark:hover:border-orange-400"
 
 export default function HomePage() {
   return (
     <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><div className="animate-spin rounded-full h-32 w-32 border-b-2 border-orange-500"></div></div>}>
-      <MainContent />
+      <MotionConfig reducedMotion="user"><MainContent /></MotionConfig>
     </Suspense>
   )
 }
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion, AnimatePresence, MotionConfig, useReducedMotion } from "framer-motion"
 import {
   Package,
   Filter,
@@ -142,7 +115,7 @@ const FilterContent = ({
         <Image src="/logo-getrest.jpg" alt="Logo" width={48} height={48} className="rounded-full object-cover" />
       </div>
       <div>
-        <div className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-0.5">Official Seller</div>
+        <div className="text-[10px] font-bold text-slate-500 dark:text-slate-400 tracking-normal mb-0.5">Official Seller</div>
         <div className="text-base font-black text-slate-900 dark:text-white flex items-center gap-1.5">
           GetRest Store
           <BadgeCheck size={18} className="text-[#1877F2] fill-[#1877F2] text-white" />
@@ -234,6 +207,7 @@ const FilterContent = ({
 )
 
 function MainContent() {
+  const reduceMotion = useReducedMotion()
   const [products, setProducts] = useState<Product[]>([])
   const [query, setQuery] = useState("")
   const debouncedQuery = useDebounce(query, 300)
@@ -829,7 +803,7 @@ function MainContent() {
     <div className="min-h-screen bg-slate-50 dark:bg-[#0B1120] text-slate-900 dark:text-slate-100 font-sans selection:bg-orange-500 selection:text-white transition-colors duration-300">
       {/* Header */}
       {mounted && (
-        <header className="sticky top-0 z-40 bg-white/95 dark:bg-[#151e32]/95 backdrop-blur-md border-b border-slate-200 dark:border-white/10 shadow-sm transition-colors duration-300">
+        <header className="sticky top-0 z-40 bg-white dark:bg-[#151e32] border-b border-slate-200 dark:border-white/10 shadow-sm transition-colors duration-300">
           <div className="max-w-7xl mx-auto px-4 py-2 sm:py-3">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2 sm:gap-3">
@@ -838,8 +812,9 @@ function MainContent() {
                 </div>
                 <div>
                   <h1 className="text-base sm:text-xl font-bold tracking-tight text-slate-900 dark:text-white leading-none">
-                    GetRest <span className="text-orange-600 dark:text-orange-500">Store</span>
+                    Get<span className="text-orange-600 dark:text-orange-500">rest</span>
                   </h1>
+                  <a href="https://nodezio.com" className="block mt-1 text-xs text-slate-500 dark:text-slate-400 hover:underline underline-offset-4">by Nodezio</a>
                 </div>
               </div>
 
@@ -848,7 +823,7 @@ function MainContent() {
                   href={STEAM_INVENTORY_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hidden sm:flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-orange-600 to-red-600 hover:from-red-600 hover:to-orange-600 text-white rounded-lg text-sm font-bold shadow-lg shadow-orange-500/20 transition-all hover:shadow-orange-500/40"
+                  className="hidden sm:flex items-center gap-2 px-4 py-2 bg-orange-700 hover:bg-orange-800 text-white rounded-lg text-sm font-bold transition-colors"
                 >
                   <Package size={16} />
                   <span>Inventory</span>
@@ -856,11 +831,10 @@ function MainContent() {
 
                 <button
                   onClick={() => setIsCommentsOpen(true)}
-                  className="relative p-2.5 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 text-white hover:shadow-lg shadow-orange-500/20 transition-all group"
+                  className="relative p-2.5 rounded-lg bg-slate-100 dark:bg-white/10 text-slate-700 dark:text-white hover:bg-slate-200 dark:hover:bg-white/20 transition-colors group"
                   aria-label="Testimonials"
                 >
                   <MessageCircle size={20} className="fill-white/20" />
-                  <span className="absolute -top-1.5 -right-1.5 bg-red-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full border-2 border-slate-50 dark:border-[#151e32] shadow-sm">193</span>
                 </button>
 
                 <button
@@ -895,7 +869,7 @@ function MainContent() {
       <SkinMarketTicker />
 
       {/* Mobile Filter Button */}
-      <div className="lg:hidden sticky top-[45px] sm:top-[65px] z-30 px-4 py-1.5 bg-slate-50/95 dark:bg-[#0B1120]/95 backdrop-blur border-b border-slate-200 dark:border-white/10">
+      <div className="lg:hidden sticky top-[60px] sm:top-[72px] z-30 px-4 py-1.5 bg-slate-50/95 dark:bg-[#0B1120]/95 backdrop-blur border-b border-slate-200 dark:border-white/10">
         <button
           onClick={() => setIsMobileFilterOpen(true)}
           className="w-full flex items-center justify-center gap-2 py-1.5 bg-white dark:bg-[#151e32] border border-slate-200 dark:border-white/10 rounded-lg shadow-sm font-bold text-xs text-slate-700 dark:text-slate-300 active:scale-[0.98] transition-transform"
@@ -907,6 +881,14 @@ function MainContent() {
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 py-6 pb-32">
+        <section className="shop-intro mb-8 sm:mb-10 border-b border-slate-200 dark:border-white/10 pb-6 sm:pb-8">
+          <div>
+            <h2 className="text-2xl sm:text-4xl font-semibold tracking-tight leading-tight">A new look for your next match.</h2>
+            <p className="mt-3 max-w-xl text-sm sm:text-base leading-relaxed text-slate-600 dark:text-slate-300">Browse Dota 2 cosmetics by hero and price. Pick your items, then arrange your purchase with Getrest.</p>
+          </div>
+          <a href="#catalogue" className="shop-browse inline-flex items-center justify-center mt-5 sm:mt-0 min-h-11 px-5 rounded-md bg-orange-700 hover:bg-orange-800 text-white text-sm font-semibold transition-colors">Browse items</a>
+        </section>
+
         {/* Flash Sale Section */}
         <FlashSale
           products={products}
@@ -917,15 +899,15 @@ function MainContent() {
           onBuyNow={handleBuyNow}
         />
 
-        {/* Popular Items Section */}
+        {/* Limited stock Section */}
         <section className="mb-10">
           <div className="flex items-center gap-2 mb-4">
             <div className="p-1.5 sm:p-2 bg-orange-100 dark:bg-orange-900/20 rounded-lg">
               <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6 text-orange-600 dark:text-orange-500" />
             </div>
             <div>
-              <h2 className="text-lg sm:text-2xl font-black text-slate-900 dark:text-white leading-none">Popular Items</h2>
-              <p className="text-[10px] sm:text-sm text-slate-500 dark:text-slate-400 mt-1 sm:mt-0">Premium items most sought-after</p>
+              <h2 className="text-lg sm:text-2xl font-black text-slate-900 dark:text-white leading-none">Limited stock</h2>
+              <p className="text-[10px] sm:text-sm text-slate-500 dark:text-slate-400 mt-1 sm:mt-0">Available items with the fewest units remaining.</p>
             </div>
           </div>
 
@@ -933,7 +915,7 @@ function MainContent() {
             {popularItems.map((item, index) => (
               <motion.div
                 key={item.id}
-                initial={{ opacity: 0, y: 20 }}
+                initial={reduceMotion ? false : { opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
                 onClick={() => handleCardClick(item)}
@@ -941,9 +923,7 @@ function MainContent() {
               >
                 {/* Fire Badge & Qty */}
                 <div className="absolute top-2 left-2 z-10 flex gap-1">
-                  <span className="text-[10px] font-bold px-2 py-0.5 bg-orange-500 text-white rounded-full shadow-lg flex items-center gap-1">
-                    <Flame size={10} fill="currentColor" /> HOT
-                  </span>
+
                   <span className="text-[10px] font-bold px-2 py-0.5 bg-slate-900/80 text-white rounded-full backdrop-blur-sm shadow-lg border border-white/10">
                     {item.qty} Stock
                   </span>
@@ -953,7 +933,7 @@ function MainContent() {
                 {/* Let's stick to clean standard card */}
 
                 {/* Image */}
-                <div className="relative aspect-[4/3] bg-gradient-to-br from-orange-50/50 to-red-50/50 dark:from-[#2a1f5e] dark:to-[#1a1425] p-4 flex items-center justify-center overflow-hidden">
+                <div className="relative aspect-[4/3] bg-stone-100 dark:bg-[#101827] p-4 flex items-center justify-center overflow-hidden">
                   <LiquipediaImage
                     itemName={item.name}
                     className="w-full h-full object-contain drop-shadow-lg group-hover:scale-110 transition-transform duration-500"
@@ -963,20 +943,20 @@ function MainContent() {
                 {/* Info */}
                 <div className="p-2 sm:p-3">
                   <div className="flex items-center gap-1 mb-1">
-                    <Star size={8} className="text-orange-500 fill-orange-500" />
-                    <span className="text-[9px] sm:text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400 tracking-wider text-ellipsis overflow-hidden whitespace-nowrap">{item.hero || "Dota 2"}</span>
+
+                    <span className="text-[9px] sm:text-[10px] font-medium text-slate-500 dark:text-slate-400 tracking-wider text-ellipsis overflow-hidden whitespace-nowrap">{item.hero || "Dota 2"}</span>
                   </div>
                   <h3 className="font-bold text-slate-800 dark:text-white text-[11px] sm:text-sm line-clamp-1 group-hover:text-orange-600 dark:group-hover:text-orange-500 transition-colors mb-1.5 sm:mb-2">
                     {item.name}
                   </h3>
-                  <div className="flex items-center justify-between">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
                     <span className="text-xs sm:text-sm font-black text-orange-600 dark:text-orange-500">
                       {formatRupiah(item.price).replace(",00", "")}
                     </span>
                     <div className="flex gap-1.5 sm:gap-2">
                       <button
                         onClick={(e) => { e.stopPropagation(); handleBuyNow(item, e); }}
-                        className="w-5 h-5 sm:w-6 sm:h-6 rounded-md bg-orange-100 dark:bg-orange-500/20 border border-transparent dark:border-orange-500/30 flex items-center justify-center text-orange-600 dark:text-orange-300 hover:bg-orange-500 hover:text-white dark:hover:bg-orange-500 dark:hover:text-white transition-all shadow-sm"
+                        className="w-11 h-11 rounded-md bg-orange-100 dark:bg-orange-500/20 border border-transparent dark:border-orange-500/30 flex items-center justify-center text-orange-600 dark:text-orange-300 hover:bg-orange-500 hover:text-white dark:hover:bg-orange-500 dark:hover:text-white transition-all shadow-sm"
                         aria-label="Buy Now"
                         title="Buy Now"
                       >
@@ -984,7 +964,7 @@ function MainContent() {
                       </button>
                       <button
                         onClick={(e) => { e.stopPropagation(); addToCart(item, e); }}
-                        className="w-5 h-5 sm:w-6 sm:h-6 rounded-md bg-slate-100 dark:bg-slate-700/50 border border-transparent dark:border-white/10 flex items-center justify-center text-slate-400 dark:text-slate-300 hover:bg-orange-500 hover:text-white dark:hover:bg-orange-500 dark:hover:text-white transition-all shadow-sm"
+                        className="w-11 h-11 rounded-md bg-slate-100 dark:bg-slate-700/50 border border-transparent dark:border-white/10 flex items-center justify-center text-slate-400 dark:text-slate-300 hover:bg-orange-500 hover:text-white dark:hover:bg-orange-500 dark:hover:text-white transition-all shadow-sm"
                         aria-label="Add to cart"
                       >
                         <ShoppingBag size={10} className="sm:w-3 sm:h-3" />
@@ -1000,7 +980,7 @@ function MainContent() {
         <div className="flex flex-col lg:flex-row gap-6 items-start">
 
           {/* LEFT: Product Grid */}
-          <div className="flex-1 w-full order-2 lg:order-1">
+          <div id="catalogue" className="flex-1 w-full order-2 lg:order-1 scroll-mt-32">
 
             {/* Results Header */}
             <div className="flex items-center justify-between mb-4">
@@ -1041,14 +1021,14 @@ function MainContent() {
                 {filteredAndSorted.slice(0, visibleCount).map((item, index) => (
                   <motion.div
                     key={item.id}
-                    initial={{ opacity: 0, scale: 0.95 }}
+                    initial={reduceMotion ? false : { opacity: 0, scale: 0.98 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: index * 0.03 }}
+                    transition={{ duration: 0.25, delay: Math.min(index, 7) * 0.035 }}
                     onClick={() => handleCardClick(item)}
                     className={`group relative bg-white dark:bg-[#151e32] rounded-xl border hover:-translate-y-1 transition-all duration-300 cursor-pointer overflow-hidden flex flex-col ${getRarityStyle(item.price)}`}
                   >
                     {/* Image Container */}
-                    <div className="relative aspect-[4/3] bg-gradient-to-br from-slate-50 to-orange-50 dark:from-[#0B1120] dark:to-[#1a1425] p-4 flex items-center justify-center overflow-hidden">
+                    <div className="relative aspect-[4/3] bg-stone-100 dark:bg-[#101827] p-4 flex items-center justify-center overflow-hidden">
                       <LiquipediaImage
                         itemName={item.name}
                         className="w-full h-full object-contain drop-shadow-lg group-hover:scale-110 transition-transform duration-500"
@@ -1073,15 +1053,15 @@ function MainContent() {
                     <div className="p-3 flex-1 flex flex-col">
                       <div className="mb-2">
                         <div className="flex items-center gap-1.5 mb-1">
-                          <Star size={10} className="text-orange-500 fill-orange-500" />
-                          <span className="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400 tracking-wider text-ellipsis overflow-hidden whitespace-nowrap">{item.hero || "Dota 2"}</span>
+
+                          <span className="text-[10px] font-medium text-slate-500 dark:text-slate-400 tracking-wider text-ellipsis overflow-hidden whitespace-nowrap">{item.hero || "Dota 2"}</span>
                         </div>
                         <h3 className="font-bold text-slate-800 dark:text-white text-sm line-clamp-2 leading-tight group-hover:text-orange-600 dark:group-hover:text-orange-500 transition-colors">
                           {item.name}
                         </h3>
                       </div>
 
-                      <div className="mt-auto pt-3 border-t border-slate-100 dark:border-white/5 flex items-end justify-between">
+                      <div className="mt-auto pt-3 border-t border-slate-100 dark:border-white/5 flex flex-wrap gap-2 items-end justify-between">
                         <div className="flex flex-col">
                           <span className="text-[10px] text-slate-400 font-medium">Price</span>
                           <span className="text-xs sm:text-sm md:text-base font-black text-orange-600 dark:text-orange-500 tracking-tight">
@@ -1091,7 +1071,7 @@ function MainContent() {
                         <div className="flex gap-1.5 sm:gap-2">
                           <button
                             onClick={(e) => { e.stopPropagation(); handleBuyNow(item, e); }}
-                            className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-orange-100 dark:bg-orange-500/20 border border-transparent dark:border-orange-500/30 flex items-center justify-center text-orange-600 dark:text-orange-300 hover:bg-orange-500 hover:text-white dark:hover:bg-orange-500 dark:hover:text-white transition-all shadow-sm"
+                            className="w-11 h-11 rounded-lg bg-orange-100 dark:bg-orange-500/20 border border-transparent dark:border-orange-500/30 flex items-center justify-center text-orange-600 dark:text-orange-300 hover:bg-orange-500 hover:text-white dark:hover:bg-orange-500 dark:hover:text-white transition-all shadow-sm"
                             aria-label="Buy Now"
                             title="Buy Now"
                           >
@@ -1099,7 +1079,7 @@ function MainContent() {
                           </button>
                           <button
                             onClick={(e) => { e.stopPropagation(); addToCart(item, e); }}
-                            className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-slate-100 dark:bg-slate-700/50 border border-transparent dark:border-white/10 flex items-center justify-center text-slate-400 dark:text-slate-300 hover:bg-orange-500 hover:text-white dark:hover:bg-orange-500 dark:hover:text-white transition-all shadow-sm"
+                            className="w-11 h-11 rounded-lg bg-slate-100 dark:bg-slate-700/50 border border-transparent dark:border-white/10 flex items-center justify-center text-slate-400 dark:text-slate-300 hover:bg-orange-500 hover:text-white dark:hover:bg-orange-500 dark:hover:text-white transition-all shadow-sm"
                             aria-label="Add to cart"
                           >
                             <ShoppingBag size={12} className="sm:w-3.5 sm:h-3.5" />
@@ -1537,11 +1517,11 @@ function MainContent() {
             <div className="w-16 h-16 bg-slate-100 dark:bg-white/5 rounded-full flex items-center justify-center mb-2">
               <CheckCircle size={32} className="text-green-500" />
             </div>
-            <h3 className="text-xl font-black text-slate-900 dark:text-white">You've reached the end!</h3>
+            <h3 className="text-xl font-black text-slate-900 dark:text-white">You&apos;ve reached the end!</h3>
             <p className="text-slate-500 dark:text-slate-400 max-w-md mx-auto">
-              That's all the items we have for now. Check back later for new stock or try searching for something specific.
+              That&apos;s all the items we have for now. Check back later for new stock or try searching for something specific.
             </p>
-            <div className="flex items-center gap-2 mt-4 text-xs font-bold text-slate-400 uppercase tracking-widest">
+            <div className="flex items-center gap-2 mt-4 text-xs font-bold text-slate-400 uppercase tracking-normal">
               <span>GetRest Store</span>
               <span>•</span>
               <span>&copy; {new Date().getFullYear()}</span>

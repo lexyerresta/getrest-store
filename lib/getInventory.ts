@@ -1,3 +1,7 @@
+type SteamAsset = { assetid: string; classid: string; instanceid: string; amount?: string }
+type SteamDescription = { classid: string; instanceid: string; market_hash_name?: string; icon_url?: string; tags?: { category: string; localized_tag_name: string }[] }
+type InventoryItem = { id: string; name: string; hero: string | null; icon: string | null; qty: number }
+
 const STEAM_ID = "76561198329596689"
 const APP_ID = 570
 const CONTEXT_ID = 2
@@ -13,20 +17,20 @@ export async function getInventory() {
     throw new Error(`Steam API responded with status ${res.status}`)
   }
 
-  const data = await res.json()
+  const data: { assets?: SteamAsset[]; descriptions?: SteamDescription[] } = await res.json()
   const assets = data.assets || []
   const descriptions = data.descriptions || []
 
-  const merged = assets.map((asset: any) => {
+  const merged = assets.map((asset) => {
     const match = descriptions.find(
-      (desc: any) =>
+      (desc) =>
         desc.classid === asset.classid && desc.instanceid === asset.instanceid
     )
 
     return {
       id: asset.assetid,
       name: match?.market_hash_name || "Unknown Item",
-      hero: match?.tags?.find((tag: any) => tag.category === 'Hero')?.localized_tag_name   || null,
+      hero: match?.tags?.find((tag) => tag.category === 'Hero')?.localized_tag_name   || null,
       icon: match?.icon_url
         ? `https://steamcommunity-a.akamaihd.net/economy/image/${match.icon_url}`
         : null,
@@ -34,7 +38,7 @@ export async function getInventory() {
     }
   })
 
-  const grouped: Record<string, any> = {}
+  const grouped: Record<string, InventoryItem> = {}
   for (const item of merged) {
     const key = item.name
     if (grouped[key]) {
@@ -55,7 +59,7 @@ export async function getInventory() {
     console.warn("No prices.json found, using default price 0")
   }
 
-  const finalItems = Object.values(grouped).map((item: any) => {
+  const finalItems = Object.values(grouped).map((item) => {
     const match = prices.find((p) => p.name === item.name)
     return {
       ...item,
