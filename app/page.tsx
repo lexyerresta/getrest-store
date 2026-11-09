@@ -840,6 +840,7 @@ function MainContent() {
                   <h1 className="text-base sm:text-xl font-bold tracking-tight text-slate-900 dark:text-white leading-none">
                     GetRest <span className="text-orange-600 dark:text-orange-500">Store</span>
                   </h1>
+                  <p className="mt-1 text-[10px] sm:text-xs text-slate-500 dark:text-slate-400">by Nodezio</p>
                 </div>
               </div>
 
