@@ -1,7 +1,7 @@
-import { SignJWT, jwtVerify, type JWTPayload } from "jose";
+import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
 
-export async function encrypt(payload: JWTPayload) {
+export async function encrypt(payload: any) {
   const secretKey = process.env.JWT_SECRET || "default_super_secret_key_dont_use_in_prod";
   const key = new TextEncoder().encode(secretKey);
 
@@ -12,7 +12,7 @@ export async function encrypt(payload: JWTPayload) {
     .sign(key);
 }
 
-export async function decrypt(input: string): Promise<JWTPayload | null> {
+export async function decrypt(input: string): Promise<any> {
   const secretKey = process.env.JWT_SECRET || "default_super_secret_key_dont_use_in_prod";
   const key = new TextEncoder().encode(secretKey);
 

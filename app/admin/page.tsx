@@ -82,7 +82,7 @@ export default function AdminDashboard() {
         router.refresh();
     };
 
-    const handleUpdateItem = (index: number, field: keyof PriceItem, value: PriceItem[keyof PriceItem]) => {
+    const handleUpdateItem = (index: number, field: keyof PriceItem, value: any) => {
         const originalItem = filteredItems[index];
         const realIndex = items.findIndex((i) => i.name === originalItem.name);
 

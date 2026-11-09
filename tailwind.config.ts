@@ -1,5 +1,4 @@
 import type { Config } from "tailwindcss"
-import animate from "tailwindcss-animate"
 
 const config: Config = {
   darkMode: "class",
@@ -10,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {},
   },
-  plugins: [animate],
+  plugins: [require("tailwindcss-animate")],
 }
 
 export default config

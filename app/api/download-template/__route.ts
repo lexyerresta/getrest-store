@@ -6,7 +6,7 @@ export async function GET() {
   try {
     const items = await getInventory()
 
-    const data = items.map((item) => ({
+    const data = items.map((item: any) => ({
       name: item.name,
       price: item.price || 0,
       qty: item.qty ?? null,
@@ -29,11 +29,10 @@ export async function GET() {
         "Content-Length": buffer.length.toString(),
       },
     })
-  } catch (err: unknown) {
-    const message = err instanceof Error ? err.message : "An unexpected error occurred"
-    console.error("Download Template Error:", message)
+  } catch (err: any) {
+    console.error("Download Template Error:", err.message)
     return NextResponse.json(
-      { success: false, error: message },
+      { success: false, error: err.message },
       { status: 500 }
     )
   }
