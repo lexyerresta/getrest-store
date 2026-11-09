@@ -152,11 +152,11 @@ export function TestMyLuck({ products, onItemSelected }: LuckyDrawProps) {
     return (
         <>
             {/* Floating Buttons Container */}
-            <div className="fixed bottom-6 right-4 sm:right-6 z-40 flex flex-col items-center gap-2.5 sm:gap-4 pointer-events-none">
+            <div className="luck-launchers fixed bottom-6 right-4 sm:right-6 z-40 flex flex-col items-center gap-2.5 sm:gap-4 pointer-events-none">
                 {/* Main Feature: Test My Luck */}
                 <button
                     onClick={() => setIsOpen(true)}
-                    className="p-3 sm:p-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white rounded-full shadow-2xl shadow-purple-500/50 transition-all transform hover:scale-110 active:scale-95 animate-pulse pointer-events-auto opacity-95 hover:opacity-100"
+                    className="p-3 sm:p-4 bg-[#293f33] hover:bg-[#405a47] text-white rounded-full shadow-sm transition-all transform hover:scale-110 active:scale-95 pointer-events-auto opacity-95 hover:opacity-100"
                     aria-label="Test your luck"
                 >
                     <Dices className="w-5 h-5 sm:w-7 sm:h-7" />
@@ -165,7 +165,7 @@ export function TestMyLuck({ products, onItemSelected }: LuckyDrawProps) {
                 {/* Contact Trigger Button */}
                 <button
                     onClick={() => setIsContactOpen(true)}
-                    className="p-3 sm:p-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-full shadow-2xl shadow-blue-500/50 transition-all transform hover:scale-110 active:scale-95 pointer-events-auto opacity-95 hover:opacity-100"
+                    className="p-3 sm:p-4 bg-[#f7f3e9] border border-[#a9b29b] text-[#293f33] hover:bg-[#e8e4d6] text-white rounded-full shadow-sm transition-all transform hover:scale-110 active:scale-95 pointer-events-auto opacity-95 hover:opacity-100"
                     aria-label="Contact Us"
                 >
                     <MessageCircle className="w-5 h-5 sm:w-7 sm:h-7" />
@@ -343,7 +343,7 @@ export function TestMyLuck({ products, onItemSelected }: LuckyDrawProps) {
                                 <Button
                                     onClick={spinLuck}
                                     disabled={isSpinning || products.length === 0}
-                                    className="w-full h-12 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold text-lg shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full h-12 bg-[#293f33] hover:bg-[#405a47] text-white font-bold text-lg shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
                                 >
                                     {isSpinning ? (
                                         <>

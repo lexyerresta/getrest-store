@@ -44,13 +44,11 @@ import { useTheme } from "next-themes"
 import { LiquipediaImage } from "@/components/LiquipediaImage"
 import { SteamComments } from "@/components/SteamComments"
 import { TestMyLuck } from "@/components/TestMyLuck"
-import { WelcomePopup } from "@/components/WelcomePopup"
 import { ToastContainer, ToastMessage, ToastType } from "@/components/Toast"
 import { FlashSale } from "@/components/FlashSale"
 import Image from "next/image"
 import { useDotaAudio } from "@/hooks/useDotaAudio"
-import { DotaCursor } from "@/components/DotaCursor"
-import { SkinMarketTicker } from "@/components/SkinMarketTicker"
+import { ArmoryHero } from "@/components/ArmoryHero"
 
 type Product = {
   id: string
@@ -705,7 +703,7 @@ function MainContent() {
       ? `~${formatRupiah(product.originalPrice)}~ ${formatRupiah(product.price)}`
       : `(${formatRupiah(product.price)})`
 
-    const namePrefix = product.isFlashSale ? "[FLASH SALE ⚡] " : ""
+    const namePrefix = product.isFlashSale ? "[FLASH SALE âš¡] " : ""
 
     const message = `Halo GetRest Store! Saya ingin membeli langsung:\n\n1x ${namePrefix}${product.name} ${priceStr}\n\nMohon dicek apakah stok tersedia? Terima kasih!`
 
@@ -800,7 +798,7 @@ function MainContent() {
   }, [products])
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-[#0B1120] text-slate-900 dark:text-slate-100 font-sans selection:bg-orange-500 selection:text-white transition-colors duration-300">
+    <div className="getrest-storefront min-h-screen bg-slate-50 dark:bg-[#0B1120] text-slate-900 dark:text-slate-100 font-sans selection:bg-orange-500 selection:text-white transition-colors duration-300">
       {/* Header */}
       {mounted && (
         <header className="sticky top-0 z-40 bg-white dark:bg-[#151e32] border-b border-slate-200 dark:border-white/10 shadow-sm transition-colors duration-300">
@@ -811,9 +809,9 @@ function MainContent() {
                   <Image src="/logo-getrest.jpg" alt="GetRest Store" fill className="object-cover" />
                 </div>
                 <div>
-                  <h1 className="text-base sm:text-xl font-bold tracking-tight text-slate-900 dark:text-white leading-none">
+                  <p className="text-base sm:text-xl font-bold tracking-tight text-slate-900 dark:text-white leading-none">
                     Get<span className="text-orange-600 dark:text-orange-500">rest</span>
-                  </h1>
+                  </p>
                   <a href="https://nodezio.com" className="block mt-1 text-xs text-slate-500 dark:text-slate-400 hover:underline underline-offset-4">by Nodezio</a>
                 </div>
               </div>
@@ -866,7 +864,7 @@ function MainContent() {
       )}
 
       {/* Market Ticker */}
-      <SkinMarketTicker />
+      <ArmoryHero products={products} onSelect={handleCardClick} />
 
       {/* Mobile Filter Button */}
       <div className="lg:hidden sticky top-[60px] sm:top-[72px] z-30 px-4 py-1.5 bg-slate-50/95 dark:bg-[#0B1120]/95 backdrop-blur border-b border-slate-200 dark:border-white/10">
@@ -880,15 +878,7 @@ function MainContent() {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 py-6 pb-32">
-        <section className="shop-intro mb-8 sm:mb-10 border-b border-slate-200 dark:border-white/10 pb-6 sm:pb-8">
-          <div>
-            <h2 className="text-2xl sm:text-4xl font-semibold tracking-tight leading-tight">A new look for your next match.</h2>
-            <p className="mt-3 max-w-xl text-sm sm:text-base leading-relaxed text-slate-600 dark:text-slate-300">Browse Dota 2 cosmetics by hero and price. Pick your items, then arrange your purchase with Getrest.</p>
-          </div>
-          <a href="#catalogue" className="shop-browse inline-flex items-center justify-center mt-5 sm:mt-0 min-h-11 px-5 rounded-md bg-orange-700 hover:bg-orange-800 text-white text-sm font-semibold transition-colors">Browse items</a>
-        </section>
-
+      <main id="daily-drops" className="store-sheet max-w-7xl mx-auto px-4 py-6 pb-32">
         {/* Flash Sale Section */}
         <FlashSale
           products={products}
@@ -982,6 +972,7 @@ function MainContent() {
           {/* LEFT: Product Grid */}
           <div id="catalogue" className="flex-1 w-full order-2 lg:order-1 scroll-mt-32">
 
+            <div className="catalogue-title"><div><h2>The item shelves</h2><p>Find your hero. Set your budget. Take your pick.</p></div><a href="#daily-drops">Back to the deals</a></div>
             {/* Results Header */}
             <div className="flex items-center justify-between mb-4">
               <div className="text-sm font-medium text-slate-500 dark:text-slate-400">
@@ -1122,7 +1113,7 @@ function MainContent() {
           </aside>
 
         </div>
-      </div>
+      </main>
 
       {/* Mobile Filter Modal */}
       <AnimatePresence>
@@ -1523,7 +1514,7 @@ function MainContent() {
             </p>
             <div className="flex items-center gap-2 mt-4 text-xs font-bold text-slate-400 uppercase tracking-normal">
               <span>GetRest Store</span>
-              <span>•</span>
+              <span>â€¢</span>
               <span>&copy; {new Date().getFullYear()}</span>
             </div>
           </div>
@@ -1574,10 +1565,10 @@ function MainContent() {
         )}
       </AnimatePresence>
 
-      <WelcomePopup products={products} onSelectProduct={handleCardClick} />
+
       <TestMyLuck products={products} onItemSelected={handleCardClick} />
       <ToastContainer toasts={toasts} removeToast={removeToast} />
-      <DotaCursor />
+
     </div>
   )
 }
